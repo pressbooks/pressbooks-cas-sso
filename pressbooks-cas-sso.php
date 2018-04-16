@@ -33,7 +33,7 @@ if ( ! function_exists( 'pb_meets_minimum_requirements' ) && ! @include_once( WP
 // -------------------------------------------------------------------------------------------------------------------
 // Composer autoloader
 // -------------------------------------------------------------------------------------------------------------------
-/* if ( ! class_exists( '\SomeRequiredClass' ) ) {
+if ( ! class_exists( '\phpCAS' ) ) {
 	if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 		require_once __DIR__ . '/vendor/autoload.php';
 	} else {
@@ -42,17 +42,16 @@ if ( ! function_exists( 'pb_meets_minimum_requirements' ) && ! @include_once( WP
 		$message = "<h1>{$title}</h1><p>{$body}</p>";
 		wp_die( $message, $title );
 	}
-} */
+}
 
 // -------------------------------------------------------------------------------------------------------------------
-// Check for updates
+// Requires
 // -------------------------------------------------------------------------------------------------------------------
-if ( ! \Pressbooks\Book::isBook() ) {
-	$updater = new \Puc_v4p2_Vcs_PluginUpdateChecker(
-		new \Pressbooks\Updater( 'https://github.com/pressbooks/pressbooks-cas-sso/' ),
-		__FILE__, // Fully qualified path to the main plugin file
-		'pressbooks-cas-sso',
-		24
-	);
-	$updater->setBranch( 'master' );
-}
+
+require( __DIR__ . '/inc/namespace.php' );
+
+// -------------------------------------------------------------------------------------------------------------------
+// Hooks
+// -------------------------------------------------------------------------------------------------------------------
+
+add_action( 'plugins_loaded', [ '\Pressbooks\Lti\Provider\Updates', 'init' ] );
