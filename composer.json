@@ -1,0 +1,49 @@
+{
+  "name": "pressbooks/pressbooks-cas-sso",
+  "license": "GPL-3.0-or-later",
+  "type": "wordpress-plugin",
+  "description": "CAS Single Sign-On integration for Pressbooks.",
+  "homepage": "https://github.com/pressbooks/pressbooks-cas-sso",
+  "authors": [
+    {
+      "name": "Book Oven Inc.",
+      "email": "code@pressbooks.com",
+      "homepage": "https://pressbooks.org"
+    }
+  ],
+  "keywords": ["ebooks", "publishing", "webbooks"],
+  "support": {
+    "email": "code@pressbooks.com",
+    "issues": "https://github.com/pressbooks/pressbooks-cas-sso/issues/",
+    "source": "https://github.com/pressbooks/pressbooks-cas-sso/"
+  },
+  "config": {
+    "platform": {
+      "php": "7.0.29"
+    }
+  },
+  "require": {
+    "php": ">=7.0",
+    "composer/installers": "~1.4",
+    "yahnis-elsts/plugin-update-checker": "^4.4"
+  },
+  "require-dev": {
+    "humanmade/coding-standards": "^0.3.0",
+    "phpunit/phpunit": "^5.7",
+    "wpreadme2markdown/wp2md": "^3.0"
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit --configuration phpunit.xml --coverage-clover coverage.xml",
+      "@standards"
+    ],
+    "standards": [
+      "vendor/bin/phpcs --standard=phpcs.ruleset.xml *.php inc/ bin/"
+    ],
+    "localize": [
+      "wp-pot -s \"**/*.php\" -o languages/pressbooks-cas-sso.pot -p \"Pressbooks\" -t \"Pressbooks (Book Oven Inc.) <code@pressbooks.com>\"",
+      "bash bin/i18n.sh"
+    ],
+    "readme": ["vendor/bin/wp2md -i readme.txt -o README.md"]
+  }
+}
