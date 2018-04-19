@@ -54,4 +54,5 @@ require( __DIR__ . '/inc/namespace.php' );
 // Hooks
 // -------------------------------------------------------------------------------------------------------------------
 
-add_action( 'plugins_loaded', [ '\Pressbooks\Lti\Provider\Updates', 'init' ] );
+add_action( 'plugins_loaded', [ '\Pressbooks\CAS\Updates', 'init' ] );
+add_action( 'plugins_loaded', [ '\Pressbooks\CAS\CAS', 'init' ] );
