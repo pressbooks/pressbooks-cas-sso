@@ -35,7 +35,7 @@ class CAS {
 		add_filter( 'authenticate', [ $obj, 'authenticate' ], 10, 3 );
 		add_action( 'login_enqueue_scripts', [ $obj, 'loginEnqueueScripts' ] );
 		add_action( 'login_form', [ $obj, 'loginForm' ] );
-		add_action( 'logout_redirect', [ $obj, 'logoutRedirect' ] );
+		add_filter( 'logout_redirect', [ $obj, 'logoutRedirect' ] );
 	}
 
 	/**
@@ -84,14 +84,18 @@ class CAS {
 		}
 	}
 
+
 	/**
+	 * @param string $redirect_to
 	 *
+	 * @return string
 	 */
-	public function logoutRedirect() {
+	public function logoutRedirect( $redirect_to ) {
 		if ( phpCAS::isSessionAuthenticated() ) {
 			phpCAS::logoutWithRedirectService( get_option( 'siteurl' ) );
 			exit;
 		}
+		return $redirect_to;
 	}
 
 	/**
