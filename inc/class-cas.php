@@ -2,7 +2,8 @@
 
 namespace Pressbooks\CAS;
 
-use \phpCAS as phpCAS;
+use phpCAS as phpCAS;
+use PressbooksMix\Assets;
 
 class CAS {
 
@@ -10,6 +11,11 @@ class CAS {
 	 * @var CAS
 	 */
 	private static $instance = null;
+
+	/**
+	 * @var string
+	 */
+	private $loginUrl;
 
 	/**
 	 * @return CAS
@@ -27,7 +33,9 @@ class CAS {
 	 */
 	static public function hooks( CAS $obj ) {
 		add_filter( 'authenticate', [ $obj, 'authenticate' ], 10, 3 );
-		add_action( 'wp_logout', [ $obj, 'logout' ] );
+		add_action( 'login_enqueue_scripts', [ $obj, 'loginEnqueueScripts' ] );
+		add_action( 'login_form', [ $obj, 'loginForm' ] );
+		add_action( 'logout_redirect', [ $obj, 'logoutRedirect' ] );
 	}
 
 	/**
@@ -39,11 +47,15 @@ class CAS {
 			CAS_VERSION_2_0,
 			'test-cas.rutgers.edu',
 			intval( 443 ),
-			'/'
+			untrailingslashit( '/' )
 		);
 
-		// DEBUG
-		phpCAS::setFixedServiceURL( 'https://textopress.com/wp/wp-login.php' );
+		$login_url = wp_login_url();
+		$login_url = add_query_arg( 'action', 'pb_cas', $login_url );
+		$login_url = str_replace( 'pressbooks.test', 'textopress.com', $login_url ); // TODO: Forcing https://textopress.com for tests
+		$login_url = str_replace( 'http://', 'https://', $login_url );
+		$this->loginUrl = $login_url;
+		phpCAS::setFixedServiceURL( $this->loginUrl );
 
 		// phpCAS::setCasServerCACert( 'production' );
 		phpCAS::setNoCasServerValidation();
@@ -61,24 +73,58 @@ class CAS {
 	 * @return false|\WP_User
 	 */
 	public function authenticate( $user, $username, $password ) {
-
-		phpCAS::forceAuthentication();
-		if ( ! phpCAS::isAuthenticated() ) {
-			die( 'TODO: FAIL' );
+		if ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'pb_cas' ) {
+			phpCAS::forceAuthentication();
+			if ( ! phpCAS::isAuthenticated() ) {
+				die( 'TODO: FAIL' );
+			}
+			var_dump( phpCAS::getUser() );
+			var_dump( phpCAS::getAttributes() );
+			die( 'TODO: SUCCESS' );
 		}
-
-
-		var_dump( phpCAS::getUser() );
-		var_dump( phpCAS::getAttributes() );
-		die( 'TODO: SUCCESS' );
 	}
 
 	/**
 	 *
 	 */
-	public function logout() {
-		phpCAS::logoutWithRedirectService( get_option( 'siteurl' ) );
-		exit;
+	public function logoutRedirect() {
+		if ( phpCAS::isSessionAuthenticated() ) {
+			phpCAS::logoutWithRedirectService( get_option( 'siteurl' ) );
+			exit;
+		}
+	}
+
+	/**
+	 * Add login CSS and JS
+	 */
+	public function loginEnqueueScripts() {
+		$assets = new Assets( 'pressbooks-cas-sso', 'plugin' );
+		wp_enqueue_style( 'pb-cas-login', $assets->getPath( 'styles/login-form.css' ) );
+		wp_enqueue_script( 'pb-cas-login', $assets->getPath( 'scripts/login-form.js' ), [ 'jquery' ] );
+	}
+
+	/**
+	 * Print [ Connect via CAS ] button
+	 */
+	public function loginForm() {
+
+		$url = phpCAS::getServerLoginURL();
+		$button_string = __( 'Connect via CAS', 'pressbooks-cas-sso' );
+
+		?>
+		<div id="pb-cas-wrap">
+			<div class="pb-cas-or">
+				<span><?php esc_html_e( 'Or', 'pressbooks-cas-sso' ); ?></span>
+			</div>
+			<?php
+			printf(
+				'<div class="cas"><a href="%1$s" class="button button-hero cas">%2$s</a></div>',
+				$url,
+				$button_string
+			);
+			?>
+		</div>
+		<?php
 	}
 
 }
