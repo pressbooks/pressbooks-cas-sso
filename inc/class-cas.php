@@ -18,6 +18,11 @@ class CAS {
 	private $loginUrl;
 
 	/**
+	 * @var bool
+	 */
+	private $casClientIsReady = false;
+
+	/**
 	 * @return CAS
 	 */
 	static public function init() {
@@ -44,6 +49,14 @@ class CAS {
 	public function __construct() {
 
 		$options = Admin::init()->getOptions();
+		if ( empty( $options['server_hostname'] ) ) {
+			if ( 'pb_cas_admin' !== @$_REQUEST['page'] ) { // @codingStandardsIgnoreLine
+				add_action(  'network_admin_notices', function () {
+					echo '<div id="message" class="error fade"><p>' . __( 'CAS is not configured.', 'pressbooks-cas-sso' ) . '</p></div>';
+				} );
+			}
+			return;
+		}
 
 		require_once( __DIR__ . '/../vendor/apereo/phpcas/source/CAS.php' );
 		switch ( $options['server_version'] ) {
@@ -77,6 +90,8 @@ class CAS {
 
 		phpCAS::setDebug();
 		phpCAS::setVerbose( false );
+
+		$this->casClientIsReady = true;
 	}
 
 	/**
@@ -87,7 +102,7 @@ class CAS {
 	 * @return false|\WP_User
 	 */
 	public function authenticate( $user, $username, $password ) {
-		if ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'pb_cas' ) {
+		if ( $this->casClientIsReady && isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'pb_cas' ) {
 			phpCAS::forceAuthentication();
 			if ( ! phpCAS::isAuthenticated() ) {
 				die( 'TODO: FAIL' );
@@ -105,7 +120,7 @@ class CAS {
 	 * @return string
 	 */
 	public function logoutRedirect( $redirect_to ) {
-		if ( phpCAS::isSessionAuthenticated() ) {
+		if ( $this->casClientIsReady && phpCAS::isSessionAuthenticated() ) {
 			phpCAS::logoutWithRedirectService( get_option( 'siteurl' ) );
 			exit;
 		}
@@ -125,6 +140,10 @@ class CAS {
 	 * Print [ Connect via CAS ] button
 	 */
 	public function loginForm() {
+
+		if ( ! $this->casClientIsReady ) {
+			return;
+		}
 
 		$url = phpCAS::getServerLoginURL();
 		$button_string = __( 'Connect via CAS', 'pressbooks-cas-sso' );
