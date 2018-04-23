@@ -56,3 +56,4 @@ require( __DIR__ . '/inc/namespace.php' );
 
 add_action( 'plugins_loaded', [ '\Pressbooks\CAS\Updates', 'init' ] );
 add_action( 'plugins_loaded', [ '\Pressbooks\CAS\CAS', 'init' ] );
+add_action( 'plugins_loaded', [ '\Pressbooks\CAS\Admin', 'init' ] );

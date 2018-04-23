@@ -43,11 +43,25 @@ class CAS {
 	 */
 	public function __construct() {
 
+		$options = Admin::init()->getOptions();
+
+		require_once( __DIR__ . '/../vendor/apereo/phpcas/source/CAS.php' );
+		switch ( $options['server_version'] ) {
+			case 'CAS_VERSION_3_0':
+				$server_version = CAS_VERSION_3_0;
+				break;
+			case 'CAS_VERSION_1_0':
+				$server_version = CAS_VERSION_1_0;
+				break;
+			default:
+				$server_version = CAS_VERSION_2_0;
+		}
+
 		phpCAS::client(
-			CAS_VERSION_2_0,
-			'test-cas.rutgers.edu',
-			intval( 443 ),
-			untrailingslashit( '/' )
+			$server_version,
+			$options['server_hostname'],
+			intval( $options['server_port'] ),
+			untrailingslashit( $options['server_path'] )
 		);
 
 		$login_url = wp_login_url();
