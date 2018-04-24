@@ -85,16 +85,15 @@ class CAS {
 			return;
 		}
 
-		require_once( __DIR__ . '/../vendor/apereo/phpcas/source/CAS.php' );
 		switch ( $options['server_version'] ) {
 			case 'CAS_VERSION_3_0':
-				$server_version = CAS_VERSION_3_0;
+				$server_version = defined( 'CAS_VERSION_3_0' ) ? CAS_VERSION_3_0 : '3.0';
 				break;
 			case 'CAS_VERSION_1_0':
-				$server_version = CAS_VERSION_1_0;
+				$server_version = defined( 'CAS_VERSION_1_0' ) ? CAS_VERSION_1_0 : '1.0';
 				break;
 			default:
-				$server_version = CAS_VERSION_2_0;
+				$server_version = defined( 'CAS_VERSION_2_0' ) ? CAS_VERSION_2_0 : '2.0';
 		}
 
 		phpCAS::client(
