@@ -20,6 +20,11 @@ class CAS {
 	private $loginUrl;
 
 	/**
+	 * @var int
+	 */
+	private $currentUserId = 0;
+
+	/**
 	 * @var string
 	 */
 	private $provision = 'refuse';
@@ -122,6 +127,7 @@ class CAS {
 		// phpCAS::setVerbose( false );
 		// @codingStandardsIgnoreEnd
 
+		$this->currentUserId = get_current_user_id();
 		$this->provision = $options['provision'];
 		$this->emailDomain = ! empty( $options['email_domain'] ) ? $options['email_domain'] : "noreply.{$options['server_hostname']}";
 		$this->bypass = (bool) $options['bypass'];
@@ -213,7 +219,7 @@ class CAS {
 	 * @return string
 	 */
 	public function logoutRedirect( $redirect_to ) {
-		if ( $this->casClientIsReady && ( $this->forcedRedirection || phpCAS::isSessionAuthenticated() ) ) {
+		if ( $this->casClientIsReady && ( $this->forcedRedirection || phpCAS::isSessionAuthenticated() || get_user_meta( $this->currentUserId, self::META_KEY, true ) ) ) {
 			phpCAS::logoutWithRedirectService( get_option( 'siteurl' ) );
 			exit;
 		}
