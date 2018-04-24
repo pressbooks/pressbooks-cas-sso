@@ -219,9 +219,11 @@ class CAS {
 	 * @return string
 	 */
 	public function logoutRedirect( $redirect_to ) {
-		if ( $this->casClientIsReady && ( $this->forcedRedirection || phpCAS::isSessionAuthenticated() || get_user_meta( $this->currentUserId, self::META_KEY, true ) ) ) {
-			phpCAS::logoutWithRedirectService( get_option( 'siteurl' ) );
-			exit;
+		if ( $this->casClientIsReady ) {
+			if ( $this->forcedRedirection || phpCAS::isSessionAuthenticated() || get_user_meta( $this->currentUserId, self::META_KEY, true ) ) {
+				phpCAS::logoutWithRedirectService( get_option( 'siteurl' ) );
+				exit;
+			}
 		}
 		return $redirect_to;
 	}

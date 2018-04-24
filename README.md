@@ -18,33 +18,27 @@ CAS Single Sign-On integration for Pressbooks.
 
 ## Installation 
 
-N/A.
+```
+composer require pressbooks/pressbooks-cas-sso
+```
 
-
-## Frequently Asked Questions 
-
-N/A.
+Or, download the latest version from the releases page and unzip it into your WordPress plugin directory): https://github.com/pressbooks/pressbooks-cas-sso/releases
 
 
 ## Screenshots 
 
-N/A.
+![Pressbooks CAS Administration.](screenshot-1.png)
 
 
 ## Changelog 
 
 
 ### 0.2.0 
-**Major Changes**
-- A new feature.
-
-**Minor Changes**
-- A backwards-compatible change.
-
-**Patches**
-- A bug fix.
+* Initial release.
 
 
 ## Upgrade Notice 
 
-Pressbooks CAS Single Sign-On requires Pressbooks >= 5.2.0 and WordPress >= 4.9.5.
+
+### 0.2.0 
+* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.3.0 and WordPress >= 4.9.5.
