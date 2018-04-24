@@ -13,7 +13,11 @@ CAS Single Sign-On integration for Pressbooks.
 
 ## Description 
 
-CAS Single Sign-On integration for Pressbooks.
+Plugin to integrate Pressbooks with [Central AuthenticationService (CAS)](http://en.wikipedia.org/wiki/Central_Authentication_Service) single sign-on architectures.
+
+Users who attempt to login to Pressbooks are redirected to the central CAS sign-on screen. After the user’s credentials are verified, they are redirected back to the Pressbooks
+network. If the CAS username matches the Pressbooks username, the user is recognized as valid and allowed access. If the CAS user does not have an account in Pressbooks, a new
+user can be created, or access can be refused, depending on the configuration.
 
 
 ## Installation 
@@ -23,6 +27,8 @@ composer require pressbooks/pressbooks-cas-sso
 ```
 
 Or, download the latest version from the releases page and unzip it into your WordPress plugin directory): https://github.com/pressbooks/pressbooks-cas-sso/releases
+
+Then, activate and configure the plugin at the Network level.
 
 
 ## Screenshots 
