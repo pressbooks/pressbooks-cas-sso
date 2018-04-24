@@ -24,25 +24,42 @@
                 <th><label for="server_path">{{ __('Server Path', 'pressbooks-cas-sso') }}</label></th>
                 <td><input name="server_path" id="server_path" type="text" value="{{ $options['server_path'] }}" class="regular-text"/></td>
             </tr>
+            <tr>
+                <th><label for="provision">{{ __('If the CAS user does not have a Pressbooks account', 'pressbooks-cas-sso') }}</label></th>
+                <td><select name="provision" id="provision">
+                        <option value="refuse" {!! selected( $options['provision'], 'refuse' ) !!} >{{ __('Refuse Access', 'pressbooks-cas-sso') }}</option>
+                        <option value="create" {!! selected( $options['provision'], 'create' ) !!} >{{ __('Add New User', 'pressbooks-cas-sso') }}</option>
+                    </select>
+                </td>
+            </tr>
         </table>
         <h2>{{ __('Optional Information', 'pressbooks-cas-sso') }}</h2>
         <table class="form-table">
             <tr>
-                <th><label for="email_suffix">{{ __('E-mail Suffix', 'pressbooks-cas-sso') }}</label></th>
+                <th><label for="email_domain">{{ __('Email Domain', 'pressbooks-cas-sso') }}</label></th>
                 <td>
-                    <input name="email_suffix" id="email_suffix" type="text" value="{{ $options['email_suffix'] }}" class="regular-text"/>
+                    <input name="email_domain" id="email_domain" type="text" value="{{ $options['email_domain'] }}" class="regular-text"/>
                     <p>
-                        <em>{{ __("If your users' emails are based on their NetIDs (ex: NetID@university.edu), specify your institution's email suffix here to generate your users' email adresses.", 'pressbooks-cas-sso') }}</em>
+                        <em>{{ __("If your users' emails are based on their NetIDs (ex: NetID@university.edu), specify your institution's email domain here to generate your users' email adresses.", 'pressbooks-cas-sso') }}</em>
                     </p>
                 </td>
             </tr>
             <tr>
-                <th><label for="forced_redirection">{{ __('Hide the Pressbooks Login Page', 'pressbooks-cas-sso') }}</label></th>
+                <th>{{ __(' Bypass', 'pressbooks-cas-sso') }}</th>
+                <td><label><input name="bypass" id="bypass" type="checkbox"
+                                  value="1" {!! checked( $options['bypass'] ) !!}/> {!!
+                                  sprintf( __('Bypass the "Limited Email Registrations" and "Banned Email Domains" lists under <a href="%s">Network Settings</a>.', 'pressbooks-cas-sso') ,'settings.php' )
+                                   !!}
+                    </label></td>
+            </tr>
+            <tr>
+                <th>{{ __(' Forced Redirection', 'pressbooks-cas-sso') }}</th>
                 <td>
-                    <input name="forced_redirection" id="forced_redirection" type="checkbox" value="1" {!! checked( $options['forced_redirection'] ) !!}/>
+                    <label><input name="forced_redirection" id="forced_redirection" type="checkbox"
+                                  value="1" {!! checked( $options['forced_redirection'] ) !!}/> {{ __('Hide the Pressbooks login page.', 'pressbooks-cas-sso') }}</label>
                 </td>
             </tr>
         </table>
-		<?php submit_button(); ?>
+        {!! get_submit_button() !!}
     </form>
 </div>

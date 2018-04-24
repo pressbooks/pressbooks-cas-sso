@@ -2,8 +2,6 @@
 
 namespace Pressbooks\CAS;
 
-use phpCAS as phpCAS;
-
 class Admin {
 
 	const OPTION = 'pressbooks_cas_sso';
@@ -81,7 +79,9 @@ class Admin {
 				'server_hostname' => preg_replace( '#^https?://#', '', trim( $_POST['server_hostname'] ) ),
 				'server_port' => (int) $_POST['server_port'],
 				'server_path' => trailingslashit( trim( $_POST['server_path'] ) ),
-				'email_suffix' => ltrim( trim( $_POST['email_suffix'] ), '@' ),
+				'provision' => in_array( $_POST['provision'], [ 'refuse', 'create' ], true ) ? $_POST['provision'] : 'refuse',
+				'email_domain' => ltrim( trim( $_POST['email_domain'] ), '@' ),
+				'bypass' => ! empty( $_POST['bypass'] ) ? 1 : 0,
 				'forced_redirection' => ! empty( $_POST['forced_redirection'] ) ? 1 : 0,
 			];
 			$result = update_site_option( self::OPTION, $update );
@@ -109,8 +109,14 @@ class Admin {
 		if ( empty( $options['server_path'] ) ) {
 			$options['server_path'] = '/';
 		}
-		if ( empty( $options['email_suffix'] ) ) {
-			$options['email_suffix'] = '';
+		if ( empty( $options['provision'] ) ) {
+			$options['provision'] = 'refuse';
+		}
+		if ( empty( $options['email_domain'] ) ) {
+			$options['email_domain'] = '';
+		}
+		if ( empty( $options['bypass'] ) ) {
+			$options['bypass'] = 0;
 		}
 		if ( empty( $options['forced_redirection'] ) ) {
 			$options['forced_redirection'] = 0;
