@@ -7,6 +7,8 @@ use PressbooksMix\Assets;
 
 class CAS {
 
+	const META_KEY = 'pressbooks_cas_identity';
+
 	/**
 	 * @var CAS
 	 */
@@ -37,7 +39,6 @@ class CAS {
 	 */
 	private $forcedRedirection = false;
 
-
 	/**
 	 * @var bool
 	 */
@@ -63,12 +64,14 @@ class CAS {
 		add_action( 'login_enqueue_scripts', [ $obj, 'loginEnqueueScripts' ] );
 		add_action( 'login_form', [ $obj, 'loginForm' ] );
 		add_filter( 'logout_redirect', [ $obj, 'logoutRedirect' ] );
+		add_filter( 'show_password_fields', [ $obj, 'showPasswordFields' ], 10, 2 );
 	}
 
 	/**
 	 * @param Admin $admin
+	 * @param string $ca_cert_path Path to the ca chain that issued the cas server certificate, ie. '/path/to/cachain.pem' (optional)
 	 */
-	public function __construct( Admin $admin ) {
+	public function __construct( Admin $admin, $ca_cert_path = '' ) {
 
 		$options = $admin->getOptions();
 		if ( empty( $options['server_hostname'] ) ) {
@@ -103,23 +106,66 @@ class CAS {
 
 		$login_url = wp_login_url();
 		$login_url = add_query_arg( 'action', 'pb_cas', $login_url );
-		$login_url = str_replace( 'pressbooks.test', 'textopress.com', $login_url ); // TODO: Forcing https://textopress.com for tests
-		$login_url = str_replace( 'http://', 'https://', $login_url );
+		$login_url = \Pressbooks\Sanitize\maybe_https( $login_url );
 		$this->loginUrl = $login_url;
 		phpCAS::setFixedServiceURL( $this->loginUrl );
 
-		// phpCAS::setCasServerCACert( 'production' );
-		phpCAS::setNoCasServerValidation();
-		phpCAS::setNoClearTicketsFromUrl();
+		if ( ! empty( $ca_cert_path ) ) {
+			phpCAS::setCasServerCACert( $ca_cert_path );
+		} else {
+			phpCAS::setNoCasServerValidation();
+		}
 
-		phpCAS::setDebug();
-		phpCAS::setVerbose( false );
+		// DEBUG
+		// @codingStandardsIgnoreStart
+		// phpCAS::setNoClearTicketsFromUrl();
+		// phpCAS::setDebug();
+		// phpCAS::setVerbose( false );
+		// @codingStandardsIgnoreEnd
 
 		$this->provision = $options['provision'];
 		$this->emailDomain = ! empty( $options['email_domain'] ) ? $options['email_domain'] : "noreply.{$options['server_hostname']}";
 		$this->bypass = (bool) $options['bypass'];
 		$this->forcedRedirection = (bool) $options['forced_redirection'];
 		$this->casClientIsReady = true;
+
+		if ( $this->forcedRedirection ) {
+			// TODO:
+			// This hijacks the same logic as seen in the shibboleth plugin.
+			// If we want to support both shibboleth & CAS on the same site, then we'll need to handle the 'login_form_shibboleth' action ourselves.
+			add_filter( 'login_url', [ $this, 'changeLoginUrl' ], 999 );
+		}
+	}
+
+	/**
+	 * Change wp_login_url() to include an action param we use to trigger: do_action( "login_form_{$action}" )
+	 *
+	 * Hooked into filter: 'login_url'
+	 *
+	 *
+	 * @param string $login_url The login URL. Not HTML-encoded.
+	 *
+	 * @return string
+	 */
+	function changeLoginUrl( $login_url ) {
+		$login_url = add_query_arg( 'action', 'pb_cas', $login_url );
+		return $login_url;
+	}
+
+	/**
+	 * @param $show
+	 * @param \WP_User $profileuser
+	 *
+	 * @return bool
+	 */
+	public function showPasswordFields( $show, $profileuser ) {
+		if ( ! current_user_can( 'manage_network' ) ) {
+			$pressbooks_cas_identity = get_user_meta( $profileuser->ID, self::META_KEY, true );
+			if ( $pressbooks_cas_identity ) {
+				$show = false;
+			}
+		}
+		return $show;
 	}
 
 	/**
@@ -130,13 +176,32 @@ class CAS {
 	 * @return mixed
 	 */
 	public function authenticate( $user, $username, $password ) {
-		if ( $this->casClientIsReady && isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'pb_cas' ) { // @codingStandardsIgnoreLine
-			phpCAS::forceAuthentication();
-			if ( phpCAS::isAuthenticated() ) {
-				$net_id = phpCAS::getUser();
-				$email = "{$net_id}@{$this->emailDomain}";
-				remove_filter( 'authenticate', [ $this, 'authenticate' ], 10 ); // Fix infinite loop
-				$this->handleLoginAttempt( $net_id, $email );
+
+		$use_cas = false;
+		if ( $this->casClientIsReady ) {
+			if ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] === 'pb_cas' ) { // @codingStandardsIgnoreLine
+				$use_cas = true;
+			}
+		}
+
+		if ( $use_cas ) {
+			try {
+				ob_start();
+				phpCAS::forceAuthentication();
+				if ( phpCAS::isAuthenticated() ) {
+					$net_id = phpCAS::getUser();
+					$email = "{$net_id}@{$this->emailDomain}";
+					ob_get_clean();
+					remove_filter( 'authenticate', [ $this, 'authenticate' ], 10 ); // Fix infinite loop
+					$this->handleLoginAttempt( $net_id, $email );
+				}
+			} catch ( \Exception $e ) {
+				$buffer = ob_get_clean();
+				if ( ! empty( $buffer ) ) {
+					die( $buffer );
+				} else {
+					return new \WP_Error( 'authentication_failed', $e->getMessage() );
+				}
 			}
 			return new \WP_Error( 'authentication_failed', __( 'CAS authentication failed.', 'pressbooks-cas-sso' ) );
 		}
@@ -149,7 +214,7 @@ class CAS {
 	 * @return string
 	 */
 	public function logoutRedirect( $redirect_to ) {
-		if ( $this->casClientIsReady && phpCAS::isSessionAuthenticated() ) {
+		if ( $this->casClientIsReady && ( $this->forcedRedirection || phpCAS::isSessionAuthenticated() ) ) {
 			phpCAS::logoutWithRedirectService( get_option( 'siteurl' ) );
 			exit;
 		}
@@ -252,7 +317,7 @@ class CAS {
 	public function matchUser( $net_id ) {
 		global $wpdb;
 		$condition = "{$net_id}|%";
-		$query_result = $wpdb->get_var( $wpdb->prepare( "SELECT user_id FROM {$wpdb->usermeta} WHERE meta_key = 'pressbooks_cas_identity' AND meta_value LIKE %s", $condition ) );
+		$query_result = $wpdb->get_var( $wpdb->prepare( "SELECT user_id FROM {$wpdb->usermeta} WHERE meta_key = %s AND meta_value LIKE %s", self::META_KEY, $condition ) );
 		// attempt to get a WordPress user with the matched id:
 		$user = get_user_by( 'id', $query_result );
 		return $user;
@@ -266,7 +331,7 @@ class CAS {
 	 */
 	public function linkAccount( $user_id, $net_id ) {
 		$condition = "{$net_id}|" . time();
-		add_user_meta( $user_id, 'pressbooks_cas_identity', $condition );
+		add_user_meta( $user_id, self::META_KEY, $condition );
 	}
 
 	/**
@@ -359,7 +424,7 @@ class CAS {
 			if ( $this->provision === 'create' ) {
 				list( $user_id, $username ) = $this->createUser( $net_id, $email );
 			} else {
-				// TODO: Refuse Access
+				// Refuse Access
 				return;
 			}
 		}
