@@ -40,6 +40,11 @@ class CAS {
 	private $bypass = false;
 
 	/**
+	 * @var Admin
+	 */
+	private $admin;
+
+	/**
 	 * @var bool
 	 */
 	private $forcedRedirection = false;
@@ -74,9 +79,8 @@ class CAS {
 
 	/**
 	 * @param Admin $admin
-	 * @param string $ca_cert_path Path to the ca chain that issued the cas server certificate, ie. '/path/to/cachain.pem' (optional)
 	 */
-	public function __construct( Admin $admin, $ca_cert_path = '' ) {
+	public function __construct( Admin $admin ) {
 
 		$options = $admin->getOptions();
 		if ( empty( $options['server_hostname'] ) ) {
@@ -114,6 +118,7 @@ class CAS {
 		$this->loginUrl = $login_url;
 		phpCAS::setFixedServiceURL( $this->loginUrl );
 
+		$ca_cert_path = getenv( 'PB_CAS_CERT_PATH' ); // Path to the ca chain that issued the cas server certificate, ie. '/path/to/cachain.pem'
 		if ( ! empty( $ca_cert_path ) ) {
 			phpCAS::setCasServerCACert( $ca_cert_path );
 		} else {
@@ -132,14 +137,14 @@ class CAS {
 		$this->emailDomain = ! empty( $options['email_domain'] ) ? $options['email_domain'] : "noreply.{$options['server_hostname']}";
 		$this->bypass = (bool) $options['bypass'];
 		$this->forcedRedirection = (bool) $options['forced_redirection'];
-		$this->casClientIsReady = true;
-
+		$this->admin = $admin;
 		if ( $this->forcedRedirection ) {
 			// TODO:
 			// This hijacks the same logic as seen in the shibboleth plugin.
 			// If we want to support both shibboleth & CAS on the same site, then we'll need to handle the 'login_form_shibboleth' action ourselves.
 			add_filter( 'login_url', [ $this, 'changeLoginUrl' ], 999 );
 		}
+		$this->casClientIsReady = true;
 	}
 
 	/**
@@ -247,7 +252,11 @@ class CAS {
 		}
 
 		$url = phpCAS::getServerLoginURL();
-		$button_string = __( 'Connect via CAS', 'pressbooks-cas-sso' );
+
+		$button_text = $this->admin->getOptions()['button_text'];
+		if ( empty( $button_text ) ) {
+			$button_text = __( 'Connect via CAS', 'pressbooks-cas-sso' );
+		}
 
 		?>
 		<div id="pb-cas-wrap">
@@ -258,7 +267,7 @@ class CAS {
 			printf(
 				'<div class="cas"><a href="%1$s" class="button button-hero cas">%2$s</a></div>',
 				$url,
-				$button_string
+				$button_text
 			);
 			?>
 		</div>

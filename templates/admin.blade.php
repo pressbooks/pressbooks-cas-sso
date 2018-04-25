@@ -45,6 +45,15 @@
                 </td>
             </tr>
             <tr>
+                <th><label for="button_text">{{ __('Customize Button Text', 'pressbooks-cas-sso') }}</label></th>
+                <td>
+                    <input name="button_text" id="button_text" type="text" value="{{ $options['button_text'] }}" class="regular-text"/>
+                    <p>
+                        <em>{{ __("Change the [ Connect via CAS ] button to something more user-friendly.", 'pressbooks-cas-sso') }}</em>
+                    </p>
+                </td>
+            </tr>
+            <tr>
                 <th>{{ __(' Bypass', 'pressbooks-cas-sso') }}</th>
                 <td><label><input name="bypass" id="bypass" type="checkbox"
                                   value="1" {!! checked( $options['bypass'] ) !!}/> {!!

@@ -30,7 +30,7 @@ class Admin {
 	}
 
 	/**
-	 * CAS constructor.
+	 *
 	 */
 	public function __construct() {
 
@@ -81,6 +81,7 @@ class Admin {
 				'server_path' => trailingslashit( trim( $_POST['server_path'] ) ),
 				'provision' => in_array( $_POST['provision'], [ 'refuse', 'create' ], true ) ? $_POST['provision'] : 'refuse',
 				'email_domain' => ltrim( trim( $_POST['email_domain'] ), '@' ),
+				'button_text' => trim( $_POST['button_text'] ),
 				'bypass' => ! empty( $_POST['bypass'] ) ? 1 : 0,
 				'forced_redirection' => ! empty( $_POST['forced_redirection'] ) ? 1 : 0,
 			];
@@ -114,6 +115,9 @@ class Admin {
 		}
 		if ( empty( $options['email_domain'] ) ) {
 			$options['email_domain'] = '';
+		}
+		if ( empty( $options['button_text'] ) ) {
+			$options['button_text'] = '';
 		}
 		if ( empty( $options['bypass'] ) ) {
 			$options['bypass'] = 0;
