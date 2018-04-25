@@ -105,12 +105,14 @@ class CAS {
 				$server_version = defined( 'CAS_VERSION_2_0' ) ? CAS_VERSION_2_0 : '2.0';
 		}
 
-		phpCAS::client(
-			$server_version,
-			$options['server_hostname'],
-			intval( $options['server_port'] ),
-			untrailingslashit( $options['server_path'] )
-		);
+		if ( ! phpCAS::isInitialized() ) {
+			phpCAS::client(
+				$server_version,
+				$options['server_hostname'],
+				intval( $options['server_port'] ),
+				untrailingslashit( $options['server_path'] )
+			);
+		}
 
 		$login_url = wp_login_url();
 		$login_url = add_query_arg( 'action', 'pb_cas', $login_url );
@@ -157,13 +159,13 @@ class CAS {
 	 *
 	 * @return string
 	 */
-	function changeLoginUrl( $login_url ) {
+	public function changeLoginUrl( $login_url ) {
 		$login_url = add_query_arg( 'action', 'pb_cas', $login_url );
 		return $login_url;
 	}
 
 	/**
-	 * @param $show
+	 * @param bool $show
 	 * @param \WP_User $profileuser
 	 *
 	 * @return bool
@@ -183,6 +185,7 @@ class CAS {
 	 * @param string $username Username or email address.
 	 * @param string $password User password
 	 *
+	 * @throws \LogicException (for unit tests! will die() when in website mode)
 	 * @return mixed
 	 */
 	public function authenticate( $user, $username, $password ) {
@@ -208,7 +211,11 @@ class CAS {
 			} catch ( \Exception $e ) {
 				$buffer = ob_get_clean();
 				if ( ! empty( $buffer ) ) {
-					die( $buffer );
+					if ( defined( 'WP_TESTS_MULTISITE' ) ) {
+						throw new \LogicException( $buffer );
+					} else {
+						die( $buffer );
+					}
 				} else {
 					return new \WP_Error( 'authentication_failed', $e->getMessage() );
 				}
@@ -227,7 +234,7 @@ class CAS {
 		if ( $this->casClientIsReady ) {
 			if ( $this->forcedRedirection || phpCAS::isSessionAuthenticated() || get_user_meta( $this->currentUserId, self::META_KEY, true ) ) {
 				phpCAS::logoutWithRedirectService( get_option( 'siteurl' ) );
-				exit;
+				$this->doExit();
 			}
 		}
 		return $redirect_to;
@@ -306,20 +313,20 @@ class CAS {
 	 * @param string $msg
 	 */
 	public function endLogin( $msg ) {
-		$_SESSION['pb_notices'] = $msg;
+		$_SESSION['pb_notices'][] = $msg;
 		if ( is_user_logged_in() ) {
 			$user = wp_get_current_user();
 			$blog = get_active_blog_for_user( $user->ID );
 			if ( $blog ) {
 				wp_safe_redirect( get_admin_url( $blog->blog_id ) );
-				exit;
+				$this->doExit();
 			} else {
 				wp_safe_redirect( wp_registration_url() );
-				exit;
+				$this->doExit();
 			}
 		} else {
 			wp_safe_redirect( wp_registration_url() );
-			exit;
+			$this->doExit();
 		}
 	}
 
@@ -385,9 +392,9 @@ class CAS {
 			foreach ( $errors->get_error_messages() as $message ) {
 				$error .= "{$message} ";
 			}
-			$_SESSION['pb_errors'] = $error;
+			$_SESSION['pb_errors'][] = $error;
 			header( 'Location: ' . get_admin_url() );
-			exit;
+			$this->doExit();
 		}
 
 		// Attempt to generate the user and get the user id
@@ -397,9 +404,9 @@ class CAS {
 		// Check if the user was actually created:
 		if ( is_wp_error( $user_id ) ) {
 			// there was an error during registration, redirect and notify the user:
-			$_SESSION['pb_errors'] = $user_id->get_error_message();
+			$_SESSION['pb_errors'][] = $user_id->get_error_message();
 			header( 'Location: ' . get_admin_url() );
-			exit;
+			$this->doExit();
 		}
 
 		remove_user_from_blog( $user_id, 1 );
@@ -453,6 +460,15 @@ class CAS {
 		$logged_in = \Pressbooks\Redirect\programmatic_login( $username );
 		if ( $logged_in === true ) {
 			$this->endLogin( 'Registered and logged in!' );
+		}
+	}
+
+	/**
+	 * If not in unit tests, then exit!
+	 */
+	private function doExit() {
+		if ( ! defined( 'WP_TESTS_MULTISITE' ) ) {
+			exit;
 		}
 	}
 

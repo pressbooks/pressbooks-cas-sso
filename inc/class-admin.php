@@ -75,7 +75,7 @@ class Admin {
 	public function saveOptions() {
 		if ( ! empty( $_POST ) && check_admin_referer( 'pb-cas-sso' ) ) {
 			$update = [
-				'server_version' => $_POST['server_version'],
+				'server_version' => trim( $_POST['server_version'] ),
 				'server_hostname' => preg_replace( '#^https?://#', '', trim( $_POST['server_hostname'] ) ),
 				'server_port' => (int) $_POST['server_port'],
 				'server_path' => trailingslashit( trim( $_POST['server_path'] ) ),
