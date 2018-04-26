@@ -220,7 +220,11 @@ class CAS {
 					return new \WP_Error( 'authentication_failed', $e->getMessage() );
 				}
 			}
-			return new \WP_Error( 'authentication_failed', __( 'CAS authentication failed.', 'pressbooks-cas-sso' ) );
+			if ( $this->forcedRedirection ) {
+				wp_die( __( 'CAS authentication failed.', 'pressbooks-cas-sso' ) );
+			} else {
+				return new \WP_Error( 'authentication_failed', __( 'CAS authentication failed.', 'pressbooks-cas-sso' ) );
+			}
 		}
 		return null;
 	}
