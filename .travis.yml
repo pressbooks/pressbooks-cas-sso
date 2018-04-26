@@ -41,7 +41,7 @@ before_script:
 - cd ../pressbooks-cas-sso
 script:
 - yarn run lint
-- yarn run production
+- yarn run build:production
 - vendor/bin/phpunit --configuration phpunit.xml --coverage-clover coverage.xml
 - vendor/bin/phpcs --standard=phpcs.ruleset.xml *.php inc/ bin/
 after_success:
