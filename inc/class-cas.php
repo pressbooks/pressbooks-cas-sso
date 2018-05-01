@@ -311,7 +311,7 @@ class CAS {
 			// If a matching user was found, log them in
 			$logged_in = \Pressbooks\Redirect\programmatic_login( $user->user_login );
 			if ( $logged_in === true ) {
-				$this->endLogin( 'Logged in!' );
+				$this->endLogin( __( 'Logged in!', 'pressbooks-cas-sso' ) );
 			}
 		} else {
 			$this->associateUser( $net_id, $email );
@@ -468,7 +468,7 @@ class CAS {
 		// Attempt to login the new user (this could be error prone):
 		$logged_in = \Pressbooks\Redirect\programmatic_login( $username );
 		if ( $logged_in === true ) {
-			$this->endLogin( 'Registered and logged in!' );
+			$this->endLogin( __( 'Registered and logged in!', 'pressbooks-cas-sso' ) );
 		}
 	}
 

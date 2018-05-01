@@ -117,18 +117,28 @@ class CasTest extends \WP_UnitTestCase {
 		$prefix = uniqid( 'test' );
 		$email = "{$prefix}@pressbooks.test";
 
+		// User doesn't exist
 		$user = $this->cas->matchUser( $prefix );
 		$this->assertFalse( $user );
-
 		try {
 			$this->cas->handleLoginAttempt( $prefix, $email );
 			$this->assertInstanceOf( '\WP_User', get_user_by( 'email', $email ) );
+			$this->assertContains( $_SESSION['pb_notices'][0], 'Registered and logged in!' );
 		} catch ( \Exception $e ) {
-			$this->fail();
+			$this->fail( $e->getMessage() );
 		}
 
+		// User was created
 		$user = $this->cas->matchUser( $prefix );
 		$this->assertInstanceOf( '\WP_User', $user );
+
+		// User exists
+		try {
+			$this->cas->handleLoginAttempt( $prefix, $email );
+			$this->assertContains( $_SESSION['pb_notices'][0], 'Logged in!' );
+		} catch ( \Exception $e ) {
+			$this->fail( $e->getMessage() );
+		}
 	}
 
 	public function test_handleLoginAttempt_exceptions() {
