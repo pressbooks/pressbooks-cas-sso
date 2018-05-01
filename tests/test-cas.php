@@ -8,11 +8,9 @@ class CasTest extends \WP_UnitTestCase {
 	protected $cas;
 
 	/**
-	 *
+	 * @return \Pressbooks\CAS\Admin
 	 */
-	public function setUp() {
-
-		parent::setUp();
+	protected function getMockAdmin() {
 
 		$stub1 = $this
 			->getMockBuilder( '\Pressbooks\CAS\Admin' )
@@ -33,6 +31,14 @@ class CasTest extends \WP_UnitTestCase {
 				]
 			);
 
+		return $stub1;
+	}
+
+	/**
+	 * @return \Pressbooks\CAS\CAS
+	 */
+	protected function getCas() {
+
 		// Ignore session warnings
 		PHPUnit_Framework_Error_Notice::$enabled = false;
 		PHPUnit_Framework_Error_Warning::$enabled = false;
@@ -40,14 +46,23 @@ class CasTest extends \WP_UnitTestCase {
 		ini_set( 'display_errors', 0 );
 
 		CAS_GracefullTerminationException::throwInsteadOfExiting();
-		$this->cas = new \Pressbooks\CAS\CAS( $stub1 );
+		$cas = new \Pressbooks\CAS\CAS( $this->getMockAdmin() );
 
 		PHPUnit_Framework_Error_Notice::$enabled = true;
 		PHPUnit_Framework_Error_Warning::$enabled = true;
 		ini_set( 'error_reporting', 1 );
 		ini_set( 'display_errors', 1 );
+
+		return $cas;
 	}
 
+	/**
+	 *
+	 */
+	public function setUp() {
+		parent::setUp();
+		$this->cas = $this->getCas();
+	}
 
 	public function test_changeLoginUrl() {
 		$url = $this->cas->changeLoginUrl( 'https://pressbooks.test' );
@@ -108,12 +123,12 @@ class CasTest extends \WP_UnitTestCase {
 		try {
 			$this->cas->handleLoginAttempt( $prefix, $email );
 			$this->assertInstanceOf( '\WP_User', get_user_by( 'email', $email ) );
-		} catch (\Exception $e ) {
+		} catch ( \Exception $e ) {
 			$this->fail();
 		}
 
 		$user = $this->cas->matchUser( $prefix );
-		$this->assertInstanceOf( '\WP_User',  $user );
+		$this->assertInstanceOf( '\WP_User', $user );
 	}
 
 	public function test_handleLoginAttempt_exceptions() {
