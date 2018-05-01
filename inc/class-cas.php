@@ -116,8 +116,7 @@ class CAS {
 
 		// Set Login URL
 		if ( is_subdomain_install() ) {
-			$login_url = network_site_url( 'wp-login.php' );
-			$login_url = add_query_arg( 'redirect_to', get_site_url( get_current_blog_id(), '/wp-admin/' ), $login_url );
+			$login_url = network_site_url( '/wp-login.php' );
 		} else {
 			$login_url = wp_login_url();
 		}
@@ -329,7 +328,8 @@ class CAS {
 			$user = wp_get_current_user();
 			$blog = get_active_blog_for_user( $user->ID );
 			if ( $blog ) {
-				wp_safe_redirect( get_admin_url( $blog->blog_id ) );
+				// Forced redirection
+				header( 'Location: ' . filter_var( get_admin_url( $blog->blog_id ), FILTER_SANITIZE_URL ) );
 				$this->doExit();
 			} else {
 				wp_safe_redirect( wp_registration_url() );
