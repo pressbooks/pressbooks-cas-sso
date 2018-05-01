@@ -99,18 +99,35 @@ class CasTest extends \WP_UnitTestCase {
 	}
 
 	public function test_handleLoginAttempt_and_matchUser_and_so_on() {
-		$prefix = rand();
+		$prefix = uniqid( 'test' );
 		$email = "{$prefix}@pressbooks.test";
 
 		$user = $this->cas->matchUser( $prefix );
 		$this->assertFalse( $user );
 
-		$this->cas->handleLoginAttempt( $prefix, $email );
-		$this->assertInstanceOf( '\WP_User', get_user_by( 'email', $email ) );
+		try {
+			$this->cas->handleLoginAttempt( $prefix, $email );
+			$this->assertInstanceOf( '\WP_User', get_user_by( 'email', $email ) );
+		} catch (\Exception $e ) {
+			$this->assertTrue( false );
+		}
 
 		$user = $this->cas->matchUser( $prefix );
 		$this->assertInstanceOf( '\WP_User',  $user );
 	}
+
+	public function test_handleLoginAttempt_exceptions() {
+		try {
+			$this->cas->handleLoginAttempt( '1', '1' );
+		} catch ( \Exception $e ) {
+			$this->assertContains( 'Please enter a valid email address', $e->getMessage() );
+			$this->assertContains( 'Username must be at least 4 characters', $e->getMessage() );
+			$this->assertContains( 'usernames must have letters too', $e->getMessage() );
+			return;
+		}
+		$this->fail();
+	}
+
 
 	public function test_endLogin() {
 		$this->cas->endLogin( 'My message' );
