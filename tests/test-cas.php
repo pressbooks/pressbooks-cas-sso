@@ -83,7 +83,7 @@ class CasTest extends \WP_UnitTestCase {
 			$this->assertTrue( true ); // phpCas trying to redirect
 			return;
 		}
-		$this->assertTrue( false ); // If PHPUnit gets to here then this test has failed
+		$this->fail();
 	}
 
 	public function test_loginEnqueueScripts() {
@@ -109,7 +109,7 @@ class CasTest extends \WP_UnitTestCase {
 			$this->cas->handleLoginAttempt( $prefix, $email );
 			$this->assertInstanceOf( '\WP_User', get_user_by( 'email', $email ) );
 		} catch (\Exception $e ) {
-			$this->assertTrue( false );
+			$this->fail();
 		}
 
 		$user = $this->cas->matchUser( $prefix );
