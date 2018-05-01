@@ -8,11 +8,9 @@ class CasTest extends \WP_UnitTestCase {
 	protected $cas;
 
 	/**
-	 *
+	 * @return \Pressbooks\CAS\Admin
 	 */
-	public function setUp() {
-
-		parent::setUp();
+	protected function getMockAdmin() {
 
 		$stub1 = $this
 			->getMockBuilder( '\Pressbooks\CAS\Admin' )
@@ -33,6 +31,14 @@ class CasTest extends \WP_UnitTestCase {
 				]
 			);
 
+		return $stub1;
+	}
+
+	/**
+	 * @return \Pressbooks\CAS\CAS
+	 */
+	protected function getCas() {
+
 		// Ignore session warnings
 		PHPUnit_Framework_Error_Notice::$enabled = false;
 		PHPUnit_Framework_Error_Warning::$enabled = false;
@@ -40,14 +46,23 @@ class CasTest extends \WP_UnitTestCase {
 		ini_set( 'display_errors', 0 );
 
 		CAS_GracefullTerminationException::throwInsteadOfExiting();
-		$this->cas = new \Pressbooks\CAS\CAS( $stub1 );
+		$cas = new \Pressbooks\CAS\CAS( $this->getMockAdmin() );
 
 		PHPUnit_Framework_Error_Notice::$enabled = true;
 		PHPUnit_Framework_Error_Warning::$enabled = true;
 		ini_set( 'error_reporting', 1 );
 		ini_set( 'display_errors', 1 );
+
+		return $cas;
 	}
 
+	/**
+	 *
+	 */
+	public function setUp() {
+		parent::setUp();
+		$this->cas = $this->getCas();
+	}
 
 	public function test_changeLoginUrl() {
 		$url = $this->cas->changeLoginUrl( 'https://pressbooks.test' );
@@ -83,7 +98,7 @@ class CasTest extends \WP_UnitTestCase {
 			$this->assertTrue( true ); // phpCas trying to redirect
 			return;
 		}
-		$this->assertTrue( false ); // If PHPUnit gets to here then this test has failed
+		$this->fail();
 	}
 
 	public function test_loginEnqueueScripts() {
@@ -99,18 +114,45 @@ class CasTest extends \WP_UnitTestCase {
 	}
 
 	public function test_handleLoginAttempt_and_matchUser_and_so_on() {
-		$prefix = rand();
+		$prefix = uniqid( 'test' );
 		$email = "{$prefix}@pressbooks.test";
 
+		// User doesn't exist
 		$user = $this->cas->matchUser( $prefix );
 		$this->assertFalse( $user );
+		try {
+			$this->cas->handleLoginAttempt( $prefix, $email );
+			$this->assertInstanceOf( '\WP_User', get_user_by( 'email', $email ) );
+			$this->assertContains( $_SESSION['pb_notices'][0], 'Registered and logged in!' );
+		} catch ( \Exception $e ) {
+			$this->fail( $e->getMessage() );
+		}
 
-		$this->cas->handleLoginAttempt( $prefix, $email );
-		$this->assertInstanceOf( '\WP_User', get_user_by( 'email', $email ) );
-
+		// User was created
 		$user = $this->cas->matchUser( $prefix );
-		$this->assertInstanceOf( '\WP_User',  $user );
+		$this->assertInstanceOf( '\WP_User', $user );
+
+		// User exists
+		try {
+			$this->cas->handleLoginAttempt( $prefix, $email );
+			$this->assertContains( $_SESSION['pb_notices'][0], 'Logged in!' );
+		} catch ( \Exception $e ) {
+			$this->fail( $e->getMessage() );
+		}
 	}
+
+	public function test_handleLoginAttempt_exceptions() {
+		try {
+			$this->cas->handleLoginAttempt( '1', '1' );
+		} catch ( \Exception $e ) {
+			$this->assertContains( 'Please enter a valid email address', $e->getMessage() );
+			$this->assertContains( 'Username must be at least 4 characters', $e->getMessage() );
+			$this->assertContains( 'usernames must have letters too', $e->getMessage() );
+			return;
+		}
+		$this->fail();
+	}
+
 
 	public function test_endLogin() {
 		$this->cas->endLogin( 'My message' );

@@ -94,6 +94,7 @@ class CAS {
 			return;
 		}
 
+		// Init phpCAS
 		switch ( $options['server_version'] ) {
 			case 'CAS_VERSION_3_0':
 				$server_version = defined( 'CAS_VERSION_3_0' ) ? CAS_VERSION_3_0 : '3.0';
@@ -104,7 +105,6 @@ class CAS {
 			default:
 				$server_version = defined( 'CAS_VERSION_2_0' ) ? CAS_VERSION_2_0 : '2.0';
 		}
-
 		if ( ! phpCAS::isInitialized() ) {
 			phpCAS::client(
 				$server_version,
@@ -114,13 +114,20 @@ class CAS {
 			);
 		}
 
-		$login_url = wp_login_url();
+		// Set Login URL
+		if ( is_subdomain_install() ) {
+			$login_url = network_site_url( 'wp-login.php' );
+			$login_url = add_query_arg( 'redirect_to', get_site_url( get_current_blog_id(), '/wp-admin/' ), $login_url );
+		} else {
+			$login_url = wp_login_url();
+		}
 		$login_url = add_query_arg( 'action', 'pb_cas', $login_url );
 		$login_url = \Pressbooks\Sanitize\maybe_https( $login_url );
 		$this->loginUrl = $login_url;
 		phpCAS::setFixedServiceURL( $this->loginUrl );
 
-		$ca_cert_path = getenv( 'PB_CAS_CERT_PATH' ); // Path to the ca chain that issued the cas server certificate, ie. '/path/to/cachain.pem'
+		// Path to the ca chain that issued the cas server certificate, ie. '/path/to/cachain.pem'
+		$ca_cert_path = getenv( 'PB_CAS_CERT_PATH' );
 		if ( ! empty( $ca_cert_path ) ) {
 			phpCAS::setCasServerCACert( $ca_cert_path );
 		} else {
@@ -217,7 +224,11 @@ class CAS {
 						die( $buffer );
 					}
 				} else {
-					return new \WP_Error( 'authentication_failed', $e->getMessage() );
+					if ( $this->forcedRedirection ) {
+						wp_die( $e->getMessage() );
+					} else {
+						return new \WP_Error( 'authentication_failed', $e->getMessage() );
+					}
 				}
 			}
 			if ( $this->forcedRedirection ) {
@@ -290,6 +301,7 @@ class CAS {
 	 *
 	 * @param string $net_id
 	 * @param string $email An email
+	 * @throws \Exception
 	 */
 	public function handleLoginAttempt( $net_id, $email ) {
 		// Try to find a matching WordPress user for the now-authenticated user's CAS NetID identity
@@ -299,15 +311,10 @@ class CAS {
 			// If a matching user was found, log them in
 			$logged_in = \Pressbooks\Redirect\programmatic_login( $user->user_login );
 			if ( $logged_in === true ) {
-				$this->endLogin( 'Logged in!' );
+				$this->endLogin( __( 'Logged in!', 'pressbooks-cas-sso' ) );
 			}
 		} else {
-			// handle the logged out user or no matching user (register the user):
-			try {
-				$this->associateUser( $net_id, $email );
-			} catch ( \Exception $e ) {
-				$this->endLogin( "Sorry, we couldn't log you in. The login flow terminated in an unexpected way. Please notify the admin or try again later." );
-			}
+			$this->associateUser( $net_id, $email );
 		}
 	}
 
@@ -366,6 +373,7 @@ class CAS {
 	 *
 	 * @param string $username
 	 * @param string $email
+	 * @throws \Exception
 	 *
 	 * @return array [ (int) user_id, (string) sanitized username ]
 	 */
@@ -396,9 +404,7 @@ class CAS {
 			foreach ( $errors->get_error_messages() as $message ) {
 				$error .= "{$message} ";
 			}
-			$_SESSION['pb_errors'][] = $error;
-			header( 'Location: ' . get_admin_url() );
-			$this->doExit();
+			throw new \Exception( $error );
 		}
 
 		// Attempt to generate the user and get the user id
@@ -408,9 +414,7 @@ class CAS {
 		// Check if the user was actually created:
 		if ( is_wp_error( $user_id ) ) {
 			// there was an error during registration, redirect and notify the user:
-			$_SESSION['pb_errors'][] = $user_id->get_error_message();
-			header( 'Location: ' . get_admin_url() );
-			$this->doExit();
+			throw new \Exception( $user_id->get_error_message() );
 		}
 
 		remove_user_from_blog( $user_id, 1 );
@@ -439,6 +443,7 @@ class CAS {
 	 *
 	 * @param string $net_id
 	 * @param string $email
+	 * @throws \Exception
 	 */
 	public function associateUser( $net_id, $email ) {
 
@@ -463,7 +468,7 @@ class CAS {
 		// Attempt to login the new user (this could be error prone):
 		$logged_in = \Pressbooks\Redirect\programmatic_login( $username );
 		if ( $logged_in === true ) {
-			$this->endLogin( 'Registered and logged in!' );
+			$this->endLogin( __( 'Registered and logged in!', 'pressbooks-cas-sso' ) );
 		}
 	}
 
