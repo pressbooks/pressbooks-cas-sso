@@ -45,15 +45,6 @@
                 </td>
             </tr>
             <tr>
-                <th><label for="button_text">{{ __('Customize Button Text', 'pressbooks-cas-sso') }}</label></th>
-                <td>
-                    <input name="button_text" id="button_text" type="text" value="{{ $options['button_text'] }}" class="regular-text"/>
-                    <p>
-                        <em>{{ __("Change the [ Connect via CAS ] button to something more user-friendly.", 'pressbooks-cas-sso') }}</em>
-                    </p>
-                </td>
-            </tr>
-            <tr>
                 <th>{{ __(' Bypass', 'pressbooks-cas-sso') }}</th>
                 <td><label><input name="bypass" id="bypass" type="checkbox"
                                   value="1" {!! checked( $options['bypass'] ) !!}/> {!!
@@ -68,7 +59,25 @@
                                   value="1" {!! checked( $options['forced_redirection'] ) !!}/> {{ __('Hide the Pressbooks login page.', 'pressbooks-cas-sso') }}</label>
                 </td>
             </tr>
+            <tr>
+                <th><label for="button_text">{{ __('Customize Button Text', 'pressbooks-cas-sso') }}</label></th>
+                <td>
+                    <input name="button_text" id="button_text" type="text" value="{{ $options['button_text'] }}" class="regular-text"/>
+                    <p>
+                        <em>{{ __("Change the [ Connect via CAS ] button to something more user-friendly.", 'pressbooks-cas-sso') }}</em>
+                    </p>
+                </td>
+            </tr>
         </table>
         {!! get_submit_button() !!}
     </form>
 </div>
+<script>
+	jQuery( function( $ ) {
+		var checkbox = $( '#forced_redirection' );
+		$( "#button_text" ).prop( "readonly", checkbox.is( ':checked' ) );
+		checkbox.on( "change", function() {
+			$( "#button_text" ).prop( "readonly", $( this ).is( ':checked' ) )
+		} );
+	} );
+</script>
