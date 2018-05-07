@@ -4,7 +4,7 @@
 **Tags:** pressbooks, sso, cas  
 **Requires at least:** 4.9.5  
 **Tested up to:** 4.9.5  
-**Stable tag:** 0.2.0  
+**Stable tag:** 0.3.0  
 **License:** GPLv3 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -39,6 +39,10 @@ Then, activate and configure the plugin at the Network level.
 
 
 ## Changelog 
+
+
+### 0.3.0 
+* Demo for Open source Slack channel.
 
 
 ### 0.2.0 
