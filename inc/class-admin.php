@@ -74,6 +74,7 @@ class Admin {
 	 */
 	public function saveOptions() {
 		if ( ! empty( $_POST ) && check_admin_referer( 'pb-cas-sso' ) ) {
+			$fallback = $this->getOptions();
 			$update = [
 				'server_version' => trim( $_POST['server_version'] ),
 				'server_hostname' => preg_replace( '#^https?://#', '', trim( $_POST['server_hostname'] ) ),
@@ -81,7 +82,7 @@ class Admin {
 				'server_path' => trailingslashit( trim( $_POST['server_path'] ) ),
 				'provision' => in_array( $_POST['provision'], [ 'refuse', 'create' ], true ) ? $_POST['provision'] : 'refuse',
 				'email_domain' => ltrim( trim( $_POST['email_domain'] ), '@' ),
-				'button_text' => trim( $_POST['button_text'] ),
+				'button_text' => isset( $_POST['button_text'] ) ? trim( $_POST['button_text'] ) : $fallback['button_text'],
 				'bypass' => ! empty( $_POST['bypass'] ) ? 1 : 0,
 				'forced_redirection' => ! empty( $_POST['forced_redirection'] ) ? 1 : 0,
 			];
