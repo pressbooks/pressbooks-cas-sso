@@ -75,9 +75,9 @@
 <script>
 	jQuery( function( $ ) {
 		var checkbox = $( '#forced_redirection' );
-		$( "#button_text" ).prop( "readonly", checkbox.is( ':checked' ) );
+		$( "#button_text" ).prop( "disabled", checkbox.is( ':checked' ) );
 		checkbox.on( "change", function() {
-			$( "#button_text" ).prop( "readonly", $( this ).is( ':checked' ) )
+			$( "#button_text" ).prop( "disabled", $( this ).is( ':checked' ) )
 		} );
 	} );
 </script>
