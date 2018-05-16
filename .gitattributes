@@ -5,7 +5,10 @@
 /.phpstorm.meta.php export-ignore
 /.travis.yml export-ignore
 /.tx export-ignore
-/assets export-ignore
+/assets/fonts export-ignore
+/assets/images export-ignore
+/assets/scripts export-ignore
+/assets/styles export-ignore
 /bin export-ignore
 /codecov.yml export-ignore
 /phpcs.ruleset.xml export-ignore
