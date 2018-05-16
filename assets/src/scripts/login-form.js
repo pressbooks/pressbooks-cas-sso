@@ -3,15 +3,15 @@
 // Originally from Automattic's Jetpack SSO module (v5.3)
 // @see https://github.com/Automattic/jetpack/blob/5.3/modules/sso/jetpack-sso-login.js
 
-jQuery( document ).ready( function( $ ) {
-	var body = $( 'body' ),
+jQuery( document ).ready( function ( $ ) {
+	let body = $( 'body' ),
 		ssoWrap = $( '#pb-cas-wrap' ),
 		loginForm = $( '#loginform' ),
 		overflow = $( '<div class="pb-cas-clear"></div>' );
 
 	loginForm.append( overflow );
 
-	if ( $( "#loginform > p.forgetmenot" ).length === 1 ) {
+	if ( $( '#loginform > p.forgetmenot' ).length === 1 ) {
 		// Hasn't been moved by other plugins yet
 		overflow.append( $( 'p.forgetmenot' ), $( 'p.submit' ) );
 	}
