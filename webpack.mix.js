@@ -13,12 +13,12 @@ let path = require( 'path' );
  */
 
 mix.setPublicPath( path.join( 'assets', 'dist' ) )
-	.js( 'assets/scripts/pressbooks-cas-sso.js', 'assets/dist/scripts/' )
-	.js( 'assets/scripts/login-form.js', 'assets/dist/scripts/' )
-	.sass( 'assets/styles/pressbooks-cas-sso.scss', 'assets/dist/styles/' )
-	.sass( 'assets/styles/login-form.scss', 'assets/dist/styles/' )
-	.copyDirectory( 'assets/fonts', 'assets/dist/fonts' )
-	.copyDirectory( 'assets/images', 'assets/dist/images' )
+	.js( 'assets/src/scripts/pressbooks-cas-sso.js', 'assets/dist/scripts/' )
+	.js( 'assets/src/scripts/login-form.js', 'assets/dist/scripts/' )
+	.sass( 'assets/src/styles/pressbooks-cas-sso.scss', 'assets/dist/styles/' )
+	.sass( 'assets/src/styles/login-form.scss', 'assets/dist/styles/' )
+	.copyDirectory( 'assets/src/fonts', 'assets/dist/fonts' )
+	.copyDirectory( 'assets/src/images', 'assets/dist/images' )
 	.version();
 
 // Full API
