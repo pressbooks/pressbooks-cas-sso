@@ -9,6 +9,8 @@ class CAS {
 
 	const META_KEY = 'pressbooks_cas_identity';
 
+	const SIGN_IN_PAGE = 'pressbooks_cas_sign_in_page';
+
 	/**
 	 * @var CAS
 	 */
@@ -205,6 +207,7 @@ class CAS {
 
 		if ( $use_cas ) {
 			try {
+				$this->trackHomeUrl();
 				ob_start();
 				phpCAS::forceAuthentication();
 				if ( phpCAS::isAuthenticated() ) {
@@ -325,20 +328,24 @@ class CAS {
 	public function endLogin( $msg ) {
 		$_SESSION['pb_notices'][] = $msg;
 		if ( is_user_logged_in() ) {
-			$user = wp_get_current_user();
-			$blog = get_active_blog_for_user( $user->ID );
-			if ( $blog ) {
-				// Forced redirection
-				header( 'Location: ' . filter_var( get_admin_url( $blog->blog_id ), FILTER_SANITIZE_URL ) );
+			if ( ! empty( $_SESSION[ self::SIGN_IN_PAGE ] ) ) {
+				// Default behaviour: Redirect to the page they signed in from (network homepage or book homepage)
+				$redirect_to = $_SESSION[ self::SIGN_IN_PAGE ];
+				unset( $_SESSION[ self::SIGN_IN_PAGE ] ); // unset on success
+				header( 'Location: ' . filter_var( $redirect_to, FILTER_SANITIZE_URL ) ); // Forced, not safe, redirection
 				$this->doExit();
 			} else {
-				wp_safe_redirect( wp_registration_url() );
-				$this->doExit();
+				// Plan B
+				$user = wp_get_current_user();
+				$blog = get_active_blog_for_user( $user->ID );
+				if ( $blog ) {
+					header( 'Location: ' . filter_var( get_admin_url( $blog->blog_id ), FILTER_SANITIZE_URL ) ); // Forced, not safe, redirection
+					$this->doExit();
+				}
 			}
-		} else {
-			wp_safe_redirect( wp_registration_url() );
-			$this->doExit();
 		}
+		wp_safe_redirect( wp_registration_url() );
+		$this->doExit();
 	}
 
 	/**
@@ -469,6 +476,17 @@ class CAS {
 		$logged_in = \Pressbooks\Redirect\programmatic_login( $username );
 		if ( $logged_in === true ) {
 			$this->endLogin( __( 'Registered and logged in!', 'pressbooks-cas-sso' ) );
+		}
+	}
+
+	/**
+	 * Default behaviour: User is always redirected to the page they signed in from (network homepage or book homepage).
+	 * To accomplish this we track home_url() in $_SESSION
+	 */
+	public function trackHomeUrl() {
+		// User gets bounced around between URLs so track first call only. Dev must unset() on success.
+		if ( empty( $_SESSION[ self::SIGN_IN_PAGE ] ) ) {
+			$_SESSION[ self::SIGN_IN_PAGE ] = home_url();
 		}
 	}
 

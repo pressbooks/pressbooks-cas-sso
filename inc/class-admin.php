@@ -82,7 +82,7 @@ class Admin {
 				'server_path' => trailingslashit( trim( $_POST['server_path'] ) ),
 				'provision' => in_array( $_POST['provision'], [ 'refuse', 'create' ], true ) ? $_POST['provision'] : 'refuse',
 				'email_domain' => ltrim( trim( $_POST['email_domain'] ), '@' ),
-				'button_text' => isset( $_POST['button_text'] ) ? trim( $_POST['button_text'] ) : $fallback['button_text'],
+				'button_text' => isset( $_POST['button_text'] ) ? trim( wp_unslash( $_POST['button_text'] ) ) : $fallback['button_text'],
 				'bypass' => ! empty( $_POST['bypass'] ) ? 1 : 0,
 				'forced_redirection' => ! empty( $_POST['forced_redirection'] ) ? 1 : 0,
 			];
@@ -93,7 +93,7 @@ class Admin {
 	}
 
 	/**
-	 * @return array
+	 * @return array{server_version: string, server_hostname: string, server_port: int, server_path: path, provision: refuse, email_domain: string, button_text: string, bypass: bool, forced_redirection: bool}
 	 */
 	public function getOptions() {
 
@@ -121,10 +121,10 @@ class Admin {
 			$options['button_text'] = '';
 		}
 		if ( empty( $options['bypass'] ) ) {
-			$options['bypass'] = 0;
+			$options['bypass'] = false;
 		}
 		if ( empty( $options['forced_redirection'] ) ) {
-			$options['forced_redirection'] = 0;
+			$options['forced_redirection'] = false;
 		}
 
 		return $options;

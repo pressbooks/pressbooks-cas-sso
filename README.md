@@ -4,7 +4,7 @@
 **Tags:** pressbooks, sso, cas  
 **Requires at least:** 4.9.5  
 **Tested up to:** 4.9.5  
-**Stable tag:** 0.3.0  
+**Stable tag:** 0.3.1  
 **License:** GPLv3 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -33,12 +33,22 @@ Or, download the latest version from the releases page and unzip it into your Wo
 Then, activate and configure the plugin at the Network level.
 
 
+### Optional Config 
+
+    putenv( 'PB_CAS_CERT_PATH=/path/to/cachain.pem' ); // Path to the CA chain that issued the CAS server certificate
+
+
 ## Screenshots 
 
 ![Pressbooks CAS Administration.](screenshot-1.png)
 
 
 ## Changelog 
+
+
+### 0.3.1 
+* Redirect to the page the user signed in from (network homepage or book homepage)
+* Fix unwanted slashes when button text has apostrophe
 
 
 ### 0.3.0 

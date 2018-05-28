@@ -155,8 +155,21 @@ class CasTest extends \WP_UnitTestCase {
 
 
 	public function test_endLogin() {
-		$this->cas->endLogin( 'My message' );
-		$this->assertTrue( in_array( 'My message', $_SESSION['pb_notices'] ) );
+		// Plan A
+		$_SESSION[ $this->cas::SIGN_IN_PAGE ] = 'https://pressbooks.test';
+		$this->cas->endLogin( 'My first message' );
+		$this->assertTrue( in_array( 'My first message', $_SESSION['pb_notices'] ) );
+
+		// Plan B
+		unset( $_SESSION[ $this->cas::SIGN_IN_PAGE ] );
+		$this->cas->endLogin( 'My second message' );
+		$this->assertTrue( in_array( 'My second message', $_SESSION['pb_notices'] ) );
+	}
+
+	public function test_trackHomeUrl() {
+		unset( $_SESSION[ $this->cas::SIGN_IN_PAGE ] );
+		$this->cas->trackHomeUrl();
+		$this->assertNotEmpty( $_SESSION[ $this->cas::SIGN_IN_PAGE ] );
 	}
 
 }
