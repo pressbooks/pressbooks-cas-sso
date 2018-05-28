@@ -282,6 +282,8 @@ class CAS {
 			$button_text = __( 'Connect via CAS', 'pressbooks-cas-sso' );
 		}
 
+		$this->trackHomeUrl( true );
+
 		?>
 		<div id="pb-cas-wrap">
 			<div class="pb-cas-or">
@@ -306,6 +308,10 @@ class CAS {
 	 * @throws \Exception
 	 */
 	public function handleLoginAttempt( $net_id, $email ) {
+
+		// Keep $_SESSION alive, CAS put info in it
+		remove_action( 'wp_login', '_pb_session_kill' );
+
 		// Try to find a matching WordPress user for the now-authenticated user's CAS NetID identity
 		$user = $this->matchUser( $net_id );
 
@@ -482,10 +488,12 @@ class CAS {
 	/**
 	 * Default behaviour: User is always redirected to the page they signed in from (network homepage or book homepage).
 	 * To accomplish this we track home_url() in $_SESSION
+	 * Dev should unset() on success.
+	 *
+	 * @param bool $overwrite
 	 */
-	public function trackHomeUrl() {
-		// User gets bounced around between URLs so track first call only. Dev must unset() on success.
-		if ( empty( $_SESSION[ self::SIGN_IN_PAGE ] ) ) {
+	public function trackHomeUrl( $overwrite = false ) {
+		if ( empty( $_SESSION[ self::SIGN_IN_PAGE ] ) || $overwrite ) {
 			$_SESSION[ self::SIGN_IN_PAGE ] = home_url();
 		}
 	}
