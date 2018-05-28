@@ -250,7 +250,7 @@ class CAS {
 	public function logoutRedirect( $redirect_to ) {
 		if ( $this->casClientIsReady ) {
 			if ( $this->forcedRedirection || phpCAS::isSessionAuthenticated() || get_user_meta( $this->currentUserId, self::META_KEY, true ) ) {
-				phpCAS::logoutWithRedirectService( home_url() );
+				phpCAS::logout();
 				$this->doExit();
 			}
 		}
