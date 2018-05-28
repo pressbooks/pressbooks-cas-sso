@@ -159,4 +159,10 @@ class CasTest extends \WP_UnitTestCase {
 		$this->assertTrue( in_array( 'My message', $_SESSION['pb_notices'] ) );
 	}
 
+	public function test_trackHomeUrl() {
+		unset( $_SESSION[ $this->cas::SIGN_IN_PAGE ] );
+		$this->cas->trackHomeUrl();
+		$this->assertNotEmpty( $_SESSION[ $this->cas::SIGN_IN_PAGE ] );
+	}
+
 }
