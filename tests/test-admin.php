@@ -49,7 +49,7 @@ class AdminTest extends \WP_UnitTestCase {
 			'server_path' => '/foo/bar',
 			'provision' => 'create',
 			'email_domain' => '@pressbooks.test',
-			'button_text' => 'SSO',
+			'button_text' => 'Connect via<br>Some SSO Provider<script src="http://evil-script.com/script.js"></script>',
 			'bypass' => '1',
 			'forced_redirection' => '1',
 		];
@@ -62,7 +62,7 @@ class AdminTest extends \WP_UnitTestCase {
 		$this->assertEquals( $options['server_path'], '/foo/bar/' );
 		$this->assertEquals( $options['provision'], 'create' );
 		$this->assertEquals( $options['email_domain'], 'pressbooks.test' );
-		$this->assertEquals( $options['button_text'], 'SSO' );
+		$this->assertEquals( $options['button_text'], 'Connect via<br>Some SSO Provider' );
 		$this->assertEquals( $options['bypass'], 1 );
 		$this->assertEquals( $options['forced_redirection'], 1 );
 	}
