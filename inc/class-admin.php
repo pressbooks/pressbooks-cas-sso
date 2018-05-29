@@ -82,7 +82,9 @@ class Admin {
 				'server_path' => trailingslashit( trim( $_POST['server_path'] ) ),
 				'provision' => in_array( $_POST['provision'], [ 'refuse', 'create' ], true ) ? $_POST['provision'] : 'refuse',
 				'email_domain' => ltrim( trim( $_POST['email_domain'] ), '@' ),
-				'button_text' => isset( $_POST['button_text'] ) ? trim( wp_unslash( wp_kses( $_POST['button_text'], [ 'br' => [] ] ) ) ) : $fallback['button_text'],
+				'button_text' => isset( $_POST['button_text'] ) ? trim( wp_unslash( wp_kses( $_POST['button_text'], [
+					'br' => [],
+				] ) ) ) : $fallback['button_text'],
 				'bypass' => ! empty( $_POST['bypass'] ) ? 1 : 0,
 				'forced_redirection' => ! empty( $_POST['forced_redirection'] ) ? 1 : 0,
 			];
