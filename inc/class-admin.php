@@ -87,9 +87,6 @@ class Admin {
 				] ) ) ) : $fallback['button_text'],
 				'bypass' => ! empty( $_POST['bypass'] ) ? 1 : 0,
 				'forced_redirection' => ! empty( $_POST['forced_redirection'] ) ? 1 : 0,
-				'network_manager_contact' => trim( wp_unslash( wp_kses( $_POST['network_manager_contact'], [
-					'br' => [],
-				] ) ) ),
 			];
 			$result = update_site_option( self::OPTION, $update );
 			return $result;
@@ -130,9 +127,6 @@ class Admin {
 		}
 		if ( empty( $options['forced_redirection'] ) ) {
 			$options['forced_redirection'] = false;
-		}
-		if ( empty( $options['network_manager_contact'] ) ) {
-			$options['network_manager_contact'] = 'Administrator (' . get_site_option( 'admin_email', '' ) . ')';
 		}
 
 		return $options;

@@ -40,7 +40,6 @@ class AdminTest extends \WP_UnitTestCase {
 		$this->assertEquals( $options['button_text'], '' );
 		$this->assertEquals( $options['bypass'], 0 );
 		$this->assertEquals( $options['forced_redirection'], 0 );
-		$this->assertNotEmpty( $options['network_manager_contact'] );
 
 		$_REQUEST['_wpnonce'] = wp_create_nonce( 'pb-cas-sso' );
 		$_POST = [
@@ -53,7 +52,6 @@ class AdminTest extends \WP_UnitTestCase {
 			'button_text' => 'Connect via<br>Some SSO Provider<script src="http://evil-script.com/script.js"></script>',
 			'bypass' => '1',
 			'forced_redirection' => '1',
-			'network_manager_contact' => 'Jane Doe (j.doe@university.edu)',
 		];
 		$this->admin->saveOptions();
 		$options = $this->admin->getOptions();
@@ -67,7 +65,6 @@ class AdminTest extends \WP_UnitTestCase {
 		$this->assertEquals( $options['button_text'], 'Connect via<br>Some SSO Provider' );
 		$this->assertEquals( $options['bypass'], 1 );
 		$this->assertEquals( $options['forced_redirection'], 1 );
-		$this->assertEquals( $options['network_manager_contact'], 'Jane Doe (j.doe@university.edu)' );
 	}
 
 }

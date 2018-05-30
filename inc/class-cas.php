@@ -239,7 +239,7 @@ class CAS {
 					}
 				}
 			}
-			$message = $this->authenticationFailedMessage( $this->options['provision'], $this->options['network_manager_contact'] );
+			$message = $this->authenticationFailedMessage( $this->options['provision'] );
 			if ( $this->forcedRedirection ) {
 				wp_die( $message );
 			} else {
@@ -251,14 +251,16 @@ class CAS {
 
 	/**
 	 * @param string $provision
-	 * @param string $network_manager_contact
+	 *
+	 * @see \Aldine\Helpers\handle_contact_form_submission for $email code
 	 *
 	 * @return string
 	 */
-	public function authenticationFailedMessage( $provision, $network_manager_contact ) {
+	public function authenticationFailedMessage( $provision ) {
 		if ( $provision === 'refuse' ) {
-			$message = 'Unable to log in: You do not have an account on this Pressbooks network. ';
-			$message .= "To request an account, please contact your institution's Pressbooks Network Manager: {$network_manager_contact}.";
+			$email = get_blog_option( get_main_site_id(), 'pb_network_contact_email', get_site_option( 'admin_email', '' ) );
+			$email = ( ! empty( $email ) ? ": {$email}" : '.' );
+			$message = sprintf( __( "Unable to log in: You do not have an account on this Pressbooks network. To request an account, please contact your institution's Pressbooks Network Manager", 'pressbooks-cas-sso' ), $email );
 		} else {
 			$message = __( 'CAS authentication failed.', 'pressbooks-cas-sso' );
 		}

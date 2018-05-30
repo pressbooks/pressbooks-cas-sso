@@ -18,7 +18,6 @@ class CasTest extends \WP_UnitTestCase {
 			'button_text' => '',
 			'bypass' => 0,
 			'forced_redirection' => 0,
-			'network_manager_contact' => 'Administrator (ops@pressbooks.test)',
 		];
 	}
 
@@ -176,11 +175,10 @@ class CasTest extends \WP_UnitTestCase {
 	}
 
 	public function test_authenticationFailedMessage() {
-		$msg = $this->cas->authenticationFailedMessage( 'create', 'Jane Doe (j.doe@university.edu)' );
+		$msg = $this->cas->authenticationFailedMessage( 'create' );
 		$this->assertEquals( 'CAS authentication failed.', $msg );
-		$msg = $this->cas->authenticationFailedMessage( 'refuse', 'Jane Doe (j.doe@university.edu)' );
+		$msg = $this->cas->authenticationFailedMessage( 'refuse' );
 		$this->assertContains( 'To request an account', $msg );
-		$this->assertContains( 'Jane Doe (j.doe@university.edu)', $msg );
 	}
 
 }

@@ -32,15 +32,6 @@
                     </select>
                 </td>
             </tr>
-            <tr>
-                <th><label for="network_manager_contact">{{ __('Main Contact', 'pressbooks-cas-sso') }}</label></th>
-                <td>
-                    <input name="network_manager_contact" id="network_manager_contact" type="text" value="{{ $options['network_manager_contact'] }}" class="regular-text"/>
-                    <p>
-                        <em>{{ __("Name and contact of the main network manager users should contact if they need help.", 'pressbooks-cas-sso') }}</em>
-                    </p>
-                </td>
-            </tr>
         </table>
         <h2>{{ __('Optional Information', 'pressbooks-cas-sso') }}</h2>
         <table class="form-table">
