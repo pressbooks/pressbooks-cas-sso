@@ -47,10 +47,10 @@ Then, activate and configure the plugin at the Network level.
 
 
 ### 0.4.0 
-* Redirect to the page the user signed in from (network homepage or book homepage)
-* Clarify error message when CAS is set to "Refuse Access"
-* Fix unwanted slashes when button text has apostrophe
-* Fix Travis CI build script
+* Redirect to the page the user signed in from (network homepage or book homepage).
+* Clarify error message when CAS is set to "Refuse Access".
+* Fix unwanted slashes when button text has apostrophe.
+* Fix Travis CI build script.
 
 
 ### 0.3.0 
