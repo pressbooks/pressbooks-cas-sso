@@ -87,6 +87,7 @@ class Admin {
 				] ) ) ) : $fallback['button_text'],
 				'bypass' => ! empty( $_POST['bypass'] ) ? 1 : 0,
 				'forced_redirection' => ! empty( $_POST['forced_redirection'] ) ? 1 : 0,
+				'network_manager_contact' => trim( $_POST['network_manager_contact'] ),
 			];
 			$result = update_site_option( self::OPTION, $update );
 			return $result;
@@ -95,7 +96,7 @@ class Admin {
 	}
 
 	/**
-	 * @return array{server_version: string, server_hostname: string, server_port: int, server_path: path, provision: refuse, email_domain: string, button_text: string, bypass: bool, forced_redirection: bool}
+	 * @return array{server_version: string, server_hostname: string, server_port: int, server_path: string, provision: string, email_domain: string, button_text: string, bypass: bool, forced_redirection: bool}
 	 */
 	public function getOptions() {
 
@@ -127,6 +128,9 @@ class Admin {
 		}
 		if ( empty( $options['forced_redirection'] ) ) {
 			$options['forced_redirection'] = false;
+		}
+		if ( empty( $options['network_manager_contact'] ) ) {
+			$options['network_manager_contact'] = 'Administrator (' . get_site_option( 'admin_email', '' ) . ')';
 		}
 
 		return $options;

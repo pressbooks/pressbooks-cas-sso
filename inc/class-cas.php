@@ -47,6 +47,11 @@ class CAS {
 	private $admin;
 
 	/**
+	 * @var array
+	 */
+	private $options = [];
+
+	/**
 	 * @var bool
 	 */
 	private $forcedRedirection = false;
@@ -148,6 +153,7 @@ class CAS {
 		$this->bypass = (bool) $options['bypass'];
 		$this->forcedRedirection = (bool) $options['forced_redirection'];
 		$this->admin = $admin;
+		$this->options = $options;
 		if ( $this->forcedRedirection ) {
 			// TODO:
 			// This hijacks the same logic as seen in the shibboleth plugin.
@@ -233,13 +239,30 @@ class CAS {
 					}
 				}
 			}
+			$message = $this->authenticationFailedMessage( $this->options['provision'], $this->options['network_manager_contact'] );
 			if ( $this->forcedRedirection ) {
-				wp_die( __( 'CAS authentication failed.', 'pressbooks-cas-sso' ) );
+				wp_die( $message );
 			} else {
-				return new \WP_Error( 'authentication_failed', __( 'CAS authentication failed.', 'pressbooks-cas-sso' ) );
+				return new \WP_Error( 'authentication_failed', $message );
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * @param string $provision
+	 * @param string $network_manager_contact
+	 *
+	 * @return string
+	 */
+	public function authenticationFailedMessage( $provision, $network_manager_contact ) {
+		if ( $provision === 'refuse' ) {
+			$message = 'Unable to log in: You do not have an account on this Pressbooks network. ';
+			$message .= "To request an account, please contact your institution's Pressbooks Network Manager: {$network_manager_contact}.";
+		} else {
+			$message = __( 'CAS authentication failed.', 'pressbooks-cas-sso' );
+		}
+		return wp_strip_all_tags( $message );
 	}
 
 	/**
@@ -277,7 +300,7 @@ class CAS {
 
 		$url = phpCAS::getServerLoginURL();
 
-		$button_text = $this->admin->getOptions()['button_text'];
+		$button_text = $this->options['button_text'];
 		if ( empty( $button_text ) ) {
 			$button_text = __( 'Connect via CAS', 'pressbooks-cas-sso' );
 		}

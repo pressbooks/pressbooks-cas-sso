@@ -7,6 +7,21 @@ class CasTest extends \WP_UnitTestCase {
 	 */
 	protected $cas;
 
+	protected function getTestOptions() {
+		return [
+			'server_version' => 'CAS_VERSION_2_0',
+			'server_hostname' => 'cas.server.edu',
+			'server_port' => 443,
+			'server_path' => '/',
+			'provision' => 'create',
+			'email_domain' => '',
+			'button_text' => '',
+			'bypass' => 0,
+			'forced_redirection' => 0,
+			'network_manager_contact' => 'Administrator (ops@pressbooks.test)',
+		];
+	}
+
 	/**
 	 * @return \Pressbooks\CAS\Admin
 	 */
@@ -17,19 +32,7 @@ class CasTest extends \WP_UnitTestCase {
 			->getMock();
 		$stub1
 			->method( 'getOptions' )
-			->willReturn(
-				[
-					'server_version' => 'CAS_VERSION_2_0',
-					'server_hostname' => 'cas.server.edu',
-					'server_port' => 443,
-					'server_path' => '/',
-					'provision' => 'create',
-					'email_domain' => '',
-					'button_text' => '',
-					'bypass' => 0,
-					'forced_redirection' => 0,
-				]
-			);
+			->willReturn( $this->getTestOptions() );
 
 		return $stub1;
 	}
@@ -170,6 +173,14 @@ class CasTest extends \WP_UnitTestCase {
 		unset( $_SESSION[ $this->cas::SIGN_IN_PAGE ] );
 		$this->cas->trackHomeUrl();
 		$this->assertNotEmpty( $_SESSION[ $this->cas::SIGN_IN_PAGE ] );
+	}
+
+	public function test_authenticationFailedMessage() {
+		$msg = $this->cas->authenticationFailedMessage( 'create', 'Jane Doe (j.doe@university.edu)' );
+		$this->assertEquals( 'CAS authentication failed.', $msg );
+		$msg = $this->cas->authenticationFailedMessage( 'refuse', 'Jane Doe (j.doe@university.edu)' );
+		$this->assertContains( 'To request an account', $msg );
+		$this->assertContains( 'Jane Doe (j.doe@university.edu)', $msg );
 	}
 
 }

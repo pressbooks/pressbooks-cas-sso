@@ -32,6 +32,15 @@
                     </select>
                 </td>
             </tr>
+            <tr>
+                <th><label for="network_manager_contact">{{ __('Main Contact', 'pressbooks-cas-sso') }}</label></th>
+                <td>
+                    <input name="network_manager_contact" id="network_manager_contact" type="text" value="{{ $options['network_manager_contact'] }}" class="regular-text"/>
+                    <p>
+                        <em>{{ __("Name and contact of the main network manager users should contact if they need help.", 'pressbooks-cas-sso') }}</em>
+                    </p>
+                </td>
+            </tr>
         </table>
         <h2>{{ __('Optional Information', 'pressbooks-cas-sso') }}</h2>
         <table class="form-table">
@@ -40,7 +49,7 @@
                 <td>
                     <input name="email_domain" id="email_domain" type="text" value="{{ $options['email_domain'] }}" class="regular-text"/>
                     <p>
-                        <em>{{ __("If your users' emails are based on their NetIDs (ex: NetID@university.edu), specify your institution's email domain here to generate your users' email adresses.", 'pressbooks-cas-sso') }}</em>
+                        <em>{{ __("If your users' emails are based on their NetIDs (ex: NetID@university.edu), specify your institution's email domain here to generate your users' email addresses.", 'pressbooks-cas-sso') }}</em>
                     </p>
                 </td>
             </tr>
