@@ -179,6 +179,7 @@ class CasTest extends \WP_UnitTestCase {
 		$this->assertEquals( 'CAS authentication failed.', $msg );
 		$msg = $this->cas->authenticationFailedMessage( 'refuse' );
 		$this->assertContains( 'To request an account', $msg );
+		$this->assertContains( '@', $msg );
 	}
 
 }
