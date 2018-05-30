@@ -40,7 +40,7 @@
                 <td>
                     <input name="email_domain" id="email_domain" type="text" value="{{ $options['email_domain'] }}" class="regular-text"/>
                     <p>
-                        <em>{{ __("If your users' emails are based on their NetIDs (ex: NetID@university.edu), specify your institution's email domain here to generate your users' email adresses.", 'pressbooks-cas-sso') }}</em>
+                        <em>{{ __("If your users' emails are based on their NetIDs (ex: NetID@university.edu), specify your institution's email domain here to generate your users' email addresses.", 'pressbooks-cas-sso') }}</em>
                     </p>
                 </td>
             </tr>

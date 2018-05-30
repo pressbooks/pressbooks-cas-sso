@@ -95,7 +95,7 @@ class Admin {
 	}
 
 	/**
-	 * @return array{server_version: string, server_hostname: string, server_port: int, server_path: path, provision: refuse, email_domain: string, button_text: string, bypass: bool, forced_redirection: bool}
+	 * @return array{server_version: string, server_hostname: string, server_port: int, server_path: string, provision: string, email_domain: string, button_text: string, bypass: bool, forced_redirection: bool}
 	 */
 	public function getOptions() {
 
