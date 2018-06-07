@@ -4,7 +4,7 @@ Donate link: https://opencollective.com/pressbooks/
 Tags: pressbooks, sso, cas
 Requires at least: 4.9.5
 Tested up to: 4.9.5
-Stable tag: 0.4.0
+Stable tag: 0.4.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,6 +39,9 @@ Then, activate and configure the plugin at the Network level.
 ![Pressbooks CAS Administration.](screenshot-1.png)
 
 == Changelog ==
+
+= 0.4.1 =
+* Fix build.
 
 = 0.4.0 =
 * Redirect to the page the user signed in from (network homepage or book homepage).
