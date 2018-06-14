@@ -182,4 +182,9 @@ class CasTest extends \WP_UnitTestCase {
 		$this->assertContains( '@', $msg );
 	}
 
+	public function test_getAdminEmail() {
+		$email = $this->cas->getAdminEmail();
+		$this->assertContains( '@', $email );
+	}
+
 }

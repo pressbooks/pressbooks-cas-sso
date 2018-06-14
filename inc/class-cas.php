@@ -258,7 +258,7 @@ class CAS {
 	 */
 	public function authenticationFailedMessage( $provision ) {
 		if ( $provision === 'refuse' ) {
-			$email = get_blog_option( get_main_site_id(), 'pb_network_contact_email', get_site_option( 'admin_email', '.' ) );
+			$email = $this->getAdminEmail();
 			$email = ( ! empty( $email ) ? ": {$email}" : '.' );
 			/* translators: %s Pressbooks Network Manager email if found. */
 			$message = sprintf( __( "Unable to log in: You do not have an account on this Pressbooks network. To request an account, please contact your institution's Pressbooks Network Manager%s", 'pressbooks-cas-sso' ), $email );
@@ -266,6 +266,21 @@ class CAS {
 			$message = __( 'CAS authentication failed.', 'pressbooks-cas-sso' );
 		}
 		return wp_strip_all_tags( $message );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAdminEmail() {
+		$main_site_id = get_main_site_id();
+		$email = get_blog_option( $main_site_id, 'pb_network_contact_email' ); // Aldine
+		if ( empty( $email ) ) {
+			$email = get_blog_option( $main_site_id, 'admin_email' ); // Main Site
+			if ( empty( $email ) ) {
+				$email = get_site_option( 'admin_email' ); // Main Network
+			}
+		}
+		return $email ? $email : '';
 	}
 
 	/**
