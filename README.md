@@ -4,7 +4,7 @@
 **Tags:** pressbooks, sso, cas  
 **Requires at least:** 4.9.5  
 **Tested up to:** 4.9.5  
-**Stable tag:** 0.4.1  
+**Stable tag:** 1.0.0  
 **License:** GPLv3 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -32,6 +32,9 @@ Or, download the latest version from the releases page and unzip it into your Wo
 
 Then, activate and configure the plugin at the Network level.
 
+Read the developer documentation for more info: https://docs.pressbooks.org/integrations/pressbooks-cas-sso
+
+
 
 ### Optional Config 
 
@@ -44,6 +47,11 @@ Then, activate and configure the plugin at the Network level.
 
 
 ## Changelog 
+
+
+### 1.0.0 
+* Semantic versioning starts here.
+* Improve code to get contact email.
 
 
 ### 0.4.1 

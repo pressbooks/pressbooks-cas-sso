@@ -4,7 +4,7 @@ Donate link: https://opencollective.com/pressbooks/
 Tags: pressbooks, sso, cas
 Requires at least: 4.9.5
 Tested up to: 4.9.5
-Stable tag: 0.4.1
+Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -30,6 +30,9 @@ Or, download the latest version from the releases page and unzip it into your Wo
 
 Then, activate and configure the plugin at the Network level.
 
+Read the developer documentation for more info: https://docs.pressbooks.org/integrations/pressbooks-cas-sso
+
+
 = Optional Config =
 
     putenv( 'PB_CAS_CERT_PATH=/path/to/cachain.pem' ); // Path to the CA chain that issued the CAS server certificate
@@ -39,6 +42,10 @@ Then, activate and configure the plugin at the Network level.
 ![Pressbooks CAS Administration.](screenshot-1.png)
 
 == Changelog ==
+
+= 1.0.0 =
+* Semantic versioning starts here.
+* Improve code to get contact email.
 
 = 0.4.1 =
 * Fix build.
