@@ -3,7 +3,7 @@ Contributors: conner_bw, greatislander
 Donate link: https://opencollective.com/pressbooks/
 Tags: pressbooks, sso, cas
 Requires at least: 4.9.5
-Tested up to: 4.9.5
+Tested up to: 4.9
 Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -64,5 +64,5 @@ Read the developer documentation for more info: https://docs.pressbooks.org/inte
 
 == Upgrade Notice ==
 
-= 0.2.0 =
+= 1.0.0 =
 * Pressbooks CAS Single Sign-On requires Pressbooks >= 5.3.0 and WordPress >= 4.9.5.
