@@ -219,7 +219,7 @@ class CAS {
 				if ( phpCAS::isAuthenticated() ) {
 					$net_id = phpCAS::getUser();
 					$email = "{$net_id}@{$this->emailDomain}";
-					ob_get_clean();
+					ob_end_clean();
 					remove_filter( 'authenticate', [ $this, 'authenticate' ], 10 ); // Fix infinite loop
 					$this->handleLoginAttempt( $net_id, $email );
 				}
@@ -239,6 +239,7 @@ class CAS {
 					}
 				}
 			}
+			@ob_end_clean(); // @codingStandardsIgnoreLine
 			$message = $this->authenticationFailedMessage( $this->options['provision'] );
 			if ( $this->forcedRedirection ) {
 				wp_die( $message );

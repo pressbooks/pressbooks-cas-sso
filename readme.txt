@@ -26,7 +26,7 @@ user can be created, or access can be refused, depending on the configuration.
 composer require pressbooks/pressbooks-cas-sso
 ```
 
-Or, download the latest version from the releases page and unzip it into your WordPress plugin directory): https://github.com/pressbooks/pressbooks-cas-sso/releases
+Or, download the latest version from the releases page and unzip it into your WordPress plugin directory: https://github.com/pressbooks/pressbooks-cas-sso/releases
 
 Then, activate and configure the plugin at the Network level.
 
