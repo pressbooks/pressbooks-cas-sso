@@ -2,9 +2,9 @@
 Contributors: conner_bw, greatislander
 Donate link: https://opencollective.com/pressbooks/
 Tags: pressbooks, sso, cas
-Requires at least: 4.9.5
-Tested up to: 4.9
-Stable tag: 1.0.0
+Requires at least: 4.9.7
+Tested up to: 4.9.7
+Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -42,6 +42,10 @@ Read the developer documentation for more info: https://docs.pressbooks.org/inte
 ![Pressbooks CAS Administration.](screenshot-1.png)
 
 == Changelog ==
+= 1.1.0 =
+* Bump minimum PHP to 7.1 ([#17](https://github.com/pressbooks/pressbooks-cas-sso/issues/17)): [#18](https://github.com/pressbooks/pressbooks-cas-sso/pull/18)
+* Switch to Pressbooks Coding Standards ([#16](https://github.com/pressbooks/pressbooks-cas-sso/issues/16)): [#18](https://github.com/pressbooks/pressbooks-cas-sso/pull/18)
+* Switch to wp dist-archive for release build ([#14](https://github.com/pressbooks/pressbooks-cas-sso/issues/14)): [#18](https://github.com/pressbooks/pressbooks-cas-sso/pull/18)
 
 = 1.0.0 =
 * Semantic versioning starts here.
