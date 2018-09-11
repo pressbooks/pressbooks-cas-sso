@@ -7,7 +7,7 @@ Version: 1.1.0
 Author: Pressbooks (Book Oven Inc.)
 Author URI: https://pressbooks.org
 Requires PHP: 7.1
-Pressbooks tested up to: 5.4.3
+Pressbooks tested up to: 5.5.0
 Text Domain: pressbooks-cas-sso
 License: GPL v3 or later
 Network: True

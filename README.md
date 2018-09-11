@@ -2,8 +2,8 @@
 **Contributors:** conner_bw, greatislander  
 **Donate link:** https://opencollective.com/pressbooks/  
 **Tags:** pressbooks, sso, cas  
-**Requires at least:** 4.9.7  
-**Tested up to:** 4.9.7  
+**Requires at least:** 4.9.8  
+**Tested up to:** 4.9.8  
 **Stable tag:** 1.1.0  
 **License:** GPLv3 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html  
