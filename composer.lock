@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "ccad9be2b6aecf02b54aca13161cab77",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/apereo/phpCAS.git",
-                "reference": "7a949dee79aaadc16161d7d4863b5c0871546222"
+                "reference": "5ad9c1e8d7b84b943ba372c8b0b54a8f49537cc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apereo/phpCAS/zipball/7a949dee79aaadc16161d7d4863b5c0871546222",
-                "reference": "7a949dee79aaadc16161d7d4863b5c0871546222",
+                "url": "https://api.github.com/repos/apereo/phpCAS/zipball/5ad9c1e8d7b84b943ba372c8b0b54a8f49537cc4",
+                "reference": "5ad9c1e8d7b84b943ba372c8b0b54a8f49537cc4",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,7 @@
                 "cas",
                 "jasig"
             ],
-            "time": "2018-03-15T13:17:25+00:00"
+            "time": "2018-09-15T12:07:11+00:00"
         },
         {
             "name": "composer/installers",
