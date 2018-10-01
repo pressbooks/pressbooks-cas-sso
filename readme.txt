@@ -75,4 +75,4 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 == Upgrade Notice ==
 
 = 1.1.1 =
-* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.5.1 and WordPress >= 4.9.8.
+* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.5.2 and WordPress >= 4.9.8.
