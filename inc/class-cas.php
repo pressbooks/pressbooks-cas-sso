@@ -221,6 +221,13 @@ class CAS {
 					$email = "{$net_id}@{$this->emailDomain}";
 					ob_end_clean();
 					remove_filter( 'authenticate', [ $this, 'authenticate' ], 10 ); // Fix infinite loop
+					/**
+					 * @since 1.1.1
+					 *
+					 * @param string $email
+					 * @param string $plugin_name
+					 */
+					$email = apply_filters( 'pb_integrations_multidomain_email', $email, 'pressbooks-cas-sso' );
 					$this->handleLoginAttempt( $net_id, $email );
 				}
 			} catch ( \Exception $e ) {

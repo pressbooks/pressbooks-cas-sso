@@ -4,7 +4,7 @@ Donate link: https://opencollective.com/pressbooks/
 Tags: pressbooks, sso, cas
 Requires at least: 4.9.8
 Tested up to: 4.9.8
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -37,11 +37,17 @@ Read the developer documentation for more info: https://docs.pressbooks.org/inte
 
     putenv( 'PB_CAS_CERT_PATH=/path/to/cachain.pem' ); // Path to the CA chain that issued the CAS server certificate
 
+Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/phpCAS) library, [many other configuration variables can be tweaked](https://github.com/apereo/phpCAS/tree/master/docs/examples).
+
 == Screenshots ==
 
 ![Pressbooks CAS Administration.](screenshot-1.png)
 
 == Changelog ==
+= 1.1.1 =
+ * New `pb_integrations_multidomain_email` filter
+ * Update apereo/phpCAS to 5ad9c1e
+
 = 1.1.0 =
 * Bump minimum PHP to 7.1 ([#17](https://github.com/pressbooks/pressbooks-cas-sso/issues/17)): [#18](https://github.com/pressbooks/pressbooks-cas-sso/pull/18)
 * Switch to Pressbooks Coding Standards ([#16](https://github.com/pressbooks/pressbooks-cas-sso/issues/16)): [#18](https://github.com/pressbooks/pressbooks-cas-sso/pull/18)
@@ -68,5 +74,5 @@ Read the developer documentation for more info: https://docs.pressbooks.org/inte
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.3.0 and WordPress >= 4.9.5.
+= 1.1.1 =
+* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.5.1 and WordPress >= 4.9.8.
