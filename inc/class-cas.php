@@ -225,9 +225,10 @@ class CAS {
 					 * @since 1.1.1
 					 *
 					 * @param string $email
+					 * @param string $username
 					 * @param string $plugin_name
 					 */
-					$email = apply_filters( 'pb_integrations_multidomain_email', $email, 'pressbooks-cas-sso' );
+					$email = apply_filters( 'pb_integrations_multidomain_email', $email, $net_id, 'pressbooks-cas-sso' );
 					$this->handleLoginAttempt( $net_id, $email );
 				}
 			} catch ( \Exception $e ) {
