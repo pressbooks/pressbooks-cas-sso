@@ -74,20 +74,39 @@ class Admin {
 	 */
 	public function saveOptions() {
 		if ( ! empty( $_POST ) && check_admin_referer( 'pb-cas-sso' ) ) {
-			$fallback = $this->getOptions();
-			$update = [
-				'server_version' => trim( $_POST['server_version'] ),
-				'server_hostname' => preg_replace( '#^https?://#', '', trim( $_POST['server_hostname'] ) ),
-				'server_port' => (int) $_POST['server_port'],
-				'server_path' => trailingslashit( trim( $_POST['server_path'] ) ),
-				'provision' => in_array( $_POST['provision'], [ 'refuse', 'create' ], true ) ? $_POST['provision'] : 'refuse',
-				'email_domain' => ltrim( trim( $_POST['email_domain'] ), '@' ),
-				'button_text' => isset( $_POST['button_text'] ) ? trim( wp_unslash( wp_kses( $_POST['button_text'], [
+			$_POST = array_map( 'trim', $_POST );
+			$update = [];
+
+			if ( isset( $_POST['server_version'] ) ) {
+				$update['server_version'] = $_POST['server_version'];
+			}
+			if ( isset( $_POST['server_hostname'] ) ) {
+				$update['server_hostname'] = preg_replace( '#^https?://#', '', $_POST['server_hostname'] );
+			}
+			if ( isset( $_POST['server_port'] ) ) {
+				$update['server_port'] = (int) $_POST['server_port'];
+			}
+			if ( isset( $_POST['server_path'] ) ) {
+				$update['server_path'] = trailingslashit( $_POST['server_path'] );
+			}
+			if ( isset( $_POST['provision'] ) ) {
+				$update['provision'] = in_array( $_POST['provision'], [ 'refuse', 'create' ], true ) ? $_POST['provision'] : 'refuse';
+			}
+			if ( isset( $_POST['email_domain'] ) ) {
+				$update['email_domain'] = ltrim( $_POST['email_domain'], '@' );
+			}
+			if ( isset( $_POST['button_text'] ) ) {
+				$update['button_text'] = wp_unslash( wp_kses( $_POST['button_text'], [
 					'br' => [],
-				] ) ) ) : $fallback['button_text'],
-				'bypass' => ! empty( $_POST['bypass'] ) ? 1 : 0,
-				'forced_redirection' => ! empty( $_POST['forced_redirection'] ) ? 1 : 0,
-			];
+				] ) );
+			}
+			// Checkboxes
+			$update['bypass'] = ! empty( $_POST['bypass'] ) ? 1 : 0;
+			$update['forced_redirection'] = ! empty( $_POST['forced_redirection'] ) ? 1 : 0;
+
+			$fallback = $this->getOptions();
+			$update = array_merge( $fallback, $update );
+
 			$result = update_site_option( self::OPTION, $update );
 			return $result;
 		}
