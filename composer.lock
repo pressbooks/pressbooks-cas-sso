@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/apereo/phpCAS.git",
-                "reference": "5ad9c1e8d7b84b943ba372c8b0b54a8f49537cc4"
+                "reference": "6d9ed173111d36c37f9f0a0eb875ba9ed41a7915"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/apereo/phpCAS/zipball/5ad9c1e8d7b84b943ba372c8b0b54a8f49537cc4",
-                "reference": "5ad9c1e8d7b84b943ba372c8b0b54a8f49537cc4",
+                "url": "https://api.github.com/repos/apereo/phpCAS/zipball/6d9ed173111d36c37f9f0a0eb875ba9ed41a7915",
+                "reference": "6d9ed173111d36c37f9f0a0eb875ba9ed41a7915",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,7 @@
                 "cas",
                 "jasig"
             ],
-            "time": "2018-09-15T12:07:11+00:00"
+            "time": "2018-12-30T21:07:48+00:00"
         },
         {
             "name": "composer/installers",
@@ -183,16 +183,16 @@
         },
         {
             "name": "yahnis-elsts/plugin-update-checker",
-            "version": "v4.4",
+            "version": "v4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
-                "reference": "da4286343601e1f5c01836e1d51e1c57cedb0f6d"
+                "reference": "d98d6bc6caac4b46b61186447a947323a466a021"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/da4286343601e1f5c01836e1d51e1c57cedb0f6d",
-                "reference": "da4286343601e1f5c01836e1d51e1c57cedb0f6d",
+                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/d98d6bc6caac4b46b61186447a947323a466a021",
+                "reference": "d98d6bc6caac4b46b61186447a947323a466a021",
                 "shasum": ""
             },
             "require": {
@@ -224,7 +224,7 @@
                 "theme updates",
                 "wordpress"
             ],
-            "time": "2017-12-22T10:39:11+00:00"
+            "time": "2018-12-30T10:38:32+00:00"
         }
     ],
     "packages-dev": [
