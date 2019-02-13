@@ -1,6 +1,6 @@
 <?php
 
-namespace Pressbooks\CAS;
+namespace PressbooksCasSso;
 
 /**
  * @return \Jenssegers\Blade\Blade

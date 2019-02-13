@@ -30,7 +30,7 @@ if ( ! function_exists( 'pb_meets_minimum_requirements' ) && ! @include_once( WP
 // -------------------------------------------------------------------------------------------------------------------
 // Class autoloader
 // -------------------------------------------------------------------------------------------------------------------
-\HM\Autoloader\register_class_path( 'Pressbooks\CAS', __DIR__ . '/inc' );
+\HM\Autoloader\register_class_path( 'PressbooksCasSso', __DIR__ . '/inc' );
 
 // -------------------------------------------------------------------------------------------------------------------
 // Composer autoloader
@@ -56,6 +56,6 @@ require( __DIR__ . '/inc/namespace.php' );
 // Hooks
 // -------------------------------------------------------------------------------------------------------------------
 
-add_action( 'plugins_loaded', [ '\Pressbooks\CAS\Updates', 'init' ] );
-add_action( 'plugins_loaded', [ '\Pressbooks\CAS\CAS', 'init' ] );
-add_action( 'plugins_loaded', [ '\Pressbooks\CAS\Admin', 'init' ] );
+add_action( 'plugins_loaded', [ '\PressbooksCasSso\Updates', 'init' ] );
+add_action( 'plugins_loaded', [ '\PressbooksCasSso\CAS', 'init' ] );
+add_action( 'plugins_loaded', [ '\PressbooksCasSso\Admin', 'init' ] );

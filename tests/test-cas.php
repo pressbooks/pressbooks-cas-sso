@@ -3,7 +3,7 @@
 class CasTest extends \WP_UnitTestCase {
 
 	/**
-	 * @var \Pressbooks\CAS\CAS
+	 * @var \PressbooksCasSso\CAS
 	 */
 	protected $cas;
 
@@ -22,12 +22,12 @@ class CasTest extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * @return \Pressbooks\CAS\Admin
+	 * @return \PressbooksCasSso\Admin
 	 */
 	protected function getMockAdmin() {
 
 		$stub1 = $this
-			->getMockBuilder( '\Pressbooks\CAS\Admin' )
+			->getMockBuilder( '\PressbooksCasSso\Admin' )
 			->getMock();
 		$stub1
 			->method( 'getOptions' )
@@ -37,7 +37,7 @@ class CasTest extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * @return \Pressbooks\CAS\CAS
+	 * @return \PressbooksCasSso\CAS
 	 */
 	protected function getCas() {
 
@@ -48,7 +48,7 @@ class CasTest extends \WP_UnitTestCase {
 		ini_set( 'display_errors', 0 );
 
 		CAS_GracefullTerminationException::throwInsteadOfExiting();
-		$cas = new \Pressbooks\CAS\CAS( $this->getMockAdmin() );
+		$cas = new \PressbooksCasSso\CAS( $this->getMockAdmin() );
 
 		PHPUnit_Framework_Error_Notice::$enabled = true;
 		PHPUnit_Framework_Error_Warning::$enabled = true;

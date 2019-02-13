@@ -3,7 +3,7 @@
 class AdminTest extends \WP_UnitTestCase {
 
 	/**
-	 * @var \Pressbooks\CAS\Admin
+	 * @var \PressbooksCasSso\Admin
 	 */
 	protected $admin;
 
@@ -12,7 +12,7 @@ class AdminTest extends \WP_UnitTestCase {
 	 */
 	public function setUp() {
 		parent::setUp();
-		$this->admin = new \Pressbooks\CAS\Admin();
+		$this->admin = new \PressbooksCasSso\Admin();
 	}
 
 	public function test_addMenu() {
