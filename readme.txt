@@ -1,10 +1,9 @@
 === Pressbooks CAS Single Sign-On ===
 Contributors: conner_bw, greatislander
-Donate link: https://opencollective.com/pressbooks/
 Tags: pressbooks, sso, cas
-Requires at least: 4.9.8
-Tested up to: 4.9.8
-Stable tag: 1.1.1
+Requires at least: 5.0.3
+Tested up to: 5.0.3
+Stable tag: 1.1.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -17,8 +16,9 @@ CAS Single Sign-On integration for Pressbooks.
 Plugin to integrate Pressbooks with [Central AuthenticationService (CAS)](http://en.wikipedia.org/wiki/Central_Authentication_Service) single sign-on architectures.
 
 Users who attempt to login to Pressbooks are redirected to the central CAS sign-on screen. After the user’s credentials are verified, they are redirected back to the Pressbooks
-network. If the CAS username matches the Pressbooks username, the user is recognized as valid and allowed access. If the CAS user does not have an account in Pressbooks, a new
-user can be created, or access can be refused, depending on the configuration.
+network. If we match a Pressbooks user by CAS username (stored in user_meta table), the user is recognized as valid and allowed access. If no match, then try to match a Pressbooks
+user by email (and store a successful match in user_meta table for next time). If the CAS user does not have an account in Pressbooks, a new user can be created, or access can be
+refused, depending on the configuration.
 
 == Installation ==
 
@@ -30,12 +30,17 @@ Or, download the latest version from the releases page and unzip it into your Wo
 
 Then, activate and configure the plugin at the Network level.
 
-Read the developer documentation for more info: https://docs.pressbooks.org/integrations/pressbooks-cas-sso
+Read the integrations documentation for more info: https://docs.pressbooks.org/integrations/cas-sso/
 
+= Security Considerations =
 
-= Optional Config =
+Set the `PB_CAS_CERT_PATH` environment variable to configure validation of the CAS server. Used by `CURLOPT_CAINFO` for peer and host verification:
 
     putenv( 'PB_CAS_CERT_PATH=/path/to/cachain.pem' ); // Path to the CA chain that issued the CAS server certificate
+
+= Advanced Configuration =
+
+The email can be filtered, example: `add_filter( 'pb_integrations_multidomain_email', function( $email, $uid, $plugin ) { /* Custom use case, return $email */ }, 10, 3 );`
 
 Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/phpCAS) library, [many other configuration variables can be tweaked](https://github.com/apereo/phpCAS/tree/master/docs/examples).
 
@@ -44,6 +49,10 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 ![Pressbooks CAS Administration.](screenshot-1.png)
 
 == Changelog ==
+= 1.1.2 =
+ * Update README
+ * Update apereo/phpCAS to 2aaad20
+
 = 1.1.1 =
  * New `pb_integrations_multidomain_email` filter
  * Update apereo/phpCAS to 5ad9c1e
@@ -74,5 +83,5 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 
 == Upgrade Notice ==
 
-= 1.1.1 =
-* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.5.2 and WordPress >= 4.9.8.
+= 1.1.2 =
+* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.6.5 and WordPress >= 5.0.3
