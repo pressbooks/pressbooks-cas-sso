@@ -9,9 +9,9 @@ class NamespaceTest extends \WP_UnitTestCase {
 	public function test_classInitConventions() {
 		global $wp_filter;
 		$classes = [
-			'\Pressbooks\CAS\Admin',
-			'\Pressbooks\CAS\CAS',
-			'\Pressbooks\CAS\Updates',
+			'\PressbooksCasSso\Admin',
+			'\PressbooksCasSso\CAS',
+			'\PressbooksCasSso\Updates',
 		];
 		foreach ( $classes as $class ) {
 			$result = $class::init();
@@ -23,7 +23,7 @@ class NamespaceTest extends \WP_UnitTestCase {
 
 
 	public function test_blade() {
-		$blade = \Pressbooks\CAS\blade();
+		$blade = \PressbooksCasSso\blade();
 		$this->assertTrue( is_object( $blade ) );
 	}
 

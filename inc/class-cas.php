@@ -1,6 +1,6 @@
 <?php
 
-namespace Pressbooks\CAS;
+namespace PressbooksCasSso;
 
 use phpCAS as phpCAS;
 use PressbooksMix\Assets;
