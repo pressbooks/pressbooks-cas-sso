@@ -58,6 +58,7 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 
 ### 1.2.0
  * Refactor code to respect Pressbooks coding standards 1.0.0
+ * Add localization support
  * Fix an issue with GitHub updater not always working
  * Update dependencies to latest versions
 
