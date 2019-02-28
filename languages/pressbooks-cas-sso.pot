@@ -1,0 +1,142 @@
+# Copyright (C) 2019 Pressbooks (Book Oven Inc.)
+# This file is distributed under the same license as the Pressbooks CAS Single Sign-On plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Pressbooks CAS Single Sign-On 1.2.0\n"
+"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-02-28T19:13:18+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: pressbooks-cas-sso\n"
+
+#. Plugin Name of the plugin
+msgid "Pressbooks CAS Single Sign-On"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://pressbooks.org"
+msgstr ""
+
+#. Description of the plugin
+msgid "CAS Single Sign-On integration for Pressbooks."
+msgstr ""
+
+#. Author of the plugin
+msgid "Pressbooks (Book Oven Inc.)"
+msgstr ""
+
+#: inc/class-admin.php:47
+#: inc/class-admin.php:48
+msgid "CAS"
+msgstr ""
+
+#: inc/class-cas.php:97
+msgid "CAS is not configured."
+msgstr ""
+
+#. translators: %s Pressbooks Network Manager email if found.
+#: inc/class-cas.php:273
+msgid "Unable to log in: You do not have an account on this Pressbooks network. To request an account, please contact your institution's Pressbooks Network Manager%s"
+msgstr ""
+
+#: inc/class-cas.php:275
+msgid "CAS authentication failed."
+msgstr ""
+
+#: inc/class-cas.php:332
+msgid "Connect via CAS"
+msgstr ""
+
+#: inc/class-cas.php:340
+msgid "Or"
+msgstr ""
+
+#: inc/class-cas.php:372
+msgid "Logged in!"
+msgstr ""
+
+#: inc/class-cas.php:534
+msgid "Registered and logged in!"
+msgstr ""
+
+#: templates/admin.blade.php:2
+msgid "Central Authentication Service (CAS)"
+msgstr ""
+
+#: templates/admin.blade.php:7
+msgid "CAS Version"
+msgstr ""
+
+#: templates/admin.blade.php:16
+msgid "Server Hostname"
+msgstr ""
+
+#: templates/admin.blade.php:20
+msgid "Server Port"
+msgstr ""
+
+#: templates/admin.blade.php:24
+msgid "Server Path"
+msgstr ""
+
+#: templates/admin.blade.php:28
+msgid "If the CAS user does not have a Pressbooks account"
+msgstr ""
+
+#: templates/admin.blade.php:30
+msgid "Refuse Access"
+msgstr ""
+
+#: templates/admin.blade.php:31
+msgid "Add New User"
+msgstr ""
+
+#: templates/admin.blade.php:36
+msgid "Optional Information"
+msgstr ""
+
+#: templates/admin.blade.php:39
+msgid "Email Domain"
+msgstr ""
+
+#: templates/admin.blade.php:43
+msgid "If your users' emails are based on their NetIDs (ex: NetID@university.edu), specify your institution's email domain here to generate your users' email addresses."
+msgstr ""
+
+#: templates/admin.blade.php:48
+msgid " Bypass"
+msgstr ""
+
+#: templates/admin.blade.php:56
+msgid " Forced Redirection"
+msgstr ""
+
+#: templates/admin.blade.php:59
+msgid "Hide the Pressbooks login page."
+msgstr ""
+
+#: templates/admin.blade.php:63
+msgid "Customize Button Text"
+msgstr ""
+
+#: templates/admin.blade.php:67
+msgid "Change the [ Connect via CAS ] button to something more user-friendly."
+msgstr ""
+
+#: pressbooks-cas-sso.php:22
+msgid "Cannot find Pressbooks install."
+msgstr ""
+
+#: pressbooks-cas-sso.php:42
+msgid "Dependencies Missing"
+msgstr ""
+
+#: pressbooks-cas-sso.php:43
+msgid "Please run <code>composer install</code> from the root of the Pressbooks CAS Single Sign-On plugin directory."
+msgstr ""
