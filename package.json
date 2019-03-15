@@ -16,8 +16,7 @@
 	},
 	"dependencies": {},
 	"devDependencies": {
-		"pressbooks-build-tools": "^1.4.1",
-		"resolve-url-loader": "^2.3.1"
+		"pressbooks-build-tools": "^1.4.2"
 	},
 	"repository": {
 		"type": "git",
