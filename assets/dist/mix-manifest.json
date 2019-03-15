@@ -1,6 +1,6 @@
 {
-    "/scripts/pressbooks-cas-sso.js": "/scripts/pressbooks-cas-sso.js?id=e4db48dc947543e75294",
+    "/scripts/login-form.js": "/scripts/login-form.js?id=5755bde5a003b6103fb8",
+    "/scripts/pressbooks-cas-sso.js": "/scripts/pressbooks-cas-sso.js?id=acb356a2e324d7fcfc17",
     "/styles/pressbooks-cas-sso.css": "/styles/pressbooks-cas-sso.css?id=d41d8cd98f00b204e980",
-    "/styles/login-form.css": "/styles/login-form.css?id=884f1adab9f67d318489",
-    "/scripts/login-form.js": "/scripts/login-form.js?id=40feb01f2adfdf83c0eb"
+    "/styles/login-form.css": "/styles/login-form.css?id=6d62f02eeefba334af23"
 }
