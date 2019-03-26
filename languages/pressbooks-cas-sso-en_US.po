@@ -1,0 +1,166 @@
+# Copyright (C) 2019 Pressbooks (Book Oven Inc.)
+# This file is distributed under the same license as the Pressbooks CAS Single Sign-On plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Pressbooks CAS Single Sign-On 1.2.0\n"
+"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/\n"
+"POT-Creation-Date: 2019-03-22T15:00:10+00:00\n"
+"PO-Revision-Date: 2019-03-22T15:00:10+00:00\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: pressbooks-cas-sso\n"
+"X-Generator: WP-CLI 2.0.1\n"
+
+#. Plugin Name of the plugin
+msgid "Pressbooks CAS Single Sign-On"
+msgstr "Pressbooks CAS Single Sign-On"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://pressbooks.org"
+msgstr "https://pressbooks.org"
+
+#. Description of the plugin
+msgid "CAS Single Sign-On integration for Pressbooks."
+msgstr "CAS Single Sign-On integration for Pressbooks."
+
+#. Author of the plugin
+msgid "Pressbooks (Book Oven Inc.)"
+msgstr "Pressbooks (Book Oven Inc.)"
+
+#: inc/class-admin.php:47 inc/class-admin.php:48
+msgid "CAS"
+msgstr "CAS"
+
+#: inc/class-cas.php:97
+msgid "CAS is not configured."
+msgstr "CAS is not configured."
+
+#. translators: %s Pressbooks Network Manager email if found.
+#: inc/class-cas.php:273
+msgid ""
+"Unable to log in: You do not have an account on this Pressbooks network. To "
+"request an account, please contact your institution's Pressbooks Network "
+"Manager%s"
+msgstr ""
+"Unable to log in: You do not have an account on this Pressbooks network. To "
+"request an account, please contact your institution's Pressbooks Network "
+"Manager%s"
+
+#: inc/class-cas.php:275
+msgid "CAS authentication failed."
+msgstr "CAS authentication failed."
+
+#: inc/class-cas.php:332
+msgid "Connect via CAS"
+msgstr "Connect via CAS"
+
+#: inc/class-cas.php:340
+msgid "Or"
+msgstr "Or"
+
+#: inc/class-cas.php:372
+msgid "Logged in!"
+msgstr "Logged in!"
+
+#: inc/class-cas.php:534
+msgid "Registered and logged in!"
+msgstr "Registered and logged in!"
+
+#: pressbooks-cas-sso.php:22
+msgid "Cannot find Pressbooks install."
+msgstr "Cannot find Pressbooks install."
+
+#: pressbooks-cas-sso.php:42
+msgid "Dependencies Missing"
+msgstr "Dependencies Missing"
+
+#: pressbooks-cas-sso.php:43
+msgid ""
+"Please run <code>composer install</code> from the root of the Pressbooks CAS"
+" Single Sign-On plugin directory."
+msgstr ""
+"Please run <code>composer install</code> from the root of the Pressbooks CAS"
+" Single Sign-On plugin directory."
+
+#: templates/admin.blade.php:2
+msgid "Central Authentication Service (CAS)"
+msgstr "Central Authentication Service (CAS)"
+
+#: templates/admin.blade.php:8
+msgid "CAS Version"
+msgstr "CAS Version"
+
+#: templates/admin.blade.php:17
+msgid "Server Hostname"
+msgstr "Server Hostname"
+
+#: templates/admin.blade.php:21
+msgid "Server Port"
+msgstr "Server Port"
+
+#: templates/admin.blade.php:25
+msgid "Server Path"
+msgstr "Server Path"
+
+#: templates/admin.blade.php:29
+msgid "If the CAS user does not have a Pressbooks account"
+msgstr "If the CAS user does not have a Pressbooks account"
+
+#: templates/admin.blade.php:31
+msgid "Refuse Access"
+msgstr "Refuse Access"
+
+#: templates/admin.blade.php:32
+msgid "Add New User"
+msgstr "Add New User"
+
+#: templates/admin.blade.php:37
+msgid "Optional Information"
+msgstr "Optional Information"
+
+#: templates/admin.blade.php:40
+msgid "Email Domain"
+msgstr "Email Domain"
+
+#: templates/admin.blade.php:44
+msgid ""
+"If your users' emails are based on their NetIDs (ex: NetID@university.edu), "
+"specify your institution's email domain here to generate your users' email "
+"addresses."
+msgstr ""
+"If your users' emails are based on their NetIDs (ex: NetID@university.edu), "
+"specify your institution's email domain here to generate your users' email "
+"addresses."
+
+#: templates/admin.blade.php:49
+msgid " Bypass"
+msgstr " Bypass"
+
+#: templates/admin.blade.php:51
+msgid ""
+"Bypass the \"Limited Email Registrations\" and \"Banned Email Domains\" "
+"lists under <a href=\"%s\">Network Settings</a>."
+msgstr ""
+"Bypass the \"Limited Email Registrations\" and \"Banned Email Domains\" "
+"lists under <a href=\"%s\">Network Settings</a>."
+
+#: templates/admin.blade.php:56
+msgid " Forced Redirection"
+msgstr " Forced Redirection"
+
+#: templates/admin.blade.php:59
+msgid "Hide the Pressbooks login page."
+msgstr "Hide the Pressbooks login page."
+
+#: templates/admin.blade.php:63
+msgid "Customize Button Text"
+msgstr "Customize Button Text"
+
+#: templates/admin.blade.php:67
+msgid "Change the [ Connect via CAS ] button to something more user-friendly."
+msgstr ""
+"Change the [ Connect via CAS ] button to something more user-friendly."

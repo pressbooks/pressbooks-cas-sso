@@ -2,8 +2,9 @@
 host = https://www.transifex.com
 
 [pressbooks-cas-sso.pressbooks-cas-sso]
+file_filter = languages/pressbooks-cas-sso-<lang>.po
+lang_map = de:de_DE, es:es_ES, fr:fr_FR, gl:gl_ES, nb:nb_NO, it:it_IT, ka:ka_GE, ru:ru_RU, ta:ta_LK
 source_file = languages/pressbooks-cas-sso.pot
 source_lang = en
 type = PO
-file_filter = languages/pressbooks-cas-sso-<lang>.po
-lang_map = de:de_DE, es:es_ES, fr:fr_FR, gl:gl_ES, nb:nb_NO, it:it_IT, ka:ka_GE, ru:ru_RU, ta:ta_LK
+
