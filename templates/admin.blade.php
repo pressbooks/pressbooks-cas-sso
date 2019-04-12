@@ -2,7 +2,7 @@
     <h1>{{ __( 'Central Authentication Service (CAS)', 'pressbooks-cas-sso') }}</h1>
     <form method="POST" action="{{ $form_url }}" method="post">
         {!! wp_nonce_field( 'pb-cas-sso' ) !!}
-        <table class="form-table">
+        <table class="form-table" role="none">
             <tr>
                 <th><label for="server_version">{{ __('CAS Version', 'pressbooks-cas-sso') }}</label></th>
                 <td><select name="server_version" id="server_version">
@@ -34,7 +34,7 @@
             </tr>
         </table>
         <h2>{{ __('Optional Information', 'pressbooks-cas-sso') }}</h2>
-        <table class="form-table">
+        <table class="form-table" role="none">
             <tr>
                 <th><label for="email_domain">{{ __('Email Domain', 'pressbooks-cas-sso') }}</label></th>
                 <td>
