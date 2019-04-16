@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the Pressbooks CAS Single Sign-On plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pressbooks CAS Single Sign-On 1.2.0\n"
+"Project-Id-Version: Pressbooks CAS Single Sign-On 1.2.1\n"
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-03-22T15:00:10+00:00\n"
-"PO-Revision-Date: 2019-03-22T15:00:10+00:00\n"
+"POT-Creation-Date: 2019-04-16T11:24:13+00:00\n"
+"PO-Revision-Date: 2019-04-16T11:24:13+00:00\n"
 "X-Generator: WP-CLI 2.0.1\n"
 "X-Domain: pressbooks-cas-sso\n"
 
@@ -31,8 +31,8 @@ msgstr ""
 msgid "Pressbooks (Book Oven Inc.)"
 msgstr ""
 
-#: inc/class-admin.php:47
-#: inc/class-admin.php:48
+#: inc/class-admin.php:49
+#: inc/class-admin.php:50
 msgid "CAS"
 msgstr ""
 
