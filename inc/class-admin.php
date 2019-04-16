@@ -26,6 +26,8 @@ class Admin {
 	 * @param Admin $obj
 	 */
 	static public function hooks( Admin $obj ) {
+		load_plugin_textdomain( 'pressbooks-cas-sso', false, 'pressbooks-cas-sso/languages/' );
+
 		add_action( 'network_admin_menu', [ $obj, 'addMenu' ] );
 	}
 
