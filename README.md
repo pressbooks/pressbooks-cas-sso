@@ -3,7 +3,7 @@
 **Tags:** pressbooks, sso, cas  
 **Requires at least:** 5.1.1  
 **Tested up to:** 5.1.1  
-**Stable tag:** 1.3.0-dev  
+**Stable tag:** 1.2.1  
 **License:** GPLv3 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -56,7 +56,12 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 
 ## Changelog 
 
-### 1.2.0
+### 1.2.1 
++ Fix translations not loading
++ Add ARIA role="none" to presentation tables
+
+
+### 1.2.0 
  * Refactor code to respect Pressbooks coding standards 1.0.0
  * Add localization support
  * Fix an issue with GitHub updater not always working
@@ -106,5 +111,5 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 ## Upgrade Notice 
 
 
-### 1.2.0 
-* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.7.0
+### 1.2.1 
+* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.7.1
