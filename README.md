@@ -1,9 +1,9 @@
 # Pressbooks CAS Single Sign-On 
 **Contributors:** conner_bw, greatislander  
 **Tags:** pressbooks, sso, cas  
-**Requires at least:** 5.1.1  
-**Tested up to:** 5.1.1  
-**Stable tag:** 1.3.0-dev  
+**Requires at least:** 5.2  
+**Tested up to:** 5.2  
+**Stable tag:** 1.2.2  
 **License:** GPLv3 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -56,60 +56,14 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 
 ## Changelog 
 
-### 1.2.1 
-+ Fix translations not loading
-+ Add ARIA role="none" to presentation tables
+### 1.2.2 
 
-
-### 1.2.0 
- * Refactor code to respect Pressbooks coding standards 1.0.0
- * Add localization support
- * Fix an issue with GitHub updater not always working
- * Update dependencies to latest versions
-
-
-### 1.1.2 
- * Update README
- * Update apereo/phpCAS to 2aaad20
-
-
-### 1.1.1 
- * New `pb_integrations_multidomain_email` filter
- * Update apereo/phpCAS to 5ad9c1e
-
-
-### 1.1.0 
-* Bump minimum PHP to 7.1 ([#17](https://github.com/pressbooks/pressbooks-cas-sso/issues/17)): [#18](https://github.com/pressbooks/pressbooks-cas-sso/pull/18)
-* Switch to Pressbooks Coding Standards ([#16](https://github.com/pressbooks/pressbooks-cas-sso/issues/16)): [#18](https://github.com/pressbooks/pressbooks-cas-sso/pull/18)
-* Switch to wp dist-archive for release build ([#14](https://github.com/pressbooks/pressbooks-cas-sso/issues/14)): [#18](https://github.com/pressbooks/pressbooks-cas-sso/pull/18)
-
-
-### 1.0.0 
-* Semantic versioning starts here.
-* Improve code to get contact email.
-
-
-### 0.4.1 
-* Fix build.
-
-
-### 0.4.0 
-* Redirect to the page the user signed in from (network homepage or book homepage).
-* Clarify error message when CAS is set to "Refuse Access".
-* Fix unwanted slashes when button text has apostrophe.
-* Fix Travis CI build script.
-
-
-### 0.3.0 
-* Demo for Open source Slack channel.
-
-
-### 0.2.0 
-* Initial release.
+* See: https://github.com/pressbooks/pressbooks-cas-sso/releases/tag/1.2.2
+* Full release history available at: https://github.com/pressbooks/pressbooks-cas-sso/releases
 
 
 ## Upgrade Notice 
 
 
-### 1.2.1 
-* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.7.1
+### 1.2.2 
+* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.8.0
