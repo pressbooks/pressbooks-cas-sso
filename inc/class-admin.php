@@ -59,7 +59,7 @@ class Admin {
 	 */
 	public function printMenu() {
 		if ( $this->saveOptions() ) {
-			echo '<div id="message" class="updated notice is-dismissible"><p>' . __( 'Settings saved.' ) . '</p></div>';
+			echo '<div id="message" role="status" class="updated notice is-dismissible"><p>' . __( 'Settings saved.' ) . '</p></div>';
 		}
 		$html = blade()->render(
 			'admin', [

@@ -94,7 +94,7 @@ class CAS {
 			if ( 'pb_cas_admin' !== @$_REQUEST['page'] ) { // @codingStandardsIgnoreLine
 				add_action(
 					'network_admin_notices', function () {
-						echo '<div id="message" class="error fade"><p>' . __( 'CAS is not configured.', 'pressbooks-cas-sso' ) . '</p></div>';
+						echo '<div id="message" role="alert" class="error fade"><p>' . __( 'CAS is not configured.', 'pressbooks-cas-sso' ) . '</p></div>';
 					}
 				);
 			}
