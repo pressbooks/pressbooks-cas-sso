@@ -6,9 +6,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Pressbooks CAS Single Sign-On 1.2.1\n"
+"Project-Id-Version: Pressbooks CAS Single Sign-On 1.2.3\n"
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/\n"
-"POT-Creation-Date: 2019-04-16T11:24:13+00:00\n"
+"POT-Creation-Date: 2019-08-19T21:33:23+00:00\n"
 "PO-Revision-Date: 2019-02-28 19:57+0000\n"
 "Last-Translator: Hubert GB <hgblouin@tciinc.ca>, 2019\n"
 "Language-Team: French (https://www.transifex.com/pressbooks/teams/9194/fr/)\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Domain: pressbooks-cas-sso\n"
-"X-Generator: WP-CLI 2.0.1\n"
+"X-Generator: WP-CLI 2.2.0\n"
 
 #. Plugin Name of the plugin
 msgid "Pressbooks CAS Single Sign-On"
@@ -72,7 +72,7 @@ msgstr "Ou"
 msgid "Logged in!"
 msgstr "Vous êtes connecté!"
 
-#: inc/class-cas.php:534
+#: inc/class-cas.php:538
 msgid "Registered and logged in!"
 msgstr "Vous êtes inscrit et connecté!"
 

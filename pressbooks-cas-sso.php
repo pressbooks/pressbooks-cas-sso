@@ -3,11 +3,11 @@
 Plugin Name: Pressbooks CAS Single Sign-On
 Plugin URI: https://pressbooks.org
 Description: CAS Single Sign-On integration for Pressbooks.
-Version: 1.3.0-dev
+Version: 1.2.3
 Author: Pressbooks (Book Oven Inc.)
 Author URI: https://pressbooks.org
 Requires PHP: 7.1
-Pressbooks tested up to: 5.8.0
+Pressbooks tested up to: 5.9.1
 Text Domain: pressbooks-cas-sso
 License: GPL v3 or later
 Network: True

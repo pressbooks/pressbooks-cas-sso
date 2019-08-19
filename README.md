@@ -1,9 +1,9 @@
 # Pressbooks CAS Single Sign-On 
 **Contributors:** conner_bw, greatislander  
 **Tags:** pressbooks, sso, cas  
-**Requires at least:** 5.2  
-**Tested up to:** 5.2  
-**Stable tag:** 1.2.2  
+**Requires at least:** 5.2.2  
+**Tested up to:** 5.2.2  
+**Stable tag:** 1.2.3  
 **License:** GPLv3 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -56,14 +56,14 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 
 ## Changelog 
 
-### 1.2.2 
+### 1.2.3 
 
-* See: https://github.com/pressbooks/pressbooks-cas-sso/releases/tag/1.2.2
+* See: https://github.com/pressbooks/pressbooks-cas-sso/releases/tag/1.2.3
 * Full release history available at: https://github.com/pressbooks/pressbooks-cas-sso/releases
 
 
 ## Upgrade Notice 
 
 
-### 1.2.2 
-* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.8.0
+### 1.2.3 
+* Pressbooks CAS Single Sign-On requires Pressbooks >= 5.9.1
