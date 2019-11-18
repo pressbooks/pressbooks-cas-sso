@@ -15,9 +15,7 @@
 		"node": ">= 6.9.4"
 	},
 	"dependencies": {},
-	"devDependencies": {
-		"pressbooks-build-tools": "^1.4.3"
-	},
+	"devDependencies": {},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/pressbooks/pressbooks-cas-sso.git"
