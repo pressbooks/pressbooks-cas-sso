@@ -57,6 +57,5 @@ require( __DIR__ . '/inc/namespace.php' );
 // Hooks
 // -------------------------------------------------------------------------------------------------------------------
 
-add_action( 'plugins_loaded', [ '\PressbooksCasSso\Updates', 'init' ] );
 add_action( 'plugins_loaded', [ '\PressbooksCasSso\CAS', 'init' ] );
 add_action( 'plugins_loaded', [ '\PressbooksCasSso\Admin', 'init' ] );
