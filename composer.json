@@ -25,7 +25,6 @@
   "require": {
     "php": ">=7.1",
     "composer/installers": "~1.4",
-    "yahnis-elsts/plugin-update-checker": "^4.4",
     "apereo/phpcas": "dev-master"
   },
   "require-dev": {

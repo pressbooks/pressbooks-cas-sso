@@ -11,7 +11,6 @@ class NamespaceTest extends \WP_UnitTestCase {
 		$classes = [
 			'\PressbooksCasSso\Admin',
 			'\PressbooksCasSso\CAS',
-			'\PressbooksCasSso\Updates',
 		];
 		foreach ( $classes as $class ) {
 			$result = $class::init();
