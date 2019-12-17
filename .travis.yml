@@ -65,7 +65,7 @@ deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: UfrnmbTZUfp4nPSa81uuw6RYeXLq1Ncr9FMG9zR+a5B+sg7d8/lRlg8yE4GSL1vUO62+egrQvkUtxGq7z+0uImox7sbX+y6iuO/ZK1JpXrrU+aFQdMxC5U+hqr4ZfqnHXXLlNNM7451IWQ+WUjJCKSnaxQ5WhHy0EFoGECSIpNgfXxiS1P9mGzLhbscyccCvSMWhj9eDW2CmWrWIelGo3h4mqlFZb4mqJhwLCe/Q/n6lp20hGPr/vDbRCpi9e6kr4InP9uByCGfSYye+a/hQqMXsLxXvN7taronCZXcGxF9Dr+h5cEGWaP1+L/VXmzEIutniM+1Ti85AZ9wwYNBuYwvLYJ8Nb+IOK6Y3zwYRKzpLFynL3e/xeFW3Ip5WkCmcLPipwmjK0VBoZH9Bg5fWJhuiizeuAL3lBzGqrSF0xSUpNbO4gKW1negXYO2nyQu5YcfCo2Sg2D3RfY8t8xy7NlWWtGsHnsO3DJZJTtTWOR+v4e5puUJcsFhgMTAN9wGYHra0ehar7YJ7/TATf2ejzWPh1A+/1L7dKJITXj9SaGjIeMjF08ssQEf4rtatJZ5A7ivMLRBWQ7ofEHkfMnbQIQs8LaV/LHimioX5bEsQnJ4mWrMIMi8Q+Yaeaxk1A29MBihOGGUTOqPc9xNSynXo7QbTyxkg39nLkJBxnYzPJlo=
+    secure: $GITHUB_ACCESS_TOKEN
   file: "pressbooks-cas-sso-$TRAVIS_TAG.zip"
   on:
     tags: true
