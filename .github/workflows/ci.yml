@@ -17,7 +17,7 @@ jobs:
         os: [ubuntu-18.04]
         wordpress: [5.7.2, latest]
 
-    name: PHPUnit - ${{ matrix.php }} - {{ matrix.wordpress }}
+    name: PHPUnit - ${{ matrix.php }} - ${{ matrix.wordpress }}
 
     steps:
       - name: Checkout code
