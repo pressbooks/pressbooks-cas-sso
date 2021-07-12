@@ -3,8 +3,8 @@
 	"description": "CAS Single Sign-On integration for Pressbooks.",
 	"scripts": {
 		"watch": "mix watch",
-		"prod": "npm run production",
 		"build": "npm run production",
+		"production": "mix --production",
 		"test": "npm run lint",
 		"lint": "npm run -s lint:scripts && npm run -s lint:styles",
 		"lint:scripts": "eslint \"assets/src/scripts/*.js\"",
