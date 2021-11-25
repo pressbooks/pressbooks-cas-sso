@@ -168,7 +168,6 @@ class CAS {
 	 *
 	 * Hooked into filter: 'login_url'
 	 *
-	 *
 	 * @param string $login_url The login URL. Not HTML-encoded.
 	 *
 	 * @return string
