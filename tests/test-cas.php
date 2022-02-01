@@ -41,17 +41,12 @@ class CasTest extends \WP_UnitTestCase {
 	 */
 	protected function getCas() {
 
-		// Ignore session warnings
-		PHPUnit_Framework_Error_Notice::$enabled = false;
-		PHPUnit_Framework_Error_Warning::$enabled = false;
 		ini_set( 'error_reporting', 0 );
 		ini_set( 'display_errors', 0 );
 
 		CAS_GracefullTerminationException::throwInsteadOfExiting();
 		$cas = new \PressbooksCasSso\CAS( $this->getMockAdmin() );
 
-		PHPUnit_Framework_Error_Notice::$enabled = true;
-		PHPUnit_Framework_Error_Warning::$enabled = true;
 		ini_set( 'error_reporting', 1 );
 		ini_set( 'display_errors', 1 );
 
@@ -68,7 +63,7 @@ class CasTest extends \WP_UnitTestCase {
 
 	public function test_changeLoginUrl() {
 		$url = $this->cas->changeLoginUrl( 'https://pressbooks.test' );
-		$this->assertContains( 'action=pb_cas', $url );
+		$this->assertStringContainsString( 'action=pb_cas', $url );
 	}
 
 	public function test_showPasswordFields() {

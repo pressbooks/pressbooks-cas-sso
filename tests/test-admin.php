@@ -24,7 +24,7 @@ class AdminTest extends \WP_UnitTestCase {
 		ob_start();
 		$this->admin->printMenu();
 		$buffer = ob_get_clean();
-		$this->assertContains( '</form>', $buffer );
+		$this->assertStringContainsString( '</form>', $buffer );
 	}
 
 	public function test_options() {
