@@ -41,17 +41,12 @@ class CasTest extends \WP_UnitTestCase {
 	 */
 	protected function getCas() {
 
-		// Ignore session warnings
-		PHPUnit_Framework_Error_Notice::$enabled = false;
-		PHPUnit_Framework_Error_Warning::$enabled = false;
 		ini_set( 'error_reporting', 0 );
 		ini_set( 'display_errors', 0 );
 
 		CAS_GracefullTerminationException::throwInsteadOfExiting();
 		$cas = new \PressbooksCasSso\CAS( $this->getMockAdmin() );
 
-		PHPUnit_Framework_Error_Notice::$enabled = true;
-		PHPUnit_Framework_Error_Warning::$enabled = true;
 		ini_set( 'error_reporting', 1 );
 		ini_set( 'display_errors', 1 );
 
@@ -61,14 +56,14 @@ class CasTest extends \WP_UnitTestCase {
 	/**
 	 *
 	 */
-	public function setUp() {
-		parent::setUp();
+	public function set_up() {
+		parent::set_up();
 		$this->cas = $this->getCas();
 	}
 
 	public function test_changeLoginUrl() {
 		$url = $this->cas->changeLoginUrl( 'https://pressbooks.test' );
-		$this->assertContains( 'action=pb_cas', $url );
+		$this->assertStringContainsString( 'action=pb_cas', $url );
 	}
 
 	public function test_showPasswordFields() {
@@ -85,7 +80,7 @@ class CasTest extends \WP_UnitTestCase {
 		try {
 			$result = $this->cas->authenticate( null, 'test', 'test' );
 		} catch ( \LogicException $e ) {
-			$this->assertContains( '</html>', $e->getMessage() ); // phpCas generated error, other people's code is untestable
+			$this->assertStringContainsString( '</html>', $e->getMessage() ); // phpCas generated error, other people's code is untestable
 		}
 	}
 
@@ -105,14 +100,14 @@ class CasTest extends \WP_UnitTestCase {
 
 	public function test_loginEnqueueScripts() {
 		$this->cas->loginEnqueueScripts();
-		$this->assertContains( 'pressbooks-cas-sso', get_echo( 'wp_print_scripts' ) );
+		$this->assertStringContainsString( 'pressbooks-cas-sso', get_echo( 'wp_print_scripts' ) );
 	}
 
 	public function test_loginForm() {
 		ob_start();
 		$this->cas->loginForm();
 		$buffer = ob_get_clean();
-		$this->assertContains( '<div id="pb-cas-wrap">', $buffer );
+		$this->assertStringContainsString( '<div id="pb-cas-wrap">', $buffer );
 	}
 
 	public function test_handleLoginAttempt_and_matchUser_and_so_on() {
@@ -125,7 +120,7 @@ class CasTest extends \WP_UnitTestCase {
 		try {
 			$this->cas->handleLoginAttempt( $prefix, $email );
 			$this->assertInstanceOf( '\WP_User', get_user_by( 'email', $email ) );
-			$this->assertContains( $_SESSION['pb_notices'][0], 'Registered and logged in!' );
+			$this->assertStringContainsString( $_SESSION['pb_notices'][0], 'Registered and logged in!' );
 		} catch ( \Exception $e ) {
 			$this->fail( $e->getMessage() );
 		}
@@ -137,7 +132,7 @@ class CasTest extends \WP_UnitTestCase {
 		// User exists
 		try {
 			$this->cas->handleLoginAttempt( $prefix, $email );
-			$this->assertContains( $_SESSION['pb_notices'][0], 'Logged in!' );
+			$this->assertStringContainsString( $_SESSION['pb_notices'][0], 'Logged in!' );
 		} catch ( \Exception $e ) {
 			$this->fail( $e->getMessage() );
 		}
@@ -149,8 +144,8 @@ class CasTest extends \WP_UnitTestCase {
 			$bad_email = '1';
 			$this->cas->handleLoginAttempt( $bad_net_id, $bad_email );
 		} catch ( \Exception $e ) {
-			$this->assertContains( 'Please enter a valid email address', $e->getMessage() );
-			$this->assertContains( 'Username may not be longer than 60 characters', $e->getMessage() );
+			$this->assertStringContainsString( 'Please enter a valid email address', $e->getMessage() );
+			$this->assertStringContainsString( 'Username may not be longer than 60 characters', $e->getMessage() );
 			return;
 		}
 		$this->fail();
@@ -179,13 +174,13 @@ class CasTest extends \WP_UnitTestCase {
 		$msg = $this->cas->authenticationFailedMessage( 'create' );
 		$this->assertEquals( 'CAS authentication failed.', $msg );
 		$msg = $this->cas->authenticationFailedMessage( 'refuse' );
-		$this->assertContains( 'To request an account', $msg );
-		$this->assertContains( '@', $msg );
+		$this->assertStringContainsString( 'To request an account', $msg );
+		$this->assertStringContainsString( '@', $msg );
 	}
 
 	public function test_getAdminEmail() {
 		$email = $this->cas->getAdminEmail();
-		$this->assertContains( '@', $email );
+		$this->assertStringContainsString( '@', $email );
 	}
 
 	public function test_sanitizeUser() {

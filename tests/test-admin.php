@@ -10,8 +10,8 @@ class AdminTest extends \WP_UnitTestCase {
 	/**
 	 *
 	 */
-	public function setUp() {
-		parent::setUp();
+	public function set_up() {
+		parent::set_up();
 		$this->admin = new \PressbooksCasSso\Admin();
 	}
 
@@ -24,7 +24,7 @@ class AdminTest extends \WP_UnitTestCase {
 		ob_start();
 		$this->admin->printMenu();
 		$buffer = ob_get_clean();
-		$this->assertContains( '</form>', $buffer );
+		$this->assertStringContainsString( '</form>', $buffer );
 	}
 
 	public function test_options() {
