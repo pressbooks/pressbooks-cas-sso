@@ -26,7 +26,7 @@
   "require": {
     "php": ">=7.3",
     "apereo/phpcas": "^1.4",
-    "composer/installers": "^1.7",
+    "composer/installers": "^2.0",
     "phpcompatibility/php-compatibility": "^9.3"
   },
   "require-dev": {
