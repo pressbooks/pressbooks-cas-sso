@@ -1,17 +1,17 @@
-# Copyright (C) 2019 Pressbooks (Book Oven Inc.)
-# This file is distributed under the same license as the Pressbooks CAS Single Sign-On plugin.
+# Copyright (C) 2022 Pressbooks (Book Oven Inc.)
+# This file is distributed under the GPL v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pressbooks CAS Single Sign-On 1.2.3\n"
-"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/\n"
+"Project-Id-Version: Pressbooks CAS Single Sign-On 1.3.0-dev\n"
+"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-08-19T21:33:23+00:00\n"
+"POT-Creation-Date: 2022-07-22T04:09:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.2.0\n"
+"X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: pressbooks-cas-sso\n"
 
 #. Plugin Name of the plugin
@@ -41,39 +41,39 @@ msgid "CAS is not configured."
 msgstr ""
 
 #. translators: %s Pressbooks Network Manager email if found.
-#: inc/class-cas.php:273
+#: inc/class-cas.php:272
 msgid "Unable to log in: You do not have an account on this Pressbooks network. To request an account, please contact your institution's Pressbooks Network Manager%s"
 msgstr ""
 
-#: inc/class-cas.php:275
+#: inc/class-cas.php:274
 msgid "CAS authentication failed."
 msgstr ""
 
-#: inc/class-cas.php:332
+#: inc/class-cas.php:331
 msgid "Connect via CAS"
 msgstr ""
 
-#: inc/class-cas.php:340
+#: inc/class-cas.php:339
 msgid "Or"
 msgstr ""
 
-#: inc/class-cas.php:372
+#: inc/class-cas.php:371
 msgid "Logged in!"
 msgstr ""
 
-#: inc/class-cas.php:538
+#: inc/class-cas.php:537
 msgid "Registered and logged in!"
 msgstr ""
 
-#: pressbooks-cas-sso.php:22
+#: pressbooks-cas-sso.php:24
 msgid "Cannot find Pressbooks install."
 msgstr ""
 
-#: pressbooks-cas-sso.php:42
+#: pressbooks-cas-sso.php:44
 msgid "Dependencies Missing"
 msgstr ""
 
-#: pressbooks-cas-sso.php:43
+#: pressbooks-cas-sso.php:45
 msgid "Please run <code>composer install</code> from the root of the Pressbooks CAS Single Sign-On plugin directory."
 msgstr ""
 
