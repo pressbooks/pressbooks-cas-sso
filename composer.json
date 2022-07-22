@@ -18,10 +18,11 @@
     "source": "https://github.com/pressbooks/pressbooks-cas-sso/"
   },
   "config": {
-    "platform": {
-      "php": "7.4"
-    },
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   },
   "require": {
     "php": ">=7.4",
@@ -31,7 +32,6 @@
   "require-dev": {
     "phpcompatibility/php-compatibility": "^9.3",
     "pressbooks/coding-standards": "^1.1",
-    "wpreadme2markdown/wp2md": "^4.0",
     "yoast/phpunit-polyfills": "^1.0.1"
   },
   "scripts": {
@@ -46,7 +46,6 @@
     ],
     "fix": [
       "vendor/bin/phpcbf --standard=phpcs.ruleset.xml *.php inc/ bin/"
-    ],
-    "readme": ["vendor/bin/wp2md -i readme.txt -o README.md"]
+    ]
   }
 }

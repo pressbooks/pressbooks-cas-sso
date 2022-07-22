@@ -1,4 +1,4 @@
-name: CI workflow
+name: Standards & Test
 on:
   push:
     branches: [ dev, master ]
@@ -16,7 +16,7 @@ jobs:
       matrix:
         php: [7.4]
         os: [ubuntu-20.04]
-        wordpress: [5.9.3, latest]
+        wordpress: ['6.0', latest]
         experimental: [false]
         include:
           - php: 8.0
@@ -27,22 +27,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Start required services
         run: sudo systemctl start mysql.service
 
       - name: Cache Composer packages
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: vendor
           key: ${{ matrix.php }}-php-${{ hashFiles('**/composer.lock') }}
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
 
       - name: Setup PHP with Composer 2
         uses: shivammathur/setup-php@v2
@@ -51,13 +45,6 @@ jobs:
           tools: composer
           coverage: pcov
 
-      - name: Install Node dependencies
-        run: |
-          node -v
-          npm install
-          npm run build
-        if: matrix.experimental == false
-
       - name: Install PHP dependencies
         run: |
           export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -65,10 +52,6 @@ jobs:
           git clone --depth=1 https://github.com/pressbooks/pressbooks.git ../pressbooks
           cd ../pressbooks && composer install --no-dev
           cd ../pressbooks-cas-sso
-
-      - name: Run lint
-        run: npm run lint
-        if: matrix.experimental == false
 
       - name: Run PHP CodeSniffer
         run: composer standards
@@ -100,6 +83,7 @@ jobs:
           chmod +x wp-cli.phar
           mv wp-cli.phar /usr/local/bin/wp
           wp package install wp-cli/dist-archive-command
+          npm install
           npm run build
           composer install --no-dev --optimize-autoloader
           cd ..
