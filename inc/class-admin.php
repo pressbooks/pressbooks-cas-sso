@@ -61,13 +61,12 @@ class Admin {
 		if ( $this->saveOptions() ) {
 			echo '<div id="message" role="status" class="updated notice is-dismissible"><p>' . __( 'Settings saved.' ) . '</p></div>';
 		}
-		$html = blade()->render(
-			'admin', [
+		echo blade()->render(
+			'PressbooksCasSso::admin', [
 				'form_url' => network_admin_url( '/admin.php?page=pb_cas_admin' ),
 				'options' => $this->getOptions(),
 			]
 		);
-		echo $html;
 	}
 
 	/**
