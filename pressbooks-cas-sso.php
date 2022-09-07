@@ -58,5 +58,8 @@ require( __DIR__ . '/inc/namespace.php' );
 // Hooks
 // -------------------------------------------------------------------------------------------------------------------
 
+add_action( 'plugins_loaded', function() {
+	\Pressbooks\Container::get( 'Blade' )->addNamespace( 'PressbooksCasSso', __DIR__ . '/templates' );
+} );
 add_action( 'plugins_loaded', [ '\PressbooksCasSso\CAS', 'init' ] );
 add_action( 'plugins_loaded', [ '\PressbooksCasSso\Admin', 'init' ] );
