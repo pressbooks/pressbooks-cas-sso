@@ -8,10 +8,13 @@
 		"test": "npm run lint",
 		"lint": "npm run -s lint:scripts && npm run -s lint:styles",
 		"lint:scripts": "eslint \"assets/src/scripts/*.js\"",
-		"lint:styles": "stylelint \"assets/src/styles/**/*.scss\" --syntax scss"
-	},
+		"lint:styles": "stylelint \"assets/src/styles/**/*.scss\" scss",
+    "lint:fix-scripts": "eslint \"assets/src/scripts/*.js\" --fix",
+    "lint:fix-styles": "stylelint \"assets/src/styles/**/*.scss\" scss --fix"
+
+  },
 	"engines": {
-		"node": ">= 8"
+		"node": ">= 14"
 	},
 	"dependencies": {},
 	"devDependencies": {
