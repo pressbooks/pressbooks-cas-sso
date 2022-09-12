@@ -2,9 +2,9 @@
 
 Contributors: conner_bw, greatislander
 Tags: pressbooks, sso, cas
-Requires at least: 5.9.3
-Tested up to: 6.0.1
-Stable tag: 1.2.4
+Requires at least: 6.0.2
+Tested up to: 6.0.2
+Stable tag: 2.0.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -12,7 +12,7 @@ CAS Single Sign-On integration for Pressbooks.
 
 ## Description
 
-[![Packagist](https://img.shields.io/packagist/v/pressbooks/pressbooks-cas-sso.svg?style=flat-square)](https://packagist.org/packages/pressbooks/pressbooks-cas-sso) [![GitHub release](https://img.shields.io/github/release/pressbooks/pressbooks-cas-sso.svg?style=flat-square)](https://github.com/pressbooks/pressbooks-cas-sso/releases) [![Travis](https://img.shields.io/travis/pressbooks/pressbooks-cas-sso.svg?style=flat-square)](https://travis-ci.org/pressbooks/pressbooks-cas-sso/) [![Codecov](https://img.shields.io/codecov/c/github/pressbooks/pressbooks-cas-sso.svg?style=flat-square)](https://codecov.io/gh/pressbooks/pressbooks-cas-sso)
+[![Packagist](https://img.shields.io/packagist/v/pressbooks/pressbooks-cas-sso.svg?style=flat-square)](https://packagist.org/packages/pressbooks/pressbooks-cas-sso) [![GitHub release](https://img.shields.io/github/release/pressbooks/pressbooks-cas-sso.svg?style=flat-square)](https://github.com/pressbooks/pressbooks-cas-sso/releases) [![Codecov](https://img.shields.io/codecov/c/github/pressbooks/pressbooks-cas-sso.svg?style=flat-square)](https://codecov.io/gh/pressbooks/pressbooks-cas-sso)
 
 Plugin to integrate Pressbooks with [Central AuthenticationService (CAS)](http://en.wikipedia.org/wiki/Central_Authentication_Service) single sign-on architectures.
 
@@ -50,18 +50,17 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 ![Pressbooks CAS Administration.](screenshot-1.png)
 
 ## Changelog
+### 2.0.0
 
-### 1.2.4
-
-* See: https://github.com/pressbooks/pressbooks-cas-sso/releases/tag/1.2.4
+* See: https://github.com/pressbooks/pressbooks-cas-sso/releases/tag/2.0.0
 * Full release history available at: https://github.com/pressbooks/pressbooks-cas-sso/releases
 
 ## Upgrade Notice
+### 2.0.0
+* Pressbooks CAS Single Sign-On requires Pressbooks >= 6.0.0
 
 ### 1.2.4
-
 * Pressbooks CAS Single Sign-On requires Pressbooks >= 5.34.1
 
 ### 1.2.3
-
 * Pressbooks CAS Single Sign-On requires Pressbooks >= 5.9.1
