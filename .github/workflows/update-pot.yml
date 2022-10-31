@@ -22,7 +22,7 @@ jobs:
     - name: Update POT file
       run: wp i18n make-pot . languages/pressbooks-cas-sso.pot --domain=pressbooks-cas-sso --slug=pressbooks-cas-sso --package-name="Pressbooks CAS Single Sign-On" --headers="{\"Report-Msgid-Bugs-To\":\"https://github.com/pressbooks/pressbooks-cas-sso/issues\"}"
     - name: Commit updated POT file
-      uses: stefanzweifel/git-auto-commit-action@v4.13.1
+      uses: stefanzweifel/git-auto-commit-action@v4.15.3
       with:
         commit_message: 'chore(l10n): update languages/pressbooks-cas-sso.pot'
         file_pattern: '*.pot'
