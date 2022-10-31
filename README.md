@@ -2,9 +2,9 @@
 
 Contributors: conner_bw, greatislander
 Tags: pressbooks, sso, cas
-Requires at least: 6.0.2
-Tested up to: 6.0.2
-Stable tag: 2.0.0
+Requires at least: 6.0.3
+Tested up to: 6.0.3
+Stable tag: 2.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -50,9 +50,9 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 ![Pressbooks CAS Administration.](screenshot-1.png)
 
 ## Changelog
-### 2.0.0
+### 2.1.0
 
-* See: https://github.com/pressbooks/pressbooks-cas-sso/releases/tag/2.0.0
+* See: https://github.com/pressbooks/pressbooks-cas-sso/releases/tag/2.1.0
 * Full release history available at: https://github.com/pressbooks/pressbooks-cas-sso/releases
 
 ## Upgrade Notice
