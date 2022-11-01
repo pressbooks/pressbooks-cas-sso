@@ -88,13 +88,19 @@ class CAS {
 	 * @param Admin $admin
 	 */
 	public function __construct( Admin $admin ) {
-
 		$options = $admin->getOptions();
-		if ( empty( $options['server_hostname'] ) ) {
+
+		$port = (int) $options['server_port'];
+
+		if ( empty( $options['server_hostname'] ) || $port !== 443 ) {
 			if ( 'pb_cas_admin' !== @$_REQUEST['page'] ) { // @codingStandardsIgnoreLine
+				$message = $port === 443
+						? __( 'CAS is not configured.', 'pressbooks-cas-sso' )
+						: __( 'CAS is not configured. Make sure the service runs on secure protocols.', 'pressbooks-cas-sso' );
+
 				add_action(
-					'network_admin_notices', function () {
-						echo '<div id="message" role="alert" class="error fade"><p>' . __( 'CAS is not configured.', 'pressbooks-cas-sso' ) . '</p></div>';
+					'network_admin_notices', function () use ( $message ) {
+						echo '<div id="message" role="alert" class="error fade"><p>' . $message . '</p></div>';
 					}
 				);
 			}
@@ -112,12 +118,17 @@ class CAS {
 			default:
 				$server_version = defined( 'CAS_VERSION_2_0' ) ? CAS_VERSION_2_0 : '2.0';
 		}
+
+		$host = $options['server_hostname'];
+		$path = untrailingslashit( $options['server_path'] );
+
 		if ( ! phpCAS::isInitialized() ) {
 			phpCAS::client(
 				$server_version,
-				$options['server_hostname'],
-				intval( $options['server_port'] ),
-				untrailingslashit( $options['server_path'] )
+				$host,
+				$port,
+				$path,
+				"https://{$host}:${port}{$path}"
 			);
 		}
 
