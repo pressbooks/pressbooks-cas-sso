@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-10-31T23:35:51+00:00\n"
+"POT-Creation-Date: 2022-11-01T17:31:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: pressbooks-cas-sso\n"
@@ -36,32 +36,36 @@ msgstr ""
 msgid "CAS"
 msgstr ""
 
-#: inc/class-cas.php:97
+#: inc/class-cas.php:98
 msgid "CAS is not configured."
 msgstr ""
 
+#: inc/class-cas.php:99
+msgid "CAS is not configured. Make sure the service runs on secure protocols."
+msgstr ""
+
 #. translators: %s Pressbooks Network Manager email if found.
-#: inc/class-cas.php:272
+#: inc/class-cas.php:283
 msgid "Unable to log in: You do not have an account on this Pressbooks network. To request an account, please contact your institution's Pressbooks Network Manager%s"
 msgstr ""
 
-#: inc/class-cas.php:274
+#: inc/class-cas.php:285
 msgid "CAS authentication failed."
 msgstr ""
 
-#: inc/class-cas.php:331
+#: inc/class-cas.php:342
 msgid "Connect via CAS"
 msgstr ""
 
-#: inc/class-cas.php:339
+#: inc/class-cas.php:350
 msgid "Or"
 msgstr ""
 
-#: inc/class-cas.php:371
+#: inc/class-cas.php:382
 msgid "Logged in!"
 msgstr ""
 
-#: inc/class-cas.php:537
+#: inc/class-cas.php:548
 msgid "Registered and logged in!"
 msgstr ""
 
