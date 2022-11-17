@@ -5,8 +5,8 @@
  * GitHub Plugin URI:   pressbooks/pressbooks-cas-sso
  * Release Asset:       true
  * Description:         CAS Single Sign-On integration for Pressbooks.
- * Version:             2.1.0
- * Requires PHP:        7.4
+ * Version:             2.2.0
+ * Requires PHP:        8.0
  * Author:              Pressbooks (Book Oven Inc.)
  * Author URI:          https://pressbooks.org
  * License:             GPL v3 or later
