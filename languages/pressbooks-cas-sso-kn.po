@@ -1,13 +1,13 @@
-# Copyright (C) 2022 Pressbooks (Book Oven Inc.)
+# Copyright (C) 2023 Pressbooks (Book Oven Inc.)
 # This file is distributed under the GPL v3 or later.
 # Translators:
 # Omshivaprakash H L <omshivaprakash@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Pressbooks CAS Single Sign-On 1.3.0-dev\n"
+"Project-Id-Version: Pressbooks CAS Single Sign-On 2.3.0\n"
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
-"POT-Creation-Date: 2022-09-09T17:27:54+00:00\n"
+"POT-Creation-Date: 2023-02-28T22:17:51+00:00\n"
 "PO-Revision-Date: 2019-02-28 19:57+0000\n"
 "Last-Translator: Omshivaprakash H L <omshivaprakash@gmail.com>, 2021\n"
 "Language-Team: Kannada (https://www.transifex.com/pressbooks/teams/9194/kn/)\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: kn\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Domain: pressbooks-cas-sso\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.7.1\n"
 
 #. Plugin Name of the plugin
 msgid "Pressbooks CAS Single Sign-On"
@@ -40,12 +40,16 @@ msgstr "ಪ್ರೆಸ್‍ಬುಕ್ಸ್ (ಬುಕ್ ಓವನ್ ಇ�
 msgid "CAS"
 msgstr "ಸಿಎಎಸ್"
 
-#: inc/class-cas.php:97
+#: inc/class-cas.php:98
 msgid "CAS is not configured."
 msgstr "ಸಿಎಎಸ್ ಕಾನ್ಫಿಗರ್ ಆಗಿಲ್ಲ."
 
+#: inc/class-cas.php:99
+msgid "CAS is not configured. Make sure the service runs on secure protocols."
+msgstr ""
+
 #. translators: %s Pressbooks Network Manager email if found.
-#: inc/class-cas.php:272
+#: inc/class-cas.php:283
 msgid ""
 "Unable to log in: You do not have an account on this Pressbooks network. To "
 "request an account, please contact your institution's Pressbooks Network "
@@ -55,23 +59,23 @@ msgstr ""
 " ಖಾತೆಯನ್ನು ವಿನಂತಿಸಲು, ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಪ್ರೆಸ್‍ಬುಕ್ಸ್ ನೆಟ್ ವರ್ಕ್ "
 "ಮ್ಯಾನೇಜರ್ ಅನ್ನು ಸಂಪರ್ಕಿಸಿ%s"
 
-#: inc/class-cas.php:274
+#: inc/class-cas.php:285
 msgid "CAS authentication failed."
 msgstr "ಸಿಎಎಸ್ ದೃಢೀಕರಣ ವಿಫಲವಾಗಿದೆ."
 
-#: inc/class-cas.php:331
+#: inc/class-cas.php:342
 msgid "Connect via CAS"
 msgstr "ಸಿಎಎಸ್ ಮೂಲಕ ಸಂಪರ್ಕಿಸು"
 
-#: inc/class-cas.php:339
+#: inc/class-cas.php:350
 msgid "Or"
 msgstr "ಅಥವಾ"
 
-#: inc/class-cas.php:371
+#: inc/class-cas.php:382
 msgid "Logged in!"
 msgstr "ನೀವು ಲಾಗ್ ಇನ್ ಆಗಿದ್ದೀರಿ!"
 
-#: inc/class-cas.php:537
+#: inc/class-cas.php:548
 msgid "Registered and logged in!"
 msgstr "ನೋಂದಾಯಿಸಲಾಗಿದೆ ಮತ್ತು ಲಾಗ್ ಇನ್ ಮಾಡಲಾಗಿದೆ!"
 
