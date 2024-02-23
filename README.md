@@ -2,9 +2,9 @@
 
 Contributors: conner_bw, greatislander
 Tags: pressbooks, sso, cas
-Requires at least: 6.3.2
-Tested up to: 6.3.2
-Stable tag: 2.3.1
+Requires at least: 6.4.3
+Tested up to: 6.4.3
+Stable tag: 2.3.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -50,12 +50,15 @@ Because this plugin uses the fabulous [apereo/phpCAS](https://github.com/apereo/
 ![Pressbooks CAS Administration.](screenshot-1.png)
 
 ## Changelog
-### 2.3.1
+### 2.3.2
 
-* See: https://github.com/pressbooks/pressbooks-cas-sso/releases/tag/2.3.1
+* See: https://github.com/pressbooks/pressbooks-cas-sso/releases/tag/2.3.2
 * Full release history available at: https://github.com/pressbooks/pressbooks-cas-sso/releases
 
 ## Upgrade Notices
+### 2.3.2
+* Pressbooks CAS Single Sign-On requires WordPress >= 6.4.3
+
 ### 2.3.1
 * Pressbooks CAS Single Sign-On requires WordPress >= 6.3.2
 
