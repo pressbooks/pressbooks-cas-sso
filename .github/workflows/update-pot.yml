@@ -23,7 +23,7 @@ jobs:
       run: wp i18n make-pot . languages/pressbooks-cas-sso.pot --domain=pressbooks-cas-sso --slug=pressbooks-cas-sso --package-name="Pressbooks CAS Single Sign-On" --headers="{\"Report-Msgid-Bugs-To\":\"https://github.com/pressbooks/pressbooks-cas-sso/issues\"}"
     - name: Create Pull Request for POT file
       id: cprpot
-      uses: peter-evans/create-pull-request@v5
+      uses: peter-evans/create-pull-request@v6
       with:
         token: ${{ secrets.PAT_FOR_GITHUB_ACTIONS }}
         labels: automerge-pot
