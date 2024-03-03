@@ -10,12 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2024-02-29T21:16:17+00:00\n"
 "PO-Revision-Date: 2024-02-29 16:25+0000\n"
 "Last-Translator: Eduardo Vera, 2024\n"
-"Language-Team: Spanish (https://app.transifex.com/pressbooks/teams/9194/es/)\n"
+"Language-Team: Japanese (https://app.transifex.com/pressbooks/teams/9194/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: pressbooks-cas-sso\n"
 "X-Generator: WP-CLI 2.10.0\n"
 
@@ -33,7 +33,7 @@ msgstr "https://pressbooks.org"
 #. Description of the plugin
 #: pressbooks-cas-sso.php
 msgid "CAS Single Sign-On integration for Pressbooks."
-msgstr "Integración con la identificación única mediante CAS para Pressbooks."
+msgstr "Pressbooks に対して CAS シングルサインオン統合。"
 
 #. Author of the plugin
 #: pressbooks-cas-sso.php
@@ -46,13 +46,11 @@ msgstr "CAS"
 
 #: inc/class-cas.php:98
 msgid "CAS is not configured."
-msgstr "CAS no está configurado."
+msgstr "CAS が設定されていません。"
 
 #: inc/class-cas.php:99
 msgid "CAS is not configured. Make sure the service runs on secure protocols."
-msgstr ""
-"CAS no está configurado. Comprueba que el servicio se ejecute en protocolos "
-"seguros."
+msgstr "CAS が設定されていません。サービスが安全なプロトコルで実行していることを確認してください。"
 
 #. translators: %s Pressbooks Network Manager email if found.
 #: inc/class-cas.php:283
@@ -61,85 +59,84 @@ msgid ""
 "request an account, please contact your institution's Pressbooks Network "
 "Manager%s"
 msgstr ""
-"No se puede acceder. No tienes una cuenta en esta red de Pressbooks. Para "
-"solicitar una cuenta, contacta con el administrador de la red de Pressbooks "
-"de tu institución%s"
+"ログインできません: この Pressbooks サイトネットワークのアカウントをお持ちではありません。アカウントをリクエストするには、機関の "
+"Pressbooks サイトネットワーク管理者に連絡してください%s"
 
 #: inc/class-cas.php:285
 msgid "CAS authentication failed."
-msgstr "La identificación mediante CAS ha fallado."
+msgstr "CAS 認証に失敗しました。"
 
 #: inc/class-cas.php:342
 msgid "Connect via CAS"
-msgstr "Acceder mediante CAS"
+msgstr "CAS でログイン"
 
 #: inc/class-cas.php:350
 msgid "Or"
-msgstr "O"
+msgstr "または"
 
 #: inc/class-cas.php:382
 msgid "Logged in!"
-msgstr "¡Te has conectado!"
+msgstr "ログイン中 !"
 
 #: inc/class-cas.php:548
 msgid "Registered and logged in!"
-msgstr "¡Te has registrado y conectado!"
+msgstr "登録してログイン中 !"
 
 #: pressbooks-cas-sso.php:24
 msgid "Cannot find Pressbooks install."
-msgstr "No se puede encontrar la instalación de Pressbooks."
+msgstr "Pressbooks のインストールが見つかりません。"
 
 #: pressbooks-cas-sso.php:44
 msgid "Dependencies Missing"
-msgstr "Hay dependencias faltantes"
+msgstr "依存関係が見つかりません"
 
 #: pressbooks-cas-sso.php:45
 msgid ""
 "Please run <code>composer install</code> from the root of the Pressbooks CAS"
 " Single Sign-On plugin directory."
 msgstr ""
-"Ejecuta <code>composer install</code> desde la raíz del directorio del "
-"plugin Pressbooks CAS Single Sign-On."
+"Pressbooks CAS Single Sign-On プラグインディレクトリのルートから <code>composer "
+"install</code> を実行してください。"
 
 #: templates/admin.blade.php:2
 msgid "Central Authentication Service (CAS)"
-msgstr "Servicio central de identificación (CAS)"
+msgstr "中央認証サービス (CAS)"
 
 #: templates/admin.blade.php:8
 msgid "CAS Version"
-msgstr "Versión de CAS"
+msgstr "CAS バージョン"
 
 #: templates/admin.blade.php:17
 msgid "Server Hostname"
-msgstr "Hostname del servidor"
+msgstr "サーバーのホスト名"
 
 #: templates/admin.blade.php:21
 msgid "Server Port"
-msgstr "Puerto del servidor"
+msgstr "サーバーのポート"
 
 #: templates/admin.blade.php:25
 msgid "Server Path"
-msgstr "Ruta del servidor"
+msgstr "サーバーのパス"
 
 #: templates/admin.blade.php:29
 msgid "If the CAS user does not have a Pressbooks account"
-msgstr "Si el usuario CAS no tiene una cuenta de Pressbooks"
+msgstr "CAS ユーザーは Pressbooks アカウントをお持ちでないの場合"
 
 #: templates/admin.blade.php:31
 msgid "Refuse Access"
-msgstr "Rechazar el acceso"
+msgstr "アクセスを拒否"
 
 #: templates/admin.blade.php:32
 msgid "Add New User"
-msgstr "Añadir nuevo usuario"
+msgstr "新規ユーザーを追加"
 
 #: templates/admin.blade.php:37
 msgid "Optional Information"
-msgstr "Información opcional"
+msgstr "オプションの情報"
 
 #: templates/admin.blade.php:40
 msgid "Email Domain"
-msgstr "Dominio de correo electrónico"
+msgstr "メールアドレスドメイン"
 
 #: templates/admin.blade.php:44
 msgid ""
@@ -147,37 +144,33 @@ msgid ""
 "specify your institution's email domain here to generate your users' email "
 "addresses."
 msgstr ""
-"Si los correos electrónicos de tus usuarios están basados en sus "
-"identificadores de red (ejemplo: nombre@universidad.edu), define aquí el "
-"dominio de correo electrónico de tu institución para generar las direcciones"
-" de correo electrónico de tus usuarios."
+"ユーザーのメールアドレスは NetID に基づいて場合 (例: "
+"NetID@daigaku.ac.jp)、ユーザーのメールアドレスを生成するため、機関のメールアドレスドメインをここに指定します。"
 
 #: templates/admin.blade.php:49
 msgid " Bypass"
-msgstr "Ignorar"
+msgstr " バイパス"
 
 #: templates/admin.blade.php:51
 msgid ""
 "Bypass the \"Limited Email Registrations\" and \"Banned Email Domains\" "
 "lists under <a href=\"%s\">Network Settings</a>."
 msgstr ""
-"Ignorar las listas de «Limitar el registro por correo electrónico» y "
-"«Dominios de correo electrónico no permitidos» establecidas en <a "
-"href=\"%s\">Ajustes de la red</a>."
+"「<a "
+"href=\"%s\">サイトネットワーク設定</a>」の「登録メールアドレスの制限」と「登録を拒否するメールのドメイン」リストをバイパスします。"
 
 #: templates/admin.blade.php:56
 msgid " Forced Redirection"
-msgstr "Redirección forzada"
+msgstr " 強制リダイレクト"
 
 #: templates/admin.blade.php:59
 msgid "Hide the Pressbooks login page."
-msgstr "Ocultar la página de acceso de Pressbooks."
+msgstr "Pressbooks ログインページを非表示"
 
 #: templates/admin.blade.php:63
 msgid "Customize Button Text"
-msgstr "Personalizar el texto del botón"
+msgstr "ボタンのテキストをカスタマイズ"
 
 #: templates/admin.blade.php:67
 msgid "Change the [ Connect via CAS ] button to something more user-friendly."
-msgstr ""
-"Cambia el texto del botón [ Acceder mediante CAS ] por otro más amigable."
+msgstr "「CAS でログイン」ボタンをより使いやすいものに変更します。"

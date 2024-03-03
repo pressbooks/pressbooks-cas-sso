@@ -1,38 +1,42 @@
-# Copyright (C) 2023 Pressbooks (Book Oven Inc.)
+# Copyright (C) 2024 Pressbooks (Book Oven Inc.)
 # This file is distributed under the GPL v3 or later.
 # Translators:
-# fish free <winofchina@hotmail.com>, 2021
+# Steel Wagstaff <steel@pressbooks.com>, 2024
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Pressbooks CAS Single Sign-On 2.3.0\n"
+"Project-Id-Version: Pressbooks CAS Single Sign-On 2.3.2\n"
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
-"POT-Creation-Date: 2023-02-28T22:17:51+00:00\n"
-"PO-Revision-Date: 2019-02-28 19:57+0000\n"
-"Last-Translator: fish free <winofchina@hotmail.com>, 2021\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/pressbooks/teams/9194/zh_CN/)\n"
+"POT-Creation-Date: 2024-02-29T21:16:17+00:00\n"
+"PO-Revision-Date: 2024-02-29 16:25+0000\n"
+"Last-Translator: Steel Wagstaff <steel@pressbooks.com>, 2024\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/pressbooks/teams/9194/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: pressbooks-cas-sso\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #. Plugin Name of the plugin
+#: pressbooks-cas-sso.php
 msgid "Pressbooks CAS Single Sign-On"
 msgstr "Pressbooks CAS单点登录"
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: pressbooks-cas-sso.php
 msgid "https://pressbooks.org"
 msgstr "https://pressbooks.org"
 
 #. Description of the plugin
+#: pressbooks-cas-sso.php
 msgid "CAS Single Sign-On integration for Pressbooks."
 msgstr "CAS单点登录。"
 
 #. Author of the plugin
+#: pressbooks-cas-sso.php
 msgid "Pressbooks (Book Oven Inc.)"
 msgstr "Pressbooks (Book Oven 有限公司。)"
 
