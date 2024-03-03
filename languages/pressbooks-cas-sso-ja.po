@@ -108,7 +108,7 @@ msgstr "CAS バージョン"
 
 #: templates/admin.blade.php:17
 msgid "Server Hostname"
-msgstr ""
+msgstr "サーバーのホスト名"
 
 #: templates/admin.blade.php:21
 msgid "Server Port"
