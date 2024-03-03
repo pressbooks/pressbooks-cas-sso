@@ -116,7 +116,7 @@ msgstr "サーバーのポート"
 
 #: templates/admin.blade.php:25
 msgid "Server Path"
-msgstr ""
+msgstr "サーバーのパス"
 
 #: templates/admin.blade.php:29
 msgid "If the CAS user does not have a Pressbooks account"
