@@ -144,6 +144,8 @@ msgid ""
 "specify your institution's email domain here to generate your users' email "
 "addresses."
 msgstr ""
+"ユーザーのメールアドレスは NetID に基づいて場合 (例: "
+"NetID@daigaku.ac.jp)、ユーザーのメールアドレスを生成するため、機関のメールアドレスドメインをここに指定します。"
 
 #: templates/admin.blade.php:49
 msgid " Bypass"
