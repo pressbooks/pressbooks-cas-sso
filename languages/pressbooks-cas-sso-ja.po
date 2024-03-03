@@ -149,7 +149,7 @@ msgstr ""
 
 #: templates/admin.blade.php:49
 msgid " Bypass"
-msgstr ""
+msgstr " バイパス"
 
 #: templates/admin.blade.php:51
 msgid ""
