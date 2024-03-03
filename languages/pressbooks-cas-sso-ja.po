@@ -165,11 +165,11 @@ msgstr " 強制リダイレクト"
 
 #: templates/admin.blade.php:59
 msgid "Hide the Pressbooks login page."
-msgstr ""
+msgstr "Pressbooks ログインページを非表示"
 
 #: templates/admin.blade.php:63
 msgid "Customize Button Text"
-msgstr ""
+msgstr "ボタンのテキストをカスタマイズ"
 
 #: templates/admin.blade.php:67
 msgid "Change the [ Connect via CAS ] button to something more user-friendly."
