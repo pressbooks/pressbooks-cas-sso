@@ -127,7 +127,7 @@ msgstr "Si el usuario CAS no tiene una cuenta de Pressbooks"
 
 #: templates/admin.blade.php:31
 msgid "Refuse Access"
-msgstr ""
+msgstr "Rechazar el acceso"
 
 #: templates/admin.blade.php:32
 msgid "Add New User"
