@@ -156,6 +156,8 @@ msgid ""
 "Bypass the \"Limited Email Registrations\" and \"Banned Email Domains\" "
 "lists under <a href=\"%s\">Network Settings</a>."
 msgstr ""
+"「<a "
+"href=\"%s\">サイトネットワーク設定</a>」の「登録メールアドレスの制限」と「登録を拒否するメールのドメイン」リストをバイパスします。"
 
 #: templates/admin.blade.php:56
 msgid " Forced Redirection"
