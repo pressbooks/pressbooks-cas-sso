@@ -131,11 +131,11 @@ msgstr "Rechazar el acceso"
 
 #: templates/admin.blade.php:32
 msgid "Add New User"
-msgstr ""
+msgstr "Añadir nuevo usuario"
 
 #: templates/admin.blade.php:37
 msgid "Optional Information"
-msgstr ""
+msgstr "Información opcional"
 
 #: templates/admin.blade.php:40
 msgid "Email Domain"
