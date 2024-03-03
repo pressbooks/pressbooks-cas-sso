@@ -75,11 +75,11 @@ msgstr "Acceder mediante CAS"
 
 #: inc/class-cas.php:350
 msgid "Or"
-msgstr ""
+msgstr "O"
 
 #: inc/class-cas.php:382
 msgid "Logged in!"
-msgstr ""
+msgstr "¡Te has conectado!"
 
 #: inc/class-cas.php:548
 msgid "Registered and logged in!"
