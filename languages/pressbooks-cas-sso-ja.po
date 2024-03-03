@@ -72,7 +72,7 @@ msgstr "CAS でログイン"
 
 #: inc/class-cas.php:350
 msgid "Or"
-msgstr ""
+msgstr "または"
 
 #: inc/class-cas.php:382
 msgid "Logged in!"
