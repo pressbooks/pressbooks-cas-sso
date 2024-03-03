@@ -180,3 +180,4 @@ msgstr "Personalizar el texto del botón"
 #: templates/admin.blade.php:67
 msgid "Change the [ Connect via CAS ] button to something more user-friendly."
 msgstr ""
+"Cambia el texto del botón [ Acceder mediante CAS ] por otro más amigable."
