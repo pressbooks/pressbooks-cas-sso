@@ -76,11 +76,11 @@ msgstr "または"
 
 #: inc/class-cas.php:382
 msgid "Logged in!"
-msgstr ""
+msgstr "ログイン中 !"
 
 #: inc/class-cas.php:548
 msgid "Registered and logged in!"
-msgstr ""
+msgstr "登録してログイン中 !"
 
 #: pressbooks-cas-sso.php:24
 msgid "Cannot find Pressbooks install."
