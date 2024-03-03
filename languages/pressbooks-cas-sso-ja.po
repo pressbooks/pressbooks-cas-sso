@@ -104,7 +104,7 @@ msgstr "中央認証サービス (CAS)"
 
 #: templates/admin.blade.php:8
 msgid "CAS Version"
-msgstr ""
+msgstr "CAS バージョン"
 
 #: templates/admin.blade.php:17
 msgid "Server Hostname"
