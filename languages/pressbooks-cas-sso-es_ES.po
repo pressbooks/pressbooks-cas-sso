@@ -107,11 +107,11 @@ msgstr "Servicio central de identificación (CAS)"
 
 #: templates/admin.blade.php:8
 msgid "CAS Version"
-msgstr ""
+msgstr "Versión de CAS"
 
 #: templates/admin.blade.php:17
 msgid "Server Hostname"
-msgstr ""
+msgstr "Hostname del servidor"
 
 #: templates/admin.blade.php:21
 msgid "Server Port"
