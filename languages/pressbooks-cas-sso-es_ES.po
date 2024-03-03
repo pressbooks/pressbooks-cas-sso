@@ -83,11 +83,11 @@ msgstr "¡Te has conectado!"
 
 #: inc/class-cas.php:548
 msgid "Registered and logged in!"
-msgstr ""
+msgstr "¡Te has registrado y conectado!"
 
 #: pressbooks-cas-sso.php:24
 msgid "Cannot find Pressbooks install."
-msgstr ""
+msgstr "No se puede encontrar la instalación de Pressbooks."
 
 #: pressbooks-cas-sso.php:44
 msgid "Dependencies Missing"
