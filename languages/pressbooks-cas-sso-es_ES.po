@@ -171,11 +171,11 @@ msgstr "Redirección forzada"
 
 #: templates/admin.blade.php:59
 msgid "Hide the Pressbooks login page."
-msgstr ""
+msgstr "Ocultar la página de acceso de Pressbooks."
 
 #: templates/admin.blade.php:63
 msgid "Customize Button Text"
-msgstr ""
+msgstr "Personalizar el texto del botón"
 
 #: templates/admin.blade.php:67
 msgid "Change the [ Connect via CAS ] button to something more user-friendly."
