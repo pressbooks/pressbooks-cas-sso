@@ -95,10 +95,12 @@ msgid ""
 "Please run <code>composer install</code> from the root of the Pressbooks CAS"
 " Single Sign-On plugin directory."
 msgstr ""
+"Pressbooks CAS Single Sign-On プラグインディレクトリのルートから <code>composer "
+"install</code> を実行してください。"
 
 #: templates/admin.blade.php:2
 msgid "Central Authentication Service (CAS)"
-msgstr ""
+msgstr "中央認証サービス (CAS)"
 
 #: templates/admin.blade.php:8
 msgid "CAS Version"
