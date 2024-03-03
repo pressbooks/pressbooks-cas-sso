@@ -147,6 +147,10 @@ msgid ""
 "specify your institution's email domain here to generate your users' email "
 "addresses."
 msgstr ""
+"Si los correos electrónicos de tus usuarios están basados en sus "
+"identificadores de red (ejemplo: nombre@universidad.edu), define aquí el "
+"dominio de correo electrónico de tu institución para generar las direcciones"
+" de correo electrónico de tus usuarios."
 
 #: templates/admin.blade.php:49
 msgid " Bypass"
