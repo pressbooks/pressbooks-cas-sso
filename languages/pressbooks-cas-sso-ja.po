@@ -84,7 +84,7 @@ msgstr "登録してログイン中 !"
 
 #: pressbooks-cas-sso.php:24
 msgid "Cannot find Pressbooks install."
-msgstr ""
+msgstr "Pressbooks のインストールが見つかりません。"
 
 #: pressbooks-cas-sso.php:44
 msgid "Dependencies Missing"
