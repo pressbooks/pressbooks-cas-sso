@@ -139,7 +139,7 @@ msgstr "Información opcional"
 
 #: templates/admin.blade.php:40
 msgid "Email Domain"
-msgstr ""
+msgstr "Dominio de correo electrónico"
 
 #: templates/admin.blade.php:44
 msgid ""
