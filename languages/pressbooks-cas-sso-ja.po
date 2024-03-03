@@ -112,7 +112,7 @@ msgstr "サーバーのホスト名"
 
 #: templates/admin.blade.php:21
 msgid "Server Port"
-msgstr ""
+msgstr "サーバーのポート"
 
 #: templates/admin.blade.php:25
 msgid "Server Path"
