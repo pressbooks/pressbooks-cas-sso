@@ -136,7 +136,7 @@ msgstr "オプションの情報"
 
 #: templates/admin.blade.php:40
 msgid "Email Domain"
-msgstr ""
+msgstr "メールアドレスドメイン"
 
 #: templates/admin.blade.php:44
 msgid ""
