@@ -132,7 +132,7 @@ msgstr "新規ユーザーを追加"
 
 #: templates/admin.blade.php:37
 msgid "Optional Information"
-msgstr ""
+msgstr "オプションの情報"
 
 #: templates/admin.blade.php:40
 msgid "Email Domain"
