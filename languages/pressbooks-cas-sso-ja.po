@@ -88,7 +88,7 @@ msgstr "Pressbooks のインストールが見つかりません。"
 
 #: pressbooks-cas-sso.php:44
 msgid "Dependencies Missing"
-msgstr ""
+msgstr "依存関係が見つかりません"
 
 #: pressbooks-cas-sso.php:45
 msgid ""
