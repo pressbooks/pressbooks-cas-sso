@@ -120,7 +120,7 @@ msgstr "サーバーのパス"
 
 #: templates/admin.blade.php:29
 msgid "If the CAS user does not have a Pressbooks account"
-msgstr ""
+msgstr "CAS ユーザーは Pressbooks アカウントをお持ちでないの場合"
 
 #: templates/admin.blade.php:31
 msgid "Refuse Access"
