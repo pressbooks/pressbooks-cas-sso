@@ -173,4 +173,4 @@ msgstr "ボタンのテキストをカスタマイズ"
 
 #: templates/admin.blade.php:67
 msgid "Change the [ Connect via CAS ] button to something more user-friendly."
-msgstr ""
+msgstr "「CAS でログイン」ボタンをより使いやすいものに変更します。"
