@@ -124,11 +124,11 @@ msgstr "CAS ユーザーは Pressbooks アカウントをお持ちでないの�
 
 #: templates/admin.blade.php:31
 msgid "Refuse Access"
-msgstr ""
+msgstr "アクセスを拒否"
 
 #: templates/admin.blade.php:32
 msgid "Add New User"
-msgstr ""
+msgstr "新規ユーザーを追加"
 
 #: templates/admin.blade.php:37
 msgid "Optional Information"
