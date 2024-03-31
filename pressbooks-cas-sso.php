@@ -2,6 +2,8 @@
 /**
  * Plugin Name:         Pressbooks CAS Single Sign-On
  * Plugin URI:          https://pressbooks.org
+ * Requires at least:   6.5
+ * Requires Plugins:    pressbooks
  * GitHub Plugin URI:   pressbooks/pressbooks-cas-sso
  * Release Asset:       true
  * Description:         CAS Single Sign-On integration for Pressbooks.
@@ -14,20 +16,6 @@
  * Text Domain:         pressbooks-cas-sso
  * Network: True
  */
-
-// -------------------------------------------------------------------------------------------------------------------
-// Check requirements
-// -------------------------------------------------------------------------------------------------------------------
-if ( ! function_exists( 'pb_meets_minimum_requirements' ) && ! @include_once( WP_PLUGIN_DIR . '/pressbooks/compatibility.php' ) ) { // @codingStandardsIgnoreLine
-	add_action(
-		'admin_notices', function () {
-			echo '<div id="message" role="alert" class="error fade"><p>' . __( 'Cannot find Pressbooks install.', 'pressbooks-cas-sso' ) . '</p></div>';
-		}
-	);
-	return;
-} elseif ( ! pb_meets_minimum_requirements() ) {
-	return;
-}
 
 // -------------------------------------------------------------------------------------------------------------------
 // Class autoloader
