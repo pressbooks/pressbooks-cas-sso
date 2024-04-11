@@ -31,7 +31,6 @@ class Admin {
 		add_action( 'network_admin_menu', [ $obj, 'addMenu' ], 999 );
 	}
 
-
 	public function addMenu(): void {
 		$parent_slug = \Pressbooks\Admin\Dashboard\init_network_integrations_menu();
 
