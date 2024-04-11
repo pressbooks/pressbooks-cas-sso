@@ -5,9 +5,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Pressbooks CAS Single Sign-On 2.3.2\n"
+"Project-Id-Version: Pressbooks CAS Single Sign-On 2.4.0\n"
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
-"POT-Creation-Date: 2024-02-29T21:16:17+00:00\n"
+"POT-Creation-Date: 2024-04-11T15:35:42+00:00\n"
 "PO-Revision-Date: 2024-02-29 16:25+0000\n"
 "Last-Translator: Steel Wagstaff <steel@pressbooks.com>, 2024\n"
 "Language-Team: Turkish (Turkey) (https://app.transifex.com/pressbooks/teams/9194/tr_TR/)\n"
@@ -40,7 +40,7 @@ msgstr "Pressbooks için CAS Tek Oturum Açma entegrasyonu."
 msgid "Pressbooks (Book Oven Inc.)"
 msgstr ""
 
-#: inc/class-admin.php:49 inc/class-admin.php:50
+#: inc/class-admin.php:39 inc/class-admin.php:40
 msgid "CAS"
 msgstr ""
 
@@ -80,15 +80,11 @@ msgstr ""
 msgid "Registered and logged in!"
 msgstr ""
 
-#: pressbooks-cas-sso.php:24
-msgid "Cannot find Pressbooks install."
-msgstr "Pressbooks kurulumu bulunamıyor."
-
-#: pressbooks-cas-sso.php:44
+#: pressbooks-cas-sso.php:32
 msgid "Dependencies Missing"
 msgstr "Bağımlılıklar Eksik"
 
-#: pressbooks-cas-sso.php:45
+#: pressbooks-cas-sso.php:33
 msgid ""
 "Please run <code>composer install</code> from the root of the Pressbooks CAS"
 " Single Sign-On plugin directory."
