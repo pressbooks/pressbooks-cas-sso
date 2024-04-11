@@ -28,20 +28,11 @@ class Admin {
 	static public function hooks( Admin $obj ) {
 		load_plugin_textdomain( 'pressbooks-cas-sso', false, 'pressbooks-cas-sso/languages/' );
 
-		add_action( 'network_admin_menu', [ $obj, 'addMenu' ] );
+		add_action( 'network_admin_menu', [ $obj, 'addMenu' ], 999 );
 	}
 
-	/**
-	 *
-	 */
-	public function __construct() {
 
-	}
-
-	/**
-	 *
-	 */
-	public function addMenu() {
+	public function addMenu(): void {
 		$parent_slug = \Pressbooks\Admin\Dashboard\init_network_integrations_menu();
 
 		add_submenu_page(
