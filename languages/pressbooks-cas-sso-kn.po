@@ -1,42 +1,46 @@
-# Copyright (C) 2023 Pressbooks (Book Oven Inc.)
+# Copyright (C) 2024 Pressbooks (Book Oven Inc.)
 # This file is distributed under the GPL v3 or later.
 # Translators:
 # Omshivaprakash H L <omshivaprakash@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Pressbooks CAS Single Sign-On 2.3.0\n"
+"Project-Id-Version: Pressbooks CAS Single Sign-On 2.4.0\n"
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
-"POT-Creation-Date: 2023-02-28T22:17:51+00:00\n"
+"POT-Creation-Date: 2024-05-08T18:20:55+00:00\n"
 "PO-Revision-Date: 2019-02-28 19:57+0000\n"
 "Last-Translator: Omshivaprakash H L <omshivaprakash@gmail.com>, 2021\n"
-"Language-Team: Kannada (https://www.transifex.com/pressbooks/teams/9194/kn/)\n"
+"Language-Team: Kannada (https://app.transifex.com/pressbooks/teams/9194/kn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kn\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Domain: pressbooks-cas-sso\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #. Plugin Name of the plugin
+#: pressbooks-cas-sso.php
 msgid "Pressbooks CAS Single Sign-On"
 msgstr "ಪ್ರೆಸ್‍ಬುಕ್ಸ್ ಸಿಎಎಸ್ ಸಿಂಗಲ್ ಸೈನ್-ಆನ್"
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: pressbooks-cas-sso.php
 msgid "https://pressbooks.org"
 msgstr "https://pressbooks.org"
 
 #. Description of the plugin
+#: pressbooks-cas-sso.php
 msgid "CAS Single Sign-On integration for Pressbooks."
 msgstr "ಪ್ರೆಸ್‍ಬುಕ್ಸ್ ಗಳಿಗಾಗಿ ಸಿಎಎಸ್ ಸಿಂಗಲ್ ಸೈನ್-ಆನ್ ಏಕೀಕರಣ."
 
 #. Author of the plugin
+#: pressbooks-cas-sso.php
 msgid "Pressbooks (Book Oven Inc.)"
 msgstr "ಪ್ರೆಸ್‍ಬುಕ್ಸ್ (ಬುಕ್ ಓವನ್ ಇಂಕ್.)"
 
-#: inc/class-admin.php:49 inc/class-admin.php:50
+#: inc/class-admin.php:39 inc/class-admin.php:40
 msgid "CAS"
 msgstr "ಸಿಎಎಸ್"
 
@@ -79,15 +83,11 @@ msgstr "ನೀವು ಲಾಗ್ ಇನ್ ಆಗಿದ್ದೀರಿ!"
 msgid "Registered and logged in!"
 msgstr "ನೋಂದಾಯಿಸಲಾಗಿದೆ ಮತ್ತು ಲಾಗ್ ಇನ್ ಮಾಡಲಾಗಿದೆ!"
 
-#: pressbooks-cas-sso.php:24
-msgid "Cannot find Pressbooks install."
-msgstr "ಪ್ರೆಸ್‍ಬುಕ್ಸ್ ಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."
-
-#: pressbooks-cas-sso.php:44
+#: pressbooks-cas-sso.php:32
 msgid "Dependencies Missing"
 msgstr "ಅವಲಂಬನೆಗಳು ಕಾಣೆಯಾಗಿವೆ"
 
-#: pressbooks-cas-sso.php:45
+#: pressbooks-cas-sso.php:33
 msgid ""
 "Please run <code>composer install</code> from the root of the Pressbooks CAS"
 " Single Sign-On plugin directory."

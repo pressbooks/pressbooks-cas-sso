@@ -1,43 +1,48 @@
-# Copyright (C) 2023 Pressbooks (Book Oven Inc.)
+# Copyright (C) 2024 Pressbooks (Book Oven Inc.)
 # This file is distributed under the GPL v3 or later.
 # Translators:
 # Amelie Roberge <aroberge@tciinc.ca>, 2019
 # Hubert GB <hgblouin@tciinc.ca>, 2019
+# Steel Wagstaff <steel@pressbooks.com>, 2024
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Pressbooks CAS Single Sign-On 2.3.0\n"
+"Project-Id-Version: Pressbooks CAS Single Sign-On 2.4.0\n"
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
-"POT-Creation-Date: 2023-02-28T22:17:51+00:00\n"
+"POT-Creation-Date: 2024-05-08T18:20:55+00:00\n"
 "PO-Revision-Date: 2019-02-28 19:57+0000\n"
-"Last-Translator: Hubert GB <hgblouin@tciinc.ca>, 2019\n"
-"Language-Team: French (https://www.transifex.com/pressbooks/teams/9194/fr/)\n"
+"Last-Translator: Steel Wagstaff <steel@pressbooks.com>, 2024\n"
+"Language-Team: French (https://app.transifex.com/pressbooks/teams/9194/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 "X-Domain: pressbooks-cas-sso\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.10.0\n"
 
 #. Plugin Name of the plugin
+#: pressbooks-cas-sso.php
 msgid "Pressbooks CAS Single Sign-On"
 msgstr "CAS à signature unique sur Pressbooks"
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: pressbooks-cas-sso.php
 msgid "https://pressbooks.org"
 msgstr "https://pressbooks.org"
 
 #. Description of the plugin
+#: pressbooks-cas-sso.php
 msgid "CAS Single Sign-On integration for Pressbooks."
 msgstr "Intégration du CAS à signature unique sur Pressbooks."
 
 #. Author of the plugin
+#: pressbooks-cas-sso.php
 msgid "Pressbooks (Book Oven Inc.)"
 msgstr "Pressbooks (Book Oven Inc.)"
 
-#: inc/class-admin.php:49 inc/class-admin.php:50
+#: inc/class-admin.php:39 inc/class-admin.php:40
 msgid "CAS"
 msgstr "CAS"
 
@@ -48,6 +53,8 @@ msgstr "Le CAS n&rsquo;est pas configuré"
 #: inc/class-cas.php:99
 msgid "CAS is not configured. Make sure the service runs on secure protocols."
 msgstr ""
+"CAS n'est pas configuré. Assurez-vous que le service fonctionne sur des "
+"protocoles sécurisés."
 
 #. translators: %s Pressbooks Network Manager email if found.
 #: inc/class-cas.php:283
@@ -80,15 +87,11 @@ msgstr "Vous êtes connecté!"
 msgid "Registered and logged in!"
 msgstr "Vous êtes inscrit et connecté!"
 
-#: pressbooks-cas-sso.php:24
-msgid "Cannot find Pressbooks install."
-msgstr "Erreur lors de ld&rsquo;installation de Pressbooks."
-
-#: pressbooks-cas-sso.php:44
+#: pressbooks-cas-sso.php:32
 msgid "Dependencies Missing"
 msgstr "Dépendances manquantes"
 
-#: pressbooks-cas-sso.php:45
+#: pressbooks-cas-sso.php:33
 msgid ""
 "Please run <code>composer install</code> from the root of the Pressbooks CAS"
 " Single Sign-On plugin directory."
