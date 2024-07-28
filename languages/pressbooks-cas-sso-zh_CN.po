@@ -1,7 +1,7 @@
 # Copyright (C) 2024 Pressbooks (Book Oven Inc.)
 # This file is distributed under the GPL v3 or later.
 # Translators:
-# fish free <winofchina@hotmail.com>, 2021
+# fish free <winofchina@hotmail.com>, 2024
 # 
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
 "POT-Creation-Date: 2024-05-08T18:20:55+00:00\n"
 "PO-Revision-Date: 2019-02-28 19:57+0000\n"
-"Last-Translator: fish free <winofchina@hotmail.com>, 2021\n"
+"Last-Translator: fish free <winofchina@hotmail.com>, 2024\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/pressbooks/teams/9194/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,7 @@ msgstr "未配置CAS"
 
 #: inc/class-cas.php:99
 msgid "CAS is not configured. Make sure the service runs on secure protocols."
-msgstr ""
+msgstr "未配置 CAS。请确保服务在安全协议上运行。"
 
 #. translators: %s Pressbooks Network Manager email if found.
 #: inc/class-cas.php:283
