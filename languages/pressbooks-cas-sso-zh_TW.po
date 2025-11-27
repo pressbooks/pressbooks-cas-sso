@@ -3,19 +3,21 @@
 # Translators:
 # Steel Wagstaff <steel@pressbooks.com>, 2024
 # fish free <winofchina@hotmail.com>, 2024
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Pressbooks CAS Single Sign-On 2.4.0\n"
-"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/"
+"issues\n"
 "POT-Creation-Date: 2024-05-08T18:20:55+00:00\n"
 "PO-Revision-Date: 2019-02-28 19:57+0000\n"
 "Last-Translator: fish free <winofchina@hotmail.com>, 2024\n"
-"Language-Team: Chinese (Taiwan) (https://app.transifex.com/pressbooks/teams/9194/zh_TW/)\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/pressbooks/teams/"
+"9194/zh_TW/)\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: pressbooks-cas-sso\n"
 "X-Generator: WP-CLI 2.10.0\n"
@@ -87,9 +89,11 @@ msgstr "缺失依赖项"
 
 #: pressbooks-cas-sso.php:33
 msgid ""
-"Please run <code>composer install</code> from the root of the Pressbooks CAS"
-" Single Sign-On plugin directory."
-msgstr "请在Pressbooks的CAS单点登录插件的根目录下运行： <code>composer install</code> 。"
+"Please run <code>composer install</code> from the root of the Pressbooks CAS "
+"Single Sign-On plugin directory."
+msgstr ""
+"请在Pressbooks的CAS单点登录插件的根目录下运行： <code>composer install</"
+"code> 。"
 
 #: templates/admin.blade.php:2
 msgid "Central Authentication Service (CAS)"
@@ -137,7 +141,8 @@ msgid ""
 "specify your institution's email domain here to generate your users' email "
 "addresses."
 msgstr ""
-"若用户都有机构单位的Email（如：某个大学的Email），请在此输入单位的域名（email中@的后边部分），后续将使用用户名和此处输入的域名自动拼接出用户的Email。"
+"若用户都有机构单位的Email（如：某个大学的Email），请在此输入单位的域名（email"
+"中@的后边部分），后续将使用用户名和此处输入的域名自动拼接出用户的Email。"
 
 #: templates/admin.blade.php:49
 msgid " Bypass"
@@ -147,7 +152,9 @@ msgstr "跳过"
 msgid ""
 "Bypass the \"Limited Email Registrations\" and \"Banned Email Domains\" "
 "lists under <a href=\"%s\">Network Settings</a>."
-msgstr "忽略“限制的Email注册”和“禁止的Email域名”名单（在<a href=\"%s\">网络设置</a>设置）"
+msgstr ""
+"忽略“限制的Email注册”和“禁止的Email域名”名单（在<a href=\"%s\">网络设置</a>设"
+"置）"
 
 #: templates/admin.blade.php:56
 msgid " Forced Redirection"
