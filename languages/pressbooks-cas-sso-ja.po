@@ -2,19 +2,21 @@
 # This file is distributed under the GPL v3 or later.
 # Translators:
 # Eduardo Vera, 2023
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Pressbooks CAS Single Sign-On 2.4.0\n"
-"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/"
+"issues\n"
 "POT-Creation-Date: 2024-05-08T18:20:55+00:00\n"
 "PO-Revision-Date: 2019-02-28 19:57+0000\n"
 "Last-Translator: Eduardo Vera, 2023\n"
-"Language-Team: Japanese (https://app.transifex.com/pressbooks/teams/9194/ja/)\n"
+"Language-Team: Japanese (https://app.transifex.com/pressbooks/teams/9194/"
+"ja/)\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: pressbooks-cas-sso\n"
 "X-Generator: WP-CLI 2.10.0\n"
@@ -50,7 +52,9 @@ msgstr "CAS が設定されていません。"
 
 #: inc/class-cas.php:99
 msgid "CAS is not configured. Make sure the service runs on secure protocols."
-msgstr "CAS が設定されていません。サービスが安全なプロトコルで実行していることを確認してください。"
+msgstr ""
+"CAS が設定されていません。サービスが安全なプロトコルで実行していることを確認"
+"してください。"
 
 #. translators: %s Pressbooks Network Manager email if found.
 #: inc/class-cas.php:283
@@ -59,8 +63,9 @@ msgid ""
 "request an account, please contact your institution's Pressbooks Network "
 "Manager%s"
 msgstr ""
-"ログインできません: この Pressbooks サイトネットワークのアカウントをお持ちではありません。アカウントをリクエストするには、機関の "
-"Pressbooks サイトネットワーク管理者に連絡してください%s"
+"ログインできません: この Pressbooks サイトネットワークのアカウントをお持ちで"
+"はありません。アカウントをリクエストするには、機関の Pressbooks サイトネット"
+"ワーク管理者に連絡してください%s"
 
 #: inc/class-cas.php:285
 msgid "CAS authentication failed."
@@ -88,11 +93,11 @@ msgstr "依存関係が見つかりません"
 
 #: pressbooks-cas-sso.php:33
 msgid ""
-"Please run <code>composer install</code> from the root of the Pressbooks CAS"
-" Single Sign-On plugin directory."
+"Please run <code>composer install</code> from the root of the Pressbooks CAS "
+"Single Sign-On plugin directory."
 msgstr ""
-"Pressbooks CAS Single Sign-On プラグインディレクトリのルートから <code>composer "
-"install</code> を実行してください。"
+"Pressbooks CAS Single Sign-On プラグインディレクトリのルートから "
+"<code>composer install</code> を実行してください。"
 
 #: templates/admin.blade.php:2
 msgid "Central Authentication Service (CAS)"
@@ -140,8 +145,9 @@ msgid ""
 "specify your institution's email domain here to generate your users' email "
 "addresses."
 msgstr ""
-"ユーザーのメールアドレスは NetID に基づいて場合 (例: "
-"NetID@daigaku.ac.jp)、ユーザーのメールアドレスを生成するため、機関のメールアドレスドメインをここに指定します。"
+"ユーザーのメールアドレスは NetID に基づいて場合 (例: NetID@daigaku.ac.jp)、"
+"ユーザーのメールアドレスを生成するため、機関のメールアドレスドメインをここに"
+"指定します。"
 
 #: templates/admin.blade.php:49
 msgid " Bypass"
@@ -152,8 +158,8 @@ msgid ""
 "Bypass the \"Limited Email Registrations\" and \"Banned Email Domains\" "
 "lists under <a href=\"%s\">Network Settings</a>."
 msgstr ""
-"「<a "
-"href=\"%s\">サイトネットワーク設定</a>」の「登録メールアドレスの制限」と「登録を拒否するメールのドメイン」リストをバイパスします。"
+"「<a href=\"%s\">サイトネットワーク設定</a>」の「登録メールアドレスの制限」と"
+"「登録を拒否するメールのドメイン」リストをバイパスします。"
 
 #: templates/admin.blade.php:56
 msgid " Forced Redirection"
