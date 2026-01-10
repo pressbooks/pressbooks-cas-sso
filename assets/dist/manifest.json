@@ -1,0 +1,11 @@
+{
+  "assets/src/scripts/login-form.js": {
+    "file": "assets/login-form-Db4Qr6QV.js",
+    "name": "login-form",
+    "src": "assets/src/scripts/login-form.js",
+    "isEntry": true,
+    "css": [
+      "assets/login-form-D-NQQLDt.css"
+    ]
+  }
+}

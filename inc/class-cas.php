@@ -3,7 +3,8 @@
 namespace PressbooksCasSso;
 
 use phpCAS as phpCAS;
-use PressbooksMix\Assets;
+use PressbooksFrontendTools\Assets;
+use PressbooksFrontendTools\AssetType;
 
 class CAS {
 
@@ -321,9 +322,8 @@ class CAS {
 	 * Add login CSS and JS
 	 */
 	public function loginEnqueueScripts() {
-		$assets = new Assets( 'pressbooks-cas-sso', 'plugin' );
-		wp_enqueue_style( 'pb-cas-login', $assets->getPath( 'styles/login-form.css' ) );
-		wp_enqueue_script( 'pb-cas-login', $assets->getPath( 'scripts/login-form.js' ), [ 'jquery' ] );
+		$assets = new Assets( 'pressbooks-cas-sso', AssetType::PLUGIN );
+		$assets->enqueue( 'assets/src/scripts/login-form.js', 'pb-cas-login' );
 	}
 
 	/**
