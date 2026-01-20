@@ -4,22 +4,20 @@
 # Amelie Roberge <aroberge@tciinc.ca>, 2019
 # Hubert GB <hgblouin@tciinc.ca>, 2019
 # Steel Wagstaff <steel@pressbooks.com>, 2024
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Pressbooks CAS Single Sign-On 2.4.0\n"
-"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/"
-"issues\n"
+"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
 "POT-Creation-Date: 2024-05-08T18:20:55+00:00\n"
 "PO-Revision-Date: 2019-02-28 19:57+0000\n"
 "Last-Translator: Steel Wagstaff <steel@pressbooks.com>, 2024\n"
 "Language-Team: French (https://app.transifex.com/pressbooks/teams/9194/fr/)\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
-"1000000 == 0 ? 1 : 2;\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 "X-Domain: pressbooks-cas-sso\n"
 "X-Generator: WP-CLI 2.10.0\n"
 
@@ -95,8 +93,8 @@ msgstr "Dépendances manquantes"
 
 #: pressbooks-cas-sso.php:33
 msgid ""
-"Please run <code>composer install</code> from the root of the Pressbooks CAS "
-"Single Sign-On plugin directory."
+"Please run <code>composer install</code> from the root of the Pressbooks CAS"
+" Single Sign-On plugin directory."
 msgstr ""
 "Veuillez exécuter <code>composer install</code> depuis la source du "
 "répertoire du module d&rsquo;extension Pressbooks CAS à signature unique."
@@ -162,7 +160,8 @@ msgid ""
 "lists under <a href=\"%s\">Network Settings</a>."
 msgstr ""
 "Contourner les listes de limites d&rsquo;inscriptions par courriel et de "
-"domaines de courriel interdits dans les <a href=\"%s\">Paramètres réseau</a>."
+"domaines de courriel interdits dans les <a href=\"%s\">Paramètres "
+"réseau</a>."
 
 #: templates/admin.blade.php:56
 msgid " Forced Redirection"

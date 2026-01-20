@@ -2,21 +2,19 @@
 # This file is distributed under the GPL v3 or later.
 # Translators:
 # Omshivaprakash H L <omshivaprakash@gmail.com>, 2021
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Pressbooks CAS Single Sign-On 2.4.0\n"
-"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/"
-"issues\n"
+"Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
 "POT-Creation-Date: 2024-05-08T18:20:55+00:00\n"
 "PO-Revision-Date: 2019-02-28 19:57+0000\n"
 "Last-Translator: Omshivaprakash H L <omshivaprakash@gmail.com>, 2021\n"
-"Language-Team: Kannada (https://app.transifex.com/pressbooks/teams/9194/"
-"kn/)\n"
-"Language: kn\n"
+"Language-Team: Kannada (https://app.transifex.com/pressbooks/teams/9194/kn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: kn\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Domain: pressbooks-cas-sso\n"
 "X-Generator: WP-CLI 2.10.0\n"
@@ -61,8 +59,9 @@ msgid ""
 "request an account, please contact your institution's Pressbooks Network "
 "Manager%s"
 msgstr ""
-"ಲಾಗ್ ಇನ್ ಮಾಡಲು ಅಸಮರ್ಥ: ಈ ಪ್ರೆಸ್ ಬುಕ್ಸ್ ನೆಟ್ ವರ್ಕ್ ನಲ್ಲಿ ನಿಮ್ಮ ಬಳಿ ಖಾತೆ ಇಲ್ಲ. ಖಾತೆಯನ್ನು "
-"ವಿನಂತಿಸಲು, ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಪ್ರೆಸ್‍ಬುಕ್ಸ್ ನೆಟ್ ವರ್ಕ್ ಮ್ಯಾನೇಜರ್ ಅನ್ನು ಸಂಪರ್ಕಿಸಿ%s"
+"ಲಾಗ್ ಇನ್ ಮಾಡಲು ಅಸಮರ್ಥ: ಈ ಪ್ರೆಸ್ ಬುಕ್ಸ್ ನೆಟ್ ವರ್ಕ್ ನಲ್ಲಿ ನಿಮ್ಮ ಬಳಿ ಖಾತೆ ಇಲ್ಲ."
+" ಖಾತೆಯನ್ನು ವಿನಂತಿಸಲು, ದಯವಿಟ್ಟು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಪ್ರೆಸ್‍ಬುಕ್ಸ್ ನೆಟ್ ವರ್ಕ್ "
+"ಮ್ಯಾನೇಜರ್ ಅನ್ನು ಸಂಪರ್ಕಿಸಿ%s"
 
 #: inc/class-cas.php:285
 msgid "CAS authentication failed."
@@ -90,11 +89,11 @@ msgstr "ಅವಲಂಬನೆಗಳು ಕಾಣೆಯಾಗಿವೆ"
 
 #: pressbooks-cas-sso.php:33
 msgid ""
-"Please run <code>composer install</code> from the root of the Pressbooks CAS "
-"Single Sign-On plugin directory."
+"Please run <code>composer install</code> from the root of the Pressbooks CAS"
+" Single Sign-On plugin directory."
 msgstr ""
-"ದಯವಿಟ್ಟು <code>composer install</code> ಪ್ರೆಸ್‍ಬುಕ್ಸ್ ಕ್ಯಾಸ್ ಸಿಂಗಲ್ ಸೈನ್-ಆನ್ ಪ್ಲಗಿನ್ "
-"ಡೈರೆಕ್ಟರಿ ಮೂಲದಿಂದ ಓಡಿ."
+"ದಯವಿಟ್ಟು <code>composer install</code> ಪ್ರೆಸ್‍ಬುಕ್ಸ್ ಕ್ಯಾಸ್ ಸಿಂಗಲ್ ಸೈನ್-ಆನ್ "
+"ಪ್ಲಗಿನ್ ಡೈರೆಕ್ಟರಿ ಮೂಲದಿಂದ ಓಡಿ."
 
 #: templates/admin.blade.php:2
 msgid "Central Authentication Service (CAS)"
@@ -143,8 +142,8 @@ msgid ""
 "addresses."
 msgstr ""
 "ನಿಮ್ಮ ಬಳಕೆದಾರರ ಇಮೇಲ್ ಗಳು ಅವರ ನೆಟಿಡಿಗಳನ್ನು (ಮಾಜಿ: NetID@university.edu) "
-"ಆಧರಿಸಿದ್ದರೆ, ನಿಮ್ಮ ಬಳಕೆದಾರರ ಇಮೇಲ್ ವಿಳಾಸಗಳನ್ನು ರಚಿಸಲು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಇಮೇಲ್ ಡೊಮೇನ್ ಅನ್ನು "
-"ಇಲ್ಲಿ ನಿರ್ದಿಷ್ಟಪಡಿಸಿ."
+"ಆಧರಿಸಿದ್ದರೆ, ನಿಮ್ಮ ಬಳಕೆದಾರರ ಇಮೇಲ್ ವಿಳಾಸಗಳನ್ನು ರಚಿಸಲು ನಿಮ್ಮ ಸಂಸ್ಥೆಯ ಇಮೇಲ್ "
+"ಡೊಮೇನ್ ಅನ್ನು ಇಲ್ಲಿ ನಿರ್ದಿಷ್ಟಪಡಿಸಿ."
 
 #: templates/admin.blade.php:49
 msgid " Bypass"
@@ -155,8 +154,8 @@ msgid ""
 "Bypass the \"Limited Email Registrations\" and \"Banned Email Domains\" "
 "lists under <a href=\"%s\">Network Settings</a>."
 msgstr ""
-"<a href=\"%s\">ನೆಟ್ವರ್ಕ್ ಸೆಟ್ಟಿಂಗ್ಗಳ</a>ಅಡಿಯಲ್ಲಿ \"ಸೀಮಿತ ಇಮೇಲ್ ನೋಂದಣಿಗಳು\" ಮತ್ತು "
-"\"ನಿಷೇಧಿತ ಇಮೇಲ್ ಡೊಮೇನ್ ಗಳು\" ಪಟ್ಟಿಗಳನ್ನು ಬೈಪಾಸ್ ಮಾಡಿ."
+"<a href=\"%s\">ನೆಟ್ವರ್ಕ್ ಸೆಟ್ಟಿಂಗ್ಗಳ</a>ಅಡಿಯಲ್ಲಿ \"ಸೀಮಿತ ಇಮೇಲ್ ನೋಂದಣಿಗಳು\" "
+"ಮತ್ತು \"ನಿಷೇಧಿತ ಇಮೇಲ್ ಡೊಮೇನ್ ಗಳು\" ಪಟ್ಟಿಗಳನ್ನು ಬೈಪಾಸ್ ಮಾಡಿ."
 
 #: templates/admin.blade.php:56
 msgid " Forced Redirection"
