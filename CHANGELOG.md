@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/pressbooks/pressbooks-cas-sso/compare/2.5.0...2.6.0) (2026-01-20)
+
+
+### Features
+
+* remove po generation workflow and tx files ([#184](https://github.com/pressbooks/pressbooks-cas-sso/issues/184)) ([9d3dbfc](https://github.com/pressbooks/pressbooks-cas-sso/commit/9d3dbfc530c2c4640abbcc842f9fd14651347a9f))
+
 ## [2.5.0](https://github.com/pressbooks/pressbooks-cas-sso/compare/v2.4.0...2.5.0) (2024-05-30)
 
 
