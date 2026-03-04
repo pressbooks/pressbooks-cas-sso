@@ -49,7 +49,7 @@ class Admin {
 	 */
 	public function printMenu() {
 		if ( $this->saveOptions() ) {
-			echo '<div id="message" role="status" class="updated notice is-dismissible"><p>' . __( 'Settings saved.' ) . '</p></div>';
+			echo '<div id="message" role="status" class="updated notice is-dismissible"><p>' . __( 'Settings saved.', 'pressbooks-cas-sso' ) . '</p></div>';
 		}
 		echo blade()->render(
 			'PressbooksCasSso::admin', [
