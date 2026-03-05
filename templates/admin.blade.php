@@ -45,7 +45,7 @@
                 </td>
             </tr>
             <tr>
-                <th>{{ __(' Bypass', 'pressbooks-cas-sso') }}</th>
+                <th>{{ __('Bypass', 'pressbooks-cas-sso') }}</th>
                 <td><label><input name="bypass" id="bypass" type="checkbox"
                                   value="1" {!! checked( $options['bypass'] ) !!}/> {!!
                                   sprintf( __('Bypass the "Limited Email Registrations" and "Banned Email Domains" lists under <a href="%s">Network Settings</a>.', 'pressbooks-cas-sso') ,'settings.php' )
@@ -53,7 +53,7 @@
                     </label></td>
             </tr>
             <tr>
-                <th>{{ __(' Forced Redirection', 'pressbooks-cas-sso') }}</th>
+                <th>{{ __('Forced Redirection', 'pressbooks-cas-sso') }}</th>
                 <td>
                     <label><input name="forced_redirection" id="forced_redirection" type="checkbox"
                                   value="1" {!! checked( $options['forced_redirection'] ) !!}/> {{ __('Hide the Pressbooks login page.', 'pressbooks-cas-sso') }}</label>
