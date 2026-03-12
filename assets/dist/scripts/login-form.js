@@ -1,1 +1,0 @@
-jQuery(document).ready((function(e){var p=e("body"),a=e("#pb-cas-wrap"),o=e("#loginform"),n=e('<div class="pb-cas-clear"></div>');o.append(n),1===e("#loginform > p.forgetmenot").length&&n.append(e("p.forgetmenot"),e("p.submit")),o.append(a),p.addClass("pb-cas-repositioned")}));
