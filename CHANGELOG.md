@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.7.0](https://github.com/pressbooks/pressbooks-cas-sso/compare/2.6.0...2.7.0) (2026-03-12)
+
+
+### Features
+
+* new build tools ([#191](https://github.com/pressbooks/pressbooks-cas-sso/issues/191)) ([d1cb1a1](https://github.com/pressbooks/pressbooks-cas-sso/commit/d1cb1a1ac6e9a17c94631bd5800b75bbb84f391f))
+
+
+### Chores
+
+* **l10n:** migrate from Transifex to Crowdin ([#198](https://github.com/pressbooks/pressbooks-cas-sso/issues/198)) ([28354db](https://github.com/pressbooks/pressbooks-cas-sso/commit/28354dbc5843ba9a394c77b05d41f7b244461815))
+
 ## [2.6.0](https://github.com/pressbooks/pressbooks-cas-sso/compare/2.5.0...2.6.0) (2026-01-20)
 
 
