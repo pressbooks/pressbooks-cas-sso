@@ -2,7 +2,7 @@
 
 namespace PressbooksCasSso;
 
-use phpCAS as phpCAS;
+use phpCAS;
 use PressbooksFrontendTools\Assets;
 use PressbooksFrontendTools\AssetType;
 
@@ -65,7 +65,7 @@ class CAS {
 	/**
 	 * @return CAS
 	 */
-	static public function init() {
+	public static function init() {
 		if ( is_null( self::$instance ) ) {
 			$admin = Admin::init();
 			self::$instance = new self( $admin );
@@ -77,7 +77,7 @@ class CAS {
 	/**
 	 * @param CAS $obj
 	 */
-	static public function hooks( CAS $obj ) {
+	public static function hooks( CAS $obj ) {
 		add_filter( 'authenticate', [ $obj, 'authenticate' ], 10, 3 );
 		add_action( 'login_enqueue_scripts', [ $obj, 'loginEnqueueScripts' ] );
 		add_action( 'login_form', [ $obj, 'loginForm' ] );
@@ -246,6 +246,7 @@ class CAS {
 				$buffer = ob_get_clean();
 				if ( ! empty( $buffer ) ) {
 					if ( defined( 'WP_TESTS_MULTISITE' ) ) {
+						// phpcs:ignore Pressbooks.Security.EscapeOutput.ExceptionNotEscaped -- Exception message, not rendered output.
 						throw new \LogicException( $buffer );
 					} else {
 						die( $buffer );
@@ -477,6 +478,7 @@ class CAS {
 			foreach ( $errors->get_error_messages() as $message ) {
 				$error .= "{$message} ";
 			}
+			// phpcs:ignore Pressbooks.Security.EscapeOutput.ExceptionNotEscaped -- Exception message, not rendered output.
 			throw new \Exception( $error );
 		}
 
@@ -487,6 +489,7 @@ class CAS {
 		// Check if the user was actually created:
 		if ( is_wp_error( $user_id ) ) {
 			// there was an error during registration, redirect and notify the user:
+			// phpcs:ignore Pressbooks.Security.EscapeOutput.ExceptionNotEscaped -- Exception message, not rendered output.
 			throw new \Exception( $user_id->get_error_message() );
 		}
 
@@ -570,5 +573,4 @@ class CAS {
 			exit;
 		}
 	}
-
 }
