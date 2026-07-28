@@ -2,7 +2,7 @@
 
 namespace PressbooksCasSso;
 
-use phpCAS as phpCAS;
+use phpCAS;
 use PressbooksFrontendTools\Assets;
 use PressbooksFrontendTools\AssetType;
 
@@ -65,7 +65,7 @@ class CAS {
 	/**
 	 * @return CAS
 	 */
-	static public function init() {
+	public static function init() {
 		if ( is_null( self::$instance ) ) {
 			$admin = Admin::init();
 			self::$instance = new self( $admin );
@@ -77,7 +77,7 @@ class CAS {
 	/**
 	 * @param CAS $obj
 	 */
-	static public function hooks( CAS $obj ) {
+	public static function hooks( CAS $obj ) {
 		add_filter( 'authenticate', [ $obj, 'authenticate' ], 10, 3 );
 		add_action( 'login_enqueue_scripts', [ $obj, 'loginEnqueueScripts' ] );
 		add_action( 'login_form', [ $obj, 'loginForm' ] );
@@ -570,5 +570,4 @@ class CAS {
 			exit;
 		}
 	}
-
 }

@@ -41,13 +41,13 @@ if ( ! class_exists( '\phpCAS' ) ) {
 // Requires
 // -------------------------------------------------------------------------------------------------------------------
 
-require( __DIR__ . '/inc/namespace.php' );
+require __DIR__ . '/inc/namespace.php';
 
 // -------------------------------------------------------------------------------------------------------------------
 // Hooks
 // -------------------------------------------------------------------------------------------------------------------
 
-add_action( 'plugins_loaded', function() {
+add_action( 'plugins_loaded', function () {
 	\Pressbooks\Container::get( 'Blade' )->addNamespace( 'PressbooksCasSso', __DIR__ . '/templates' );
 } );
 add_action( 'plugins_loaded', [ '\PressbooksCasSso\CAS', 'init' ] );
