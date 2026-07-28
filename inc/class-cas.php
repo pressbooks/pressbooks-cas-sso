@@ -246,7 +246,7 @@ class CAS {
 				$buffer = ob_get_clean();
 				if ( ! empty( $buffer ) ) {
 					if ( defined( 'WP_TESTS_MULTISITE' ) ) {
-						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Exception message, not rendered output.
+						// phpcs:ignore Pressbooks.Security.EscapeOutput.ExceptionNotEscaped -- Exception message, not rendered output.
 						throw new \LogicException( $buffer );
 					} else {
 						die( $buffer );
@@ -478,7 +478,7 @@ class CAS {
 			foreach ( $errors->get_error_messages() as $message ) {
 				$error .= "{$message} ";
 			}
-			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Exception message, not rendered output.
+			// phpcs:ignore Pressbooks.Security.EscapeOutput.ExceptionNotEscaped -- Exception message, not rendered output.
 			throw new \Exception( $error );
 		}
 
@@ -489,7 +489,7 @@ class CAS {
 		// Check if the user was actually created:
 		if ( is_wp_error( $user_id ) ) {
 			// there was an error during registration, redirect and notify the user:
-			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Exception message, not rendered output.
+			// phpcs:ignore Pressbooks.Security.EscapeOutput.ExceptionNotEscaped -- Exception message, not rendered output.
 			throw new \Exception( $user_id->get_error_message() );
 		}
 
