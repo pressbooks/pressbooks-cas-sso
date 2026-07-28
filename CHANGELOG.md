@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.1](https://github.com/pressbooks/pressbooks-cas-sso/compare/2.7.0...2.7.1) (2026-07-28)
+
+
+### Chores
+
+* updating coding standards ([#227](https://github.com/pressbooks/pressbooks-cas-sso/issues/227)) ([f560b1c](https://github.com/pressbooks/pressbooks-cas-sso/commit/f560b1ca5f11d0b48f580e1a1f3e5f7849295dab))
+
 ## [2.7.0](https://github.com/pressbooks/pressbooks-cas-sso/compare/2.6.0...2.7.0) (2026-03-12)
 
 
