@@ -19,21 +19,6 @@
  * Network: True
  */
 
-// -------------------------------------------------------------------------------------------------------------------
-// Composer autoloader (PSR-4 classes + namespace.php helpers + vendor dependencies)
-// -------------------------------------------------------------------------------------------------------------------
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
-} else {
-    $title = __('Dependencies Missing', 'pressbooks-cas-sso');
-    $body = __('Please run <code>composer install</code> from the root of the Pressbooks CAS Single Sign-On plugin directory.', 'pressbooks-cas-sso');
-    $message = "<h1>{$title}</h1><p>{$body}</p>";
-    wp_die($message, $title);
-}
-
-// -------------------------------------------------------------------------------------------------------------------
-// Hooks
-// -------------------------------------------------------------------------------------------------------------------
 add_action('plugins_loaded', function () {
     \Pressbooks\Container::get('Blade')->addNamespace('PressbooksCasSso', __DIR__ . '/templates');
 });
