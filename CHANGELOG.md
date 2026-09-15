@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.7.1](https://github.com/pressbooks/pressbooks-cas-sso/compare/2.7.0...2.7.1) (2026-09-15)
+
+
+### Bug Fixes
+
+* withhold Network Settings link from network managers ([#230](https://github.com/pressbooks/pressbooks-cas-sso/issues/230)) ([38b1b50](https://github.com/pressbooks/pressbooks-cas-sso/commit/38b1b503031e15973e82df6dc0c2a821a8741740))
+
+
+### Chores
+
+* updating coding standards ([#227](https://github.com/pressbooks/pressbooks-cas-sso/issues/227)) ([f560b1c](https://github.com/pressbooks/pressbooks-cas-sso/commit/f560b1ca5f11d0b48f580e1a1f3e5f7849295dab))
+
 ## [2.7.0](https://github.com/pressbooks/pressbooks-cas-sso/compare/2.6.0...2.7.0) (2026-03-12)
 
 
