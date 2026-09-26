@@ -1,172 +1,158 @@
 # Copyright (C) 2024 Pressbooks (Book Oven Inc.)
 # This file is distributed under the GPL v3 or later.
-# Translators:
-# Eduardo Vera, 2023
-# 
 msgid ""
 msgstr ""
-"Project-Id-Version: Pressbooks CAS Single Sign-On 2.4.0\n"
+"Project-Id-Version: pressbooks-open-source\n"
 "Report-Msgid-Bugs-To: https://github.com/pressbooks/pressbooks-cas-sso/issues\n"
-"POT-Creation-Date: 2024-05-08T18:20:55+00:00\n"
-"PO-Revision-Date: 2019-02-28 19:57+0000\n"
-"Last-Translator: Eduardo Vera, 2023\n"
-"Language-Team: Japanese (https://app.transifex.com/pressbooks/teams/9194/ja/)\n"
+"Last-Translator: \n"
+"Language-Team: Japanese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Domain: pressbooks-cas-sso\n"
+"POT-Creation-Date: 2024-05-08T18:20:55+00:00\n"
+"PO-Revision-Date: 2026-05-13 00:34\n"
 "X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: pressbooks-cas-sso\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: pressbooks-open-source\n"
+"X-Crowdin-Project-ID: 866076\n"
+"X-Crowdin-Language: ja\n"
+"X-Crowdin-File: /pressbooks-cas-sso/languages/pressbooks-cas-sso.pot\n"
+"X-Crowdin-File-ID: 187\n"
+"Language: ja_JP\n"
 
 #. Plugin Name of the plugin
 #: pressbooks-cas-sso.php
 msgid "Pressbooks CAS Single Sign-On"
-msgstr "Pressbooks CAS Single Sign-On"
+msgstr ""
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
 #: pressbooks-cas-sso.php
 msgid "https://pressbooks.org"
-msgstr "https://pressbooks.org"
+msgstr ""
 
 #. Description of the plugin
 #: pressbooks-cas-sso.php
 msgid "CAS Single Sign-On integration for Pressbooks."
-msgstr "Pressbooks に対して CAS シングルサインオン統合。"
+msgstr ""
 
 #. Author of the plugin
 #: pressbooks-cas-sso.php
 msgid "Pressbooks (Book Oven Inc.)"
-msgstr "Pressbooks (Book Oven Inc.)"
+msgstr ""
 
-#: inc/class-admin.php:39 inc/class-admin.php:40
+#: inc/class-admin.php:39
+#: inc/class-admin.php:40
 msgid "CAS"
-msgstr "CAS"
+msgstr ""
 
 #: inc/class-cas.php:98
 msgid "CAS is not configured."
-msgstr "CAS が設定されていません。"
+msgstr ""
 
 #: inc/class-cas.php:99
 msgid "CAS is not configured. Make sure the service runs on secure protocols."
-msgstr "CAS が設定されていません。サービスが安全なプロトコルで実行していることを確認してください。"
+msgstr ""
 
 #. translators: %s Pressbooks Network Manager email if found.
 #: inc/class-cas.php:283
-msgid ""
-"Unable to log in: You do not have an account on this Pressbooks network. To "
-"request an account, please contact your institution's Pressbooks Network "
-"Manager%s"
+msgid "Unable to log in: You do not have an account on this Pressbooks network. To request an account, please contact your institution's Pressbooks Network Manager%s"
 msgstr ""
-"ログインできません: この Pressbooks サイトネットワークのアカウントをお持ちではありません。アカウントをリクエストするには、機関の "
-"Pressbooks サイトネットワーク管理者に連絡してください%s"
 
 #: inc/class-cas.php:285
 msgid "CAS authentication failed."
-msgstr "CAS 認証に失敗しました。"
+msgstr ""
 
 #: inc/class-cas.php:342
 msgid "Connect via CAS"
-msgstr "CAS でログイン"
+msgstr ""
 
 #: inc/class-cas.php:350
 msgid "Or"
-msgstr "または"
+msgstr ""
 
 #: inc/class-cas.php:382
 msgid "Logged in!"
-msgstr "ログイン中 !"
+msgstr ""
 
 #: inc/class-cas.php:548
 msgid "Registered and logged in!"
-msgstr "登録してログイン中 !"
+msgstr ""
 
 #: pressbooks-cas-sso.php:32
 msgid "Dependencies Missing"
-msgstr "依存関係が見つかりません"
+msgstr ""
 
 #: pressbooks-cas-sso.php:33
-msgid ""
-"Please run <code>composer install</code> from the root of the Pressbooks CAS"
-" Single Sign-On plugin directory."
+msgid "Please run <code>composer install</code> from the root of the Pressbooks CAS Single Sign-On plugin directory."
 msgstr ""
-"Pressbooks CAS Single Sign-On プラグインディレクトリのルートから <code>composer "
-"install</code> を実行してください。"
 
 #: templates/admin.blade.php:2
 msgid "Central Authentication Service (CAS)"
-msgstr "中央認証サービス (CAS)"
+msgstr ""
 
 #: templates/admin.blade.php:8
 msgid "CAS Version"
-msgstr "CAS バージョン"
+msgstr ""
 
 #: templates/admin.blade.php:17
 msgid "Server Hostname"
-msgstr "サーバーのホスト名"
+msgstr ""
 
 #: templates/admin.blade.php:21
 msgid "Server Port"
-msgstr "サーバーのポート"
+msgstr ""
 
 #: templates/admin.blade.php:25
 msgid "Server Path"
-msgstr "サーバーのパス"
+msgstr ""
 
 #: templates/admin.blade.php:29
 msgid "If the CAS user does not have a Pressbooks account"
-msgstr "CAS ユーザーは Pressbooks アカウントをお持ちでないの場合"
+msgstr ""
 
 #: templates/admin.blade.php:31
 msgid "Refuse Access"
-msgstr "アクセスを拒否"
+msgstr ""
 
 #: templates/admin.blade.php:32
 msgid "Add New User"
-msgstr "新規ユーザーを追加"
+msgstr ""
 
 #: templates/admin.blade.php:37
 msgid "Optional Information"
-msgstr "オプションの情報"
+msgstr ""
 
 #: templates/admin.blade.php:40
 msgid "Email Domain"
-msgstr "メールアドレスドメイン"
+msgstr ""
 
 #: templates/admin.blade.php:44
-msgid ""
-"If your users' emails are based on their NetIDs (ex: NetID@university.edu), "
-"specify your institution's email domain here to generate your users' email "
-"addresses."
+msgid "If your users' emails are based on their NetIDs (ex: NetID@university.edu), specify your institution's email domain here to generate your users' email addresses."
 msgstr ""
-"ユーザーのメールアドレスは NetID に基づいて場合 (例: "
-"NetID@daigaku.ac.jp)、ユーザーのメールアドレスを生成するため、機関のメールアドレスドメインをここに指定します。"
 
 #: templates/admin.blade.php:49
 msgid " Bypass"
-msgstr " バイパス"
+msgstr ""
 
 #: templates/admin.blade.php:51
-msgid ""
-"Bypass the \"Limited Email Registrations\" and \"Banned Email Domains\" "
-"lists under <a href=\"%s\">Network Settings</a>."
+msgid "Bypass the \"Limited Email Registrations\" and \"Banned Email Domains\" lists under <a href=\"%s\">Network Settings</a>."
 msgstr ""
-"「<a "
-"href=\"%s\">サイトネットワーク設定</a>」の「登録メールアドレスの制限」と「登録を拒否するメールのドメイン」リストをバイパスします。"
 
 #: templates/admin.blade.php:56
 msgid " Forced Redirection"
-msgstr " 強制リダイレクト"
+msgstr ""
 
 #: templates/admin.blade.php:59
 msgid "Hide the Pressbooks login page."
-msgstr "Pressbooks ログインページを非表示"
+msgstr ""
 
 #: templates/admin.blade.php:63
 msgid "Customize Button Text"
-msgstr "ボタンのテキストをカスタマイズ"
+msgstr ""
 
 #: templates/admin.blade.php:67
 msgid "Change the [ Connect via CAS ] button to something more user-friendly."
-msgstr "「CAS でログイン」ボタンをより使いやすいものに変更します。"
+msgstr ""
+
