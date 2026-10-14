@@ -133,7 +133,7 @@ class CAS
                 $host,
                 $port,
                 $path,
-                "https://{$host}:${port}{$path}"
+                "https://{$host}:{$port}{$path}"
             );
         }
 
