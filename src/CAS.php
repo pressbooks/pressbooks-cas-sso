@@ -98,13 +98,13 @@ class CAS
 
         if (empty($options['server_hostname']) || $port !== 443) {
             if ('pb_cas_admin' !== @$_REQUEST['page']) { // @codingStandardsIgnoreLine
-                $message = $port === 443
-                        ? __('CAS is not configured.', 'pressbooks-cas-sso')
-                        : __('CAS is not configured. Make sure the service runs on secure protocols.', 'pressbooks-cas-sso');
-
                 add_action(
                     'network_admin_notices',
-                    function () use ($message) {
+                    function () use ($port) {
+                        $message = $port === 443
+                                ? __('CAS is not configured.', 'pressbooks-cas-sso')
+                                : __('CAS is not configured. Make sure the service runs on secure protocols.', 'pressbooks-cas-sso');
+
                         echo '<div id="message" role="alert" class="error fade"><p>' . $message . '</p></div>';
                     }
                 );
