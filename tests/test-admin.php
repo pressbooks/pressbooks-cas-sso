@@ -22,6 +22,44 @@ class AdminTest extends \WP_UnitTestCase
         $this->assertTrue(true); // Did not crash
     }
 
+    public function test_init_returns_singleton()
+    {
+        $instance1 = \PressbooksCasSso\Admin::init();
+        $instance2 = \PressbooksCasSso\Admin::init();
+        $this->assertInstanceOf('\PressbooksCasSso\Admin', $instance1);
+        $this->assertSame($instance1, $instance2);
+    }
+
+    public function test_hooks_defers_textdomain_load_to_init()
+    {
+        // load_plugin_textdomain() (WP 6.7+) registers a custom path on the global
+        // textdomain registry rather than loading translations immediately, so that's
+        // the reliable signal to check here. The plugin's own bootstrap (plugins_loaded,
+        // in tests/bootstrap.php) already ran once for real before any test's hook
+        // snapshot was taken, so reset that leftover state first to properly isolate
+        // this test's own call.
+        global $wp_textdomain_registry;
+        $property = new \ReflectionProperty($wp_textdomain_registry, 'custom_paths');
+        $property->setAccessible(true);
+        $paths = $property->getValue($wp_textdomain_registry);
+        unset($paths['pressbooks-cas-sso']);
+        $property->setValue($wp_textdomain_registry, $paths);
+
+        \PressbooksCasSso\Admin::hooks($this->admin);
+        $this->assertArrayNotHasKey(
+            'pressbooks-cas-sso',
+            $property->getValue($wp_textdomain_registry),
+            'load_plugin_textdomain() must not run before init (WP 6.7+ _doing_it_wrong)'
+        );
+
+        do_action('init');
+        $this->assertArrayHasKey(
+            'pressbooks-cas-sso',
+            $property->getValue($wp_textdomain_registry),
+            'load_plugin_textdomain() should run once init fires'
+        );
+    }
+
     public function test_printMenu()
     {
         ob_start();

@@ -57,6 +57,29 @@ class CasTest extends \WP_UnitTestCase
     }
 
     /**
+     * @param array $overrides
+     * @return \PressbooksCasSso\CAS
+     */
+    protected function getCasWithOptions(array $overrides)
+    {
+        $options = array_merge($this->getTestOptions(), $overrides);
+
+        $admin = $this->getMockBuilder('\PressbooksCasSso\Admin')->getMock();
+        $admin->method('getOptions')->willReturn($options);
+
+        ini_set('error_reporting', 0);
+        ini_set('display_errors', 0);
+
+        CAS_GracefullTerminationException::throwInsteadOfExiting();
+        $cas = new \PressbooksCasSso\CAS($admin);
+
+        ini_set('error_reporting', 1);
+        ini_set('display_errors', 1);
+
+        return $cas;
+    }
+
+    /**
      *
      */
     public function set_up()
@@ -197,6 +220,73 @@ class CasTest extends \WP_UnitTestCase
     {
         $email = $this->cas->getAdminEmail();
         $this->assertStringContainsString('@', $email);
+    }
+
+    /**
+     * The plugin's own bootstrap (via plugins_loaded, in tests/bootstrap.php) already
+     * constructs a real CAS instance before any test runs, which may itself register a
+     * "not configured" network_admin_notices callback that survives WP_UnitTestCase's
+     * per-test hook reset (it's baked into the baseline snapshot). So rather than firing
+     * network_admin_notices wholesale and asserting on the accumulated output, diff the
+     * registered callbacks before/after constructing our own CAS instance to isolate
+     * exactly what *this* construction added.
+     *
+     * @return callable[] keyed by WP_Hook's internal callback id
+     */
+    protected function getNetworkAdminNoticeCallbacks()
+    {
+        global $wp_filter;
+        if (! isset($wp_filter['network_admin_notices'])) {
+            return [];
+        }
+        $all = [];
+        foreach ($wp_filter['network_admin_notices']->callbacks as $callbacks) {
+            foreach ($callbacks as $id => $cb) {
+                $all[$id] = $cb['function'];
+            }
+        }
+        return $all;
+    }
+
+    public function test_notConfiguredNotice_whenHostnameEmpty()
+    {
+        unset($_REQUEST['page']);
+        $before = $this->getNetworkAdminNoticeCallbacks();
+        $this->getCasWithOptions([ 'server_hostname' => '', 'server_port' => 443 ]);
+        $new = array_diff_key($this->getNetworkAdminNoticeCallbacks(), $before);
+
+        $this->assertCount(1, $new, 'A notice callback should be registered when CAS is not configured');
+
+        ob_start();
+        call_user_func(reset($new));
+        $buffer = ob_get_clean();
+        $this->assertStringContainsString('CAS is not configured.', $buffer);
+    }
+
+    public function test_notConfiguredNotice_whenPortNotSecure()
+    {
+        unset($_REQUEST['page']);
+        $before = $this->getNetworkAdminNoticeCallbacks();
+        $this->getCasWithOptions([ 'server_hostname' => 'cas.server.edu', 'server_port' => 8080 ]);
+        $new = array_diff_key($this->getNetworkAdminNoticeCallbacks(), $before);
+
+        $this->assertCount(1, $new, 'A notice callback should be registered when the port is not 443');
+
+        ob_start();
+        call_user_func(reset($new));
+        $buffer = ob_get_clean();
+        $this->assertStringContainsString('Make sure the service runs on secure protocols.', $buffer);
+    }
+
+    public function test_notConfiguredNotice_suppressedOnOwnAdminPage()
+    {
+        $_REQUEST['page'] = 'pb_cas_admin';
+        $before = $this->getNetworkAdminNoticeCallbacks();
+        $this->getCasWithOptions([ 'server_hostname' => '', 'server_port' => 443 ]);
+        $new = array_diff_key($this->getNetworkAdminNoticeCallbacks(), $before);
+
+        $this->assertCount(0, $new, 'No notice callback should be registered while on the CAS admin page itself');
+        unset($_REQUEST['page']);
     }
 
     public function test_sanitizeUser()
