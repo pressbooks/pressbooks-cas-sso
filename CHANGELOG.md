@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.8.0](https://github.com/pressbooks/pressbooks-cas-sso/compare/2.7.0...2.8.0) (2026-10-29)
+
+
+### Features
+
+* bypass two-factor ([#232](https://github.com/pressbooks/pressbooks-cas-sso/issues/232)) ([04b86f2](https://github.com/pressbooks/pressbooks-cas-sso/commit/04b86f26639d4ba815a5b35457920c197ad42e52))
+* migrate to PSR-4 ([#229](https://github.com/pressbooks/pressbooks-cas-sso/issues/229)) ([ac5df10](https://github.com/pressbooks/pressbooks-cas-sso/commit/ac5df10075747e09c205e60fec02a23381ee057f))
+
+
+### Bug Fixes
+
+* guard autoloader require with class_exists() for root-composer-managed installs ([#231](https://github.com/pressbooks/pressbooks-cas-sso/issues/231)) ([0d45edd](https://github.com/pressbooks/pressbooks-cas-sso/commit/0d45edde1c451b688189f2f8d3bd6e7efa8b1c57))
+* withhold Network Settings link from network managers ([#230](https://github.com/pressbooks/pressbooks-cas-sso/issues/230)) ([38b1b50](https://github.com/pressbooks/pressbooks-cas-sso/commit/38b1b503031e15973e82df6dc0c2a821a8741740))
+
+
+### Chores
+
+* updating coding standards ([#227](https://github.com/pressbooks/pressbooks-cas-sso/issues/227)) ([f560b1c](https://github.com/pressbooks/pressbooks-cas-sso/commit/f560b1ca5f11d0b48f580e1a1f3e5f7849295dab))
+
 ## [2.7.0](https://github.com/pressbooks/pressbooks-cas-sso/compare/2.6.0...2.7.0) (2026-03-12)
 
 
